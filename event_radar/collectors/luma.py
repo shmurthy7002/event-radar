@@ -5,7 +5,7 @@ import math
 import re
 import time
 from collections.abc import Callable, Mapping
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from datetime import UTC, datetime
 from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
@@ -18,6 +18,7 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 from event_radar.config import Config, Requests, Source
 from event_radar.models import (
     Availability,
+    DescriptionStatus,
     Event,
     Observation,
     RecordError,
@@ -105,10 +106,15 @@ class LumaClient:
             return fallback
         return min(max(0, delay), self.settings.max_backoff_seconds)
 
-    def _get(self, url: str) -> bytes:
+    def _get(self, url: str, *, attempt_limit: int | None = None) -> bytes:
+        stop_at = (
+            self.attempts + attempt_limit
+            if attempt_limit is not None
+            else self.settings.total_requests
+        )
         for attempt in range(self.settings.retries + 1):
-            if self.attempts >= self.settings.total_requests:
-                raise BudgetExhausted("total HTTP attempt budget exhausted")
+            if self.attempts >= min(stop_at, self.settings.total_requests):
+                raise BudgetExhausted("HTTP attempt budget exhausted")
             self.attempts += 1
             response = None
             try:
@@ -124,8 +130,8 @@ class LumaClient:
             if attempt == self.settings.retries:
                 raise CollectionError(f"{error}; retries exhausted") from None
             # Do not wait when another request cannot be attempted.
-            if self.attempts >= self.settings.total_requests:
-                raise BudgetExhausted("total HTTP attempt budget exhausted")
+            if self.attempts >= min(stop_at, self.settings.total_requests):
+                raise BudgetExhausted("HTTP attempt budget exhausted")
             self.sleep(self._delay(response, attempt))
         raise AssertionError("unreachable")
 
@@ -138,7 +144,15 @@ class LumaClient:
             raise CollectionError("public page is not valid UTF-8") from None
 
     def discovery(self, params: Mapping[str, str]) -> dict:
-        body = self._get(API_BASE + "discover/get-paginated-events?" + urlencode(params))
+        return self._json("discover/get-paginated-events", params)
+
+    def detail(self, event_id: str, *, attempt_limit: int) -> dict:
+        return self._json("event/get", {"event_api_id": event_id}, attempt_limit=attempt_limit)
+
+    def _json(
+        self, path: str, params: Mapping[str, str], *, attempt_limit: int | None = None
+    ) -> dict:
+        body = self._get(API_BASE + path + "?" + urlencode(params), attempt_limit=attempt_limit)
         try:
             value = json.loads(body)
         except (ValueError, UnicodeError, RecursionError):
@@ -384,3 +398,95 @@ def collect(
     if not any(s.usable_pages for s in reports):
         raise TotalCollectionFailure(result)
     return result
+
+
+def description_text(value) -> str:
+    """Extract text from the observed rich-text tree without interpreting markup."""
+    count = 0
+
+    def walk(node, depth=0):
+        nonlocal count
+        count += 1
+        if (
+            depth > 100
+            or count > 10000
+            or not isinstance(node, dict)
+            or not isinstance(node.get("type"), str)
+        ):
+            raise CollectionError("malformed rich-text description")
+        if node["type"] == "text":
+            if not isinstance(node.get("text"), str):
+                raise CollectionError("malformed description text node")
+            return node["text"]
+        children = node.get("content", [])
+        if not isinstance(children, list):
+            raise CollectionError("malformed description content")
+        text = "".join(walk(child, depth + 1) for child in children)
+        if node["type"] in ("paragraph", "heading", "listItem", "hardBreak"):
+            text += "\n"
+        return text
+
+    return "\n".join(line.strip() for line in walk(value).splitlines() if line.strip())
+
+
+@dataclass
+class EnrichmentResult:
+    events: list[Event]
+    requests: int
+    content: int
+    empty: int
+    failed: int
+    not_fetched: int
+    warnings: list[str]
+
+
+def enrich(events: list[Event], client: LumaClient, *, detail_budget: int) -> EnrichmentResult:
+    """Soonest start, then ID; retries consume both detail and global budgets."""
+    records = {event.id: event for event in merge_events(events)}
+    initial = client.attempts
+    warnings = []
+    for event in sorted(records.values(), key=lambda e: (e.start, e.id)):
+        if event.description_status in (DescriptionStatus.CONTENT, DescriptionStatus.EMPTY):
+            continue
+        remaining = detail_budget - (client.attempts - initial)
+        if remaining <= 0 or client.attempts >= client.settings.total_requests:
+            warnings.append("description request budget exhausted; coverage reduced")
+            break
+        try:
+            payload = client.detail(event.id, attempt_limit=remaining)
+            if (
+                not isinstance(payload.get("event"), dict)
+                or payload["event"].get("api_id") != event.id
+            ):
+                raise CollectionError("detail event ID missing or mismatched")
+            if "description_mirror" not in payload:
+                raise CollectionError("description missing from detail response")
+            text = description_text(payload["description_mirror"])
+        except CollectionError as exc:
+            warning = f"description enrichment failed: {exc}"
+            warnings.append(warning)
+            records[event.id] = replace(
+                event,
+                description=None,
+                description_status=DescriptionStatus.FAILED,
+                warnings=event.warnings + (warning,),
+            )
+        else:
+            records[event.id] = replace(
+                event,
+                description=text,
+                description_status=DescriptionStatus.CONTENT if text else DescriptionStatus.EMPTY,
+            )
+    result = sorted(records.values(), key=lambda e: e.id)
+    counts = {
+        status: sum(e.description_status == status for e in result) for status in DescriptionStatus
+    }
+    return EnrichmentResult(
+        result,
+        client.attempts - initial,
+        counts[DescriptionStatus.CONTENT],
+        counts[DescriptionStatus.EMPTY],
+        counts[DescriptionStatus.FAILED],
+        counts[DescriptionStatus.NOT_FETCHED],
+        warnings,
+    )
