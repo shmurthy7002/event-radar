@@ -196,5 +196,5 @@ def load_config(path: str | Path) -> Config:
         if len(text) > 100_000:
             raise ConfigError("configuration: exceeds 100 KB limit")
         return parse_config(yaml.safe_load(text))
-    except (OSError, yaml.YAMLError, RecursionError) as exc:
-        raise ConfigError("configuration: cannot read valid YAML; check file and syntax") from exc
+    except (OSError, UnicodeError, yaml.YAMLError, RecursionError):
+        raise ConfigError("configuration: cannot read valid YAML; check file and syntax") from None
