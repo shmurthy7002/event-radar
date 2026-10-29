@@ -1,12 +1,13 @@
 """Deterministic date, distance, availability, and interest rules."""
 
 import math
+import re
 from collections import Counter
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 
 from event_radar.config import Config
-from event_radar.models import Availability, Event, utc_timestamp
+from event_radar.models import Availability, DescriptionStatus, Event, utc_timestamp
 
 
 def distance_km(
@@ -60,3 +61,87 @@ def filter_events(events: list[Event], config: Config, *, now: datetime) -> Filt
     return FilterResult(
         accepted, excluded, dict(sorted(Counter(excluded.values()).items())), distances
     )
+
+
+def matched_terms(text: str, terms: tuple[str, ...]) -> tuple[str, ...]:
+    folded = text.casefold()
+    return tuple(
+        sorted(
+            {
+                term
+                for term in terms
+                if re.search(
+                    r"(?<!\w)"
+                    + r"\s+".join(re.escape(part) for part in term.casefold().split())
+                    + r"(?!\w)",
+                    folded,
+                )
+            }
+        )
+    )
+
+
+@dataclass(frozen=True)
+class Contribution:
+    group: str
+    title_terms: tuple[str, ...]
+    description_terms: tuple[str, ...]
+    points: float
+
+
+@dataclass(frozen=True)
+class RankedEvent:
+    event: Event
+    score: float
+    contributions: tuple[Contribution, ...]
+    negative_terms: tuple[str, ...]
+    title_only: bool
+
+
+@dataclass(frozen=True)
+class RankingResult:
+    matches: list[RankedEvent]
+    evaluations: list[RankedEvent]
+    excluded: dict[str, str]
+
+
+def rank_events(events: list[Event], config: Config) -> RankingResult:
+    """Each interest group contributes once, using its strongest matching field."""
+    evaluations, matches, excluded = [], [], {}
+    for event in sorted(events, key=lambda e: e.id):
+        contributions = []
+        description = event.description or ""
+        for group, terms in sorted(config.interests.items()):
+            title_terms = matched_terms(event.title, terms)
+            description_terms = matched_terms(description, terms)
+            if title_terms or description_terms:
+                contributions.append(
+                    Contribution(
+                        group,
+                        title_terms,
+                        description_terms,
+                        config.title_weight if title_terms else config.description_weight,
+                    )
+                )
+        negative = tuple(
+            sorted(
+                set(matched_terms(event.title, config.negative_keywords))
+                | set(matched_terms(description, config.negative_keywords))
+            )
+        )
+        ranked = RankedEvent(
+            event,
+            sum(c.points for c in contributions),
+            tuple(contributions),
+            negative,
+            event.description_status in (DescriptionStatus.NOT_FETCHED, DescriptionStatus.FAILED),
+        )
+        evaluations.append(ranked)
+        if negative:
+            excluded[event.id] = "negative_keyword"
+        elif ranked.score < config.minimum_score:
+            excluded[event.id] = "below_minimum_score"
+        else:
+            matches.append(ranked)
+    matches.sort(key=lambda r: (-r.score, r.event.start, r.event.id))
+    return RankingResult(matches, evaluations, excluded)

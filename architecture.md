@@ -115,6 +115,15 @@ radius boundary is included. Exclusion counts use the first applicable reason
 in date, location, then availability order, so counts sum to excluded events.
 Unknown-location inclusion and sold-out/waitlist exclusion are explicit settings.
 
+Ranking contributes at most once per interest group: the title weight if any
+title synonym matches, otherwise the description weight. Terms use Unicode word
+boundaries and case folding; phrase whitespace is flexible. Overlapping terms
+within a group do not multiply its score; independent groups can each contribute.
+Negative matches in either field exclude the event. The minimum score is
+inclusive. Ordering is score descending, start ascending, then stable ID.
+Explanations retain terms from both fields and each group's points. Unfetched or
+failed descriptions explicitly mark title-only scoring; fetched-empty is distinct.
+
 ## State and delivery semantics
 
 Start with a versioned JSON state file keyed by event ID, recording
