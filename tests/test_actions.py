@@ -133,6 +133,7 @@ def test_smoke_samples_both_origins_without_state(tmp_path):
     )
     assert [origin["latitude"] for origin in origins] == [37.8715, 37.7749]
     assert bounded_settings("config.example.yaml")["requests"]["total_requests"] == 40
+    assert bounded_settings("config.example.yaml")["requests"]["detail_requests"] == 20
 
 
 def test_workflow_has_no_active_schedule_and_preserves_active_run():

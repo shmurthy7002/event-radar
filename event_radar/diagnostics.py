@@ -19,6 +19,9 @@ COUNTERS = (
     "pending",
     "pending_batches",
     "provider_accepted",
+    "shown",
+    "omitted",
+    "provider_http_status",
 )
 OUTCOMES = {
     0: "preview_ready",
@@ -66,6 +69,8 @@ class RunReport:
     only: bool = False
 
     def preview(self, data):
+        self.metrics["shown"] = len(data.get("selected_ids", []))
+        self.metrics["omitted"] = len(data.get("omitted_ids", []))
         from event_radar.digest import local_time
         from event_radar.models import utc_timestamp
 
@@ -114,6 +119,44 @@ class RunReport:
         self.metrics["preview_samples"] = samples
 
     def update(self, summary: dict):
+        if "provider_error" in summary:
+            allowed = (
+                "test_recipient_restricted",
+                "sender_domain_unverified",
+                "api_key_invalid",
+                "missing_api_key",
+                "restricted_api_key",
+                "suspended_api_key",
+                "invalid_permission",
+                "rate_limit_exceeded",
+                "daily_quota_exceeded",
+                "monthly_quota_exceeded",
+                "unclassified_rejection",
+                "unknown",
+            )
+            self.metrics["provider_error"] = (
+                summary["provider_error"] if summary["provider_error"] in allowed else "unknown"
+            )
+        if "budgets" in summary:
+            budgets = summary["budgets"]
+            self.metrics["request_budget"] = _count(budgets.get("total_requests"))
+            self.metrics["page_budget_per_source"] = _count(budgets.get("pages_per_source"))
+            self.metrics["budgets"] = {
+                key: value
+                for key, value in budgets.items()
+                if key
+                in (
+                    "total_requests",
+                    "pages_per_source",
+                    "detail_requests",
+                    "timeout_seconds",
+                    "retries",
+                    "max_backoff_seconds",
+                )
+                and not isinstance(value, bool)
+                and isinstance(value, (int, float))
+                and math.isfinite(value)
+            }
         for key in COUNTERS:
             if key in summary:
                 self.metrics[key] = _count(summary[key])
@@ -206,6 +249,8 @@ class RunReport:
                 + ", ".join(f"{c['group']} +{c['points']}" for c in sample["contributions"])
                 + "\n"
             )
+        if "provider_error" in self.metrics:
+            markdown += f"\nProvider reason: {self.metrics['provider_error']}\n"
         try:
             for name, content in (
                 (self.json_path, json.dumps(data, indent=2) + "\n"),

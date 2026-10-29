@@ -98,7 +98,7 @@ enabled delivery variable and typed confirmation; scheduled send also requires
 rollout verification. No real email or schedule was enabled by implementation.
 
 Jobs have 20-minute limits. Normal hosted runs cap total HTTP attempts at 40,
-pages/source at 3, details at 12, request timeouts at 10 seconds, retries at 1,
+pages/source at 3, details at 20, request timeouts at 10 seconds, retries at 1,
 and backoff at 3 seconds. Smaller configured limits remain effective. Checkpoints
 publish prepared intent before send and outcomes afterward, without force or
 automatic history merging. Git commands have 30-second limits.
@@ -152,7 +152,7 @@ the explicit smoke check. Unknown schemas must fail visibly.
 Milestone 1 was verified October 28, 2026 at `f73da4b` with 126 tests and live
 discovery checks. Milestone 2 verification on October 29 included 188 tests and
 cached-description regressions at `e3d4643`. Live rollout evidence is recorded
-separately when available. The current milestone remains open until the user
+in [docs/rollout.md](docs/rollout.md). The current milestone remains open until the user
 closes it.
 
 ## License
