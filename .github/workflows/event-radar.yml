@@ -1,0 +1,116 @@
+name: Event Radar operations
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Read-only preview/smoke, explicit bootstrap, or gated send
+        type: choice
+        options: [preview, smoke, initialize, send]
+        default: preview
+      confirmation:
+        description: INITIALIZE_EMPTY_STATE or SEND_CONFIGURED_RECIPIENT for write modes
+        type: string
+        default: ''
+  # Enable only after issue #20's real-send/rollout authorization and validation:
+  # schedule:
+  #   - cron: '17 15 * * *' # 08:17 PDT / 07:17 PST; scheduler delays are possible.
+
+permissions:
+  contents: read
+
+concurrency:
+  group: event-radar-delivery-state
+  cancel-in-progress: false
+
+jobs:
+  read-only:
+    if: github.event_name == 'workflow_dispatch' && (inputs.mode == 'preview' || inputs.mode == 'smoke')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: '3.14'
+      - run: python -m pip install .
+      - name: Bounded read-only operation
+        env:
+          MODE: ${{ inputs.mode }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -m event_radar.actions "$MODE"
+      - name: Publish sanitized summaries
+        if: always()
+        shell: bash
+        run: |
+          shopt -s nullglob
+          for report in output/actions/*.md; do cat "$report" >> "$GITHUB_STEP_SUMMARY"; done
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        if: always()
+        with:
+          name: event-radar-read-${{ github.run_id }}
+          path: output/actions/*.json
+          if-no-files-found: error
+          retention-days: 7
+      - name: Failure signal
+        if: failure()
+        run: echo "::error::Event Radar failed. Review sanitized reports and preserve durable state before retry."
+
+  write-state:
+    if: github.event_name == 'schedule' || inputs.mode == 'initialize' || inputs.mode == 'send'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: event-radar-delivery
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: '3.14'
+      - run: python -m pip install .
+      - name: Explicit first-run bootstrap
+        if: inputs.mode == 'initialize'
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -m event_radar.actions initialize --confirmation "$CONFIRMATION"
+      - name: Explicit or verified scheduled delivery
+        if: github.event_name == 'schedule' || inputs.mode == 'send'
+        env:
+          CONFIRMATION: ${{ inputs.confirmation }}
+          IS_SCHEDULED: ${{ github.event_name == 'schedule' }}
+          EVENT_RADAR_DELIVERY_ENABLED: ${{ vars.EVENT_RADAR_DELIVERY_ENABLED }}
+          EVENT_RADAR_ROLLOUT_VERIFIED: ${{ vars.EVENT_RADAR_ROLLOUT_VERIFIED }}
+          EVENT_RADAR_EMAIL_API_KEY: ${{ secrets.EVENT_RADAR_EMAIL_API_KEY }}
+          EVENT_RADAR_EMAIL_FROM: ${{ secrets.EVENT_RADAR_EMAIL_FROM }}
+          EVENT_RADAR_EMAIL_TO: ${{ secrets.EVENT_RADAR_EMAIL_TO }}
+          GITHUB_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          if [[ "$IS_SCHEDULED" == "true" ]]; then
+            python -m event_radar.actions send --scheduled
+          else
+            python -m event_radar.actions send --confirmation "$CONFIRMATION"
+          fi
+      - name: Publish sanitized summaries
+        if: always()
+        shell: bash
+        run: |
+          shopt -s nullglob
+          for report in output/actions/*.md; do cat "$report" >> "$GITHUB_STEP_SUMMARY"; done
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        if: always()
+        with:
+          name: event-radar-write-${{ github.run_id }}
+          path: output/actions/*.json
+          if-no-files-found: error
+          retention-days: 7
+      - name: Failure signal
+        if: failure()
+        run: echo "::error::State/delivery failed. Preserve pending batches; check provider acceptance and durable state before retry."

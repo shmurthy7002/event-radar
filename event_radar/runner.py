@@ -77,6 +77,7 @@ def run_delivery(
         state = observe(state, preview.observed_events, now=clock())
         if report:
             report.update(preview.summary)
+            report.preview(preview.digest.data)
         entries = dict(state.events)
         for event in preview.candidate_events:
             entries[event.id] = replace(entries[event.id], event=event)

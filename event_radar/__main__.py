@@ -30,6 +30,7 @@ def _main(
     provider_factory=None,
     now: datetime | None = None,
     report=None,
+    checkpoint=None,
 ) -> int:
     emit = report.log
     parser = argparse.ArgumentParser(description="Event Radar local discovery tools")
@@ -154,6 +155,7 @@ def _main(
                 send_enabled=True,
                 nothing_new=args.send_empty,
                 report=report,
+                checkpoint=checkpoint,
             )
             report.outcome = (
                 "provider_accepted" if result.outcome == "accepted" else "healthy_empty"
@@ -234,6 +236,7 @@ def _main(
                 emit(f"{source.source}: {error}", file=sys.stderr)
         return 3
     report.update(preview.summary)
+    report.preview(preview.digest.data)
     try:
         if not report.only:
             write_preview(preview, args.output)
@@ -268,7 +271,7 @@ def _main(
     return 0
 
 
-def main(argv=None, *, client_factory=LumaClient, provider_factory=None, now=None):
+def main(argv=None, *, client_factory=LumaClient, provider_factory=None, now=None, checkpoint=None):
     from event_radar.diagnostics import RunReport
 
     report = RunReport()
@@ -278,6 +281,7 @@ def main(argv=None, *, client_factory=LumaClient, provider_factory=None, now=Non
         provider_factory=provider_factory,
         now=now,
         report=report,
+        checkpoint=checkpoint,
     )
     return report.finish(code)
 
