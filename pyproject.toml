@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "event-radar"
+version = "0.1.0"
+description = "Inspectable discovery of relevant Bay Area Luma events"
+requires-python = ">=3.11"
+dependencies = ["PyYAML>=6.0.2,<7", "tzdata>=2025.1; sys_platform == 'win32'"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "ruff>=0.11,<1"]
+
+[project.scripts]
+event-radar = "event_radar.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["event_radar*"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

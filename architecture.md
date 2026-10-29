@@ -9,8 +9,9 @@ Luma API, or always-on personal computer.
 
 The local proof of concept established that public web endpoints can supply
 usable event data. The user has selected those endpoints instead of MCP.
-All prototype code and artifacts have been removed; the design below describes
-the intended implementation, not an existing application.
+All prototype code and artifacts have been removed. The new Python package and
+development tooling are in place; collection and delivery are being implemented
+in the ordered backlog. Sections below describe the target design unless noted.
 
 ## Data flow
 
