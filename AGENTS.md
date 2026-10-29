@@ -51,9 +51,8 @@ changes need consistency and diff checks, not a new test suite. Update
 
 ## Current milestone
 
-The proof of concept has been replaced by the implementation from issues #1–#11:
-Python packaging, validated YAML, normalized records, bounded public collection
-and enrichment, relevance filtering/ranking, inspectable previews, offline CI,
-and an explicit live smoke check. The local milestone remains open by user
-request. Durable state, email, and the daily workflow follow in later issues;
-do not assume those components already exist.
+Milestone 1 (local discovery and preview) was verified and completed on
+October 28, 2026. Milestone 2 adds local versioned state, explicitly enabled
+Resend delivery, and offline rerun/crash recovery tests; it is awaiting final
+verification. Remote durable state and the daily workflow remain milestone 3
+work; do not assume those components already exist.

@@ -5,6 +5,7 @@ from datetime import timedelta
 import pytest
 
 from event_radar.__main__ import main
+from event_radar.collectors.luma import LumaClient, Response
 from event_radar.config import Source, load_config
 from event_radar.delivery import DeliveryError, FakeProvider
 from event_radar.runner import reconcile_batch, run_delivery
@@ -30,6 +31,58 @@ def deliver(context, events=(), *, now=NOW):
     return run_delivery(
         config, path, provider, client=client(config, events), now=now, send_enabled=True
     )
+
+
+def test_cached_negative_description_survives_exhausted_detail_budget(context):
+    from urllib.parse import parse_qs, urlsplit
+
+    config, path, provider = context
+    config = replace(
+        config,
+        negative_keywords=("sales",),
+        requests=replace(config.requests, detail_requests=1),
+    )
+    detail_ids = []
+
+    def network(events):
+        discovery = client(config, events)
+
+        def transport(url, timeout):
+            if "/event/get" not in url:
+                return discovery.transport(url, timeout)
+            identifier = parse_qs(urlsplit(url).query)["event_api_id"][0]
+            detail_ids.append(identifier)
+            payload = {
+                "event": {"api_id": identifier},
+                "description_mirror": {
+                    "type": "doc",
+                    "content": [{"type": "text", "text": "Sales networking"}],
+                },
+            }
+            return Response(200, {}, json.dumps(payload).encode())
+
+        return LumaClient(config.requests, transport=transport)
+
+    def run(events, now):
+        return run_delivery(
+            config, path, provider, client=network(events), now=now, send_enabled=True
+        )
+
+    assert run([event()], NOW).outcome == "empty"
+    earlier = event("evt-earlier", title="Music", start=NOW + timedelta(days=1))
+    edited = event(title="Edited robotics")
+    assert run([earlier, edited], NOW + timedelta(minutes=1)).outcome == "empty"
+    assert detail_ids == ["evt-test", "evt-earlier"]
+    assert not provider.calls
+    entry = load_state(path).events["evt-test"]
+    assert entry.event.title == "Edited robotics"
+    assert entry.event.description == "Sales networking"
+    assert entry.emailed_at is None
+    # A temporary location exclusion must not erase the cached description either.
+    hidden = replace(edited, latitude=None, longitude=None)
+    assert run([hidden], NOW + timedelta(minutes=2)).outcome == "empty"
+    assert load_state(path).events["evt-test"].event.description == "Sales networking"
+    assert not provider.calls
 
 
 def test_seen_event_becomes_relevant_and_cached_metadata_rechecked(context):

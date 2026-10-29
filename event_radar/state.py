@@ -11,7 +11,7 @@ from dataclasses import dataclass, field, replace
 from datetime import datetime
 from pathlib import Path
 
-from event_radar.models import Event, Observation, utc_timestamp
+from event_radar.models import Event, Observation, retain_cached_description, utc_timestamp
 
 
 class StateError(RuntimeError):
@@ -299,6 +299,7 @@ def observe(state: State, events: list[Event], *, now: datetime) -> State:
         previous = entries.get(event.id)
         if previous and now < previous.last_seen_at:
             raise StateError("observation clock precedes persisted last_seen_at")
+        event = retain_cached_description(event, previous.event if previous else None)
         entries[event.id] = (
             replace(previous, event=event, last_seen_at=now) if previous else Entry(event, now, now)
         )

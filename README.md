@@ -95,6 +95,12 @@ omissions, rejected requests, and earlier observations remain eligible for later
 runs. State retains provider message ID and batch outcome without sender or
 recipient values. A keyed fingerprint binds recovery to the same API key/envelope.
 
+State-aware runs reuse completed cached descriptions, including fetched-empty
+results, before enrichment and ranking. Rediscovery updates other event metadata;
+missing or failed details do not erase a cached description. Cached descriptions
+also survive observation-only updates and temporary eligibility exclusions.
+Automatic description refresh is not implemented.
+
 Exit 6 means state access/write failure; exit 7 means provider configuration,
 rejection, ambiguous outcome, or recovery guard; exit 8 means acceptance occurred
 but acknowledgement could not be saved. For uncertain outcomes, retain state
@@ -195,6 +201,13 @@ October 28, 2026 smoke check: 12/15 HTTP attempts, 40 records per source,
 and zero malformed records. All 20 SF page IDs overlapped the 40 city-feed IDs
 (page-only 0, feed-only 20). All feeds and detail coverage reported expected
 budget truncation. This check ran locally, with no email or persistent state.
+
+Milestone 1 verification on October 28, 2026: all 126 offline tests, Ruff lint and
+format checks, CLI help, and all four main-branch CI jobs passed at `f73da4b`.
+A fresh bounded smoke check reproduced the counts above. A separate bounded
+preview produced 10 matches and all three artifact formats, with zero malformed
+records or failed details and explicit budget warnings. Milestone 1 is complete;
+state, email, and scheduled execution remain future work.
 
 To refresh fixtures after a source change, inspect only the public adapter paths
 with a small explicit request budget. Keep raw captures in ignored `output/`.

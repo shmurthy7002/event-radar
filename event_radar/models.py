@@ -157,6 +157,23 @@ class Event:
         return data
 
 
+def retain_cached_description(current: Event, previous: Event | None) -> Event:
+    """Keep completed details when rediscovery has none; current metadata still wins."""
+    completed = (DescriptionStatus.CONTENT, DescriptionStatus.EMPTY)
+    if (
+        previous is not None
+        and previous.id == current.id
+        and previous.description_status in completed
+        and current.description_status not in completed
+    ):
+        return replace(
+            current,
+            description=previous.description,
+            description_status=previous.description_status,
+        )
+    return current
+
+
 def merge_events(events: list[Event]) -> list[Event]:
     """Latest nonmissing metadata wins; ties use canonical JSON, independent of input order.
 

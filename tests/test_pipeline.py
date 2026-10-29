@@ -4,9 +4,12 @@ from datetime import UTC, datetime
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
 
+import pytest
+
 from event_radar.__main__ import main
 from event_radar.collectors.luma import LumaClient, Response
 from event_radar.config import Source, load_config
+from event_radar.models import DescriptionStatus
 from event_radar.pipeline import build_preview, write_preview
 
 NOW = datetime(2026, 10, 28, tzinfo=UTC)
@@ -47,6 +50,28 @@ def test_full_preview_pipeline_offline(tmp_path):
     assert "skipped malformed" in (tmp_path / "digest.txt").read_text(encoding="utf-8")
     assert "PDT" in (tmp_path / "digest.html").read_text(encoding="utf-8")
     assert {p.name for p in tmp_path.iterdir()} == {"results.json", "digest.html", "digest.txt"}
+
+
+@pytest.mark.parametrize("description", ["Build robots", ""])
+def test_pending_preview_reuses_completed_descriptions(description):
+    config = replace(load_config("config.example.yaml"), sources=(Source("sf", "city"),))
+    initial = build_preview(config, client=factory(config.requests), now=NOW)
+    cached = replace(
+        initial.candidate_events[0],
+        title="Old title",
+        description=description,
+        description_status=DescriptionStatus.CONTENT if description else DescriptionStatus.EMPTY,
+    )
+    preview = build_preview(
+        config, client=factory(config.requests), now=NOW, previous_events=[cached]
+    )
+    current = preview.candidate_events[0]
+    assert current.title != cached.title
+    assert current.description == description
+    assert current.description_status == cached.description_status
+    assert preview.summary["descriptions"]["requests"] == 0
+    assert preview.summary["requests"] == 2
+    assert not preview.digest.data["matches"][0]["title_only"]
 
 
 def test_cli_success_default_preview_and_overrides(tmp_path, capsys, monkeypatch):
