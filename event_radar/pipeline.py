@@ -8,7 +8,7 @@ from pathlib import Path
 from event_radar.collectors.luma import LumaClient, collect, enrich
 from event_radar.config import Config
 from event_radar.digest import Digest, render_digest
-from event_radar.models import Event, utc_timestamp
+from event_radar.models import Event, retain_cached_description, utc_timestamp
 from event_radar.relevance import filter_events, rank_events
 
 
@@ -32,7 +32,8 @@ def build_preview(
     client = client or LumaClient(config.requests)
     collection = collect(config, client, now=clock)
     candidates = {event.id: event for event in previous_events or []}
-    candidates.update({event.id: event for event in collection.events})
+    for event in collection.events:
+        candidates[event.id] = retain_cached_description(event, candidates.get(event.id))
     filtered = filter_events(list(candidates.values()), config, now=clock)
     pending = [event for event in filtered.events if event.id not in (suppressed_ids or set())]
     enrichment = enrich(pending, client, detail_budget=config.requests.detail_requests)
@@ -71,7 +72,7 @@ def build_preview(
     return Preview(
         digest,
         summary,
-        [enriched.get(event.id, event) for event in collection.events],
+        [enriched.get(event.id, candidates[event.id]) for event in collection.events],
         enrichment.events,
     )
 

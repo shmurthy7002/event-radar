@@ -5,7 +5,7 @@ from datetime import UTC, datetime, timedelta
 import pytest
 
 from event_radar.__main__ import main
-from event_radar.models import Event, Observation
+from event_radar.models import DescriptionStatus, Event, Observation
 from event_radar.state import (
     State,
     StateError,
@@ -47,6 +47,50 @@ def test_initialize_roundtrip_and_observe_changes(tmp_path):
     assert entry.event.title == "Edited AI safety" and entry.emailed_at is None
     assert unemailed_events(load_state(path), now=later) == [entry.event]
     assert unemailed_events(state, now=NOW + timedelta(days=3)) == []
+
+
+@pytest.mark.parametrize("cached_text", ["Sales networking", ""])
+@pytest.mark.parametrize(
+    "fresh_text,fresh_status",
+    [
+        (None, DescriptionStatus.NOT_FETCHED),
+        (None, DescriptionStatus.FAILED),
+        ("Updated description", DescriptionStatus.CONTENT),
+        ("", DescriptionStatus.EMPTY),
+    ],
+)
+def test_observations_preserve_completed_descriptions(
+    tmp_path, cached_text, fresh_text, fresh_status
+):
+    def described(text):
+        status = (
+            DescriptionStatus.NOT_FETCHED
+            if text is None
+            else DescriptionStatus.CONTENT
+            if text
+            else DescriptionStatus.EMPTY
+        )
+        return replace(event(), description=text, description_status=status)
+
+    path = tmp_path / "state.json"
+    save_state(path, observe(State(), [described(cached_text)], now=NOW), initialize=True)
+    fresh = replace(
+        described(fresh_text),
+        description_status=fresh_status,
+        title="Edited title",
+        latitude=37.8,
+        longitude=-122.3,
+    )
+    state = observe(load_state(path), [fresh], now=NOW + timedelta(hours=1))
+    save_state(path, state)
+    entry = load_state(path).events["evt-test"]
+    expected = cached_text if fresh_text is None else fresh_text
+    assert entry.event.description == expected
+    assert entry.event.description_status == (
+        DescriptionStatus.CONTENT if expected else DescriptionStatus.EMPTY
+    )
+    assert entry.event.title == "Edited title" and entry.event.latitude == 37.8
+    assert entry.first_seen_at == NOW and entry.emailed_at is None
 
 
 @pytest.mark.parametrize(

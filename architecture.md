@@ -148,6 +148,11 @@ single-line summaries. Rendering has no state or delivery side effects.
 selection, provider contact, and acknowledgement. Cached future unemailed events
 are reevaluated along with current discoveries. `--pending-preview` reads the
 same cached state and suppresses acknowledged events without mutating history.
+Rediscovery updates current metadata while retaining completed cached descriptions,
+including fetched-empty results, until a new completed description replaces them.
+The cache is reused before enrichment and ranking and survives temporary eligibility
+exclusions and observation-only updates. Reused descriptions consume no detail
+requests; automatic description refresh is not implemented.
 `--send-empty` optionally allows one empty summary per UTC day after usable
 collection; total collection failure always aborts before sending.
 
@@ -264,11 +269,14 @@ config.example.yaml  Non-sensitive starting configuration
 
 Milestone 2 implementation is available: local versioned observations, Resend,
 explicit transactional sending, and offline rerun/crash recovery validation.
-The milestone remains open by user request. No real send or deployment was
-performed during implementation; remote state and scheduled delivery remain
-milestone 3 work.
+Verification and completion are tracked in [GitHub milestone 2](https://github.com/shmurthy7002/event-radar/milestone/2).
+No real send or deployment was performed during implementation; remote state
+and scheduled delivery remain milestone 3 work.
 
 ## Implementation milestones
+
+Milestone 1 was verified and completed on October 28, 2026. Milestone 2 is
+implemented, with verification tracked above; milestone 3 remains planned.
 
 1. Implement the read-only local collector, event schema, YAML configuration,
    deterministic ranking, and JSON and HTML preview outputs. Add meaningful
