@@ -54,7 +54,8 @@ changes need consistency and diff checks, not a new test suite. Update
 Milestones 1 and 2 provide discovery/preview, local state, explicitly enabled
 Resend delivery, and offline recovery tests. Milestone 3 adds sanitized diagnostics,
 conflict-safe remote Git state, bounded manual Actions operations, delivery gates,
-and an operations guide. Live rollout verification is issue #20; real sending and
-the daily trigger remain gated until its prerequisites and authorization are
-satisfied. Do not claim recipient receipt from provider acceptance alone. Keep
+and an operations guide. Issue #20 verified live acceptance, recipient-confirmed
+HTML/text receipt, fresh-run suppression, pending omissions, and failure alerts.
+Daily delivery at 15:17 UTC is authorized, with both environment gates required.
+Do not claim recipient receipt from provider acceptance alone. Keep
 milestone 3 open as requested by the user.

@@ -92,10 +92,10 @@ See the [operations guide](docs/operations.md) for secret setup, bootstrap and
 migration, permissions, first-run verification, notifications, schedule controls,
 and operational recovery.
 
-The proposed daily time is **15:17 UTC** (08:17 PDT / 07:17 PST). The cron trigger
-is disabled pending issue #20's authorized rollout. Manual send requires an
+The authorized daily time is **15:17 UTC** (08:17 PDT / 07:17 PST). The cron trigger
+is enabled following issue #20's verified rollout. Manual send requires an
 enabled delivery variable and typed confirmation; scheduled send also requires
-rollout verification. No real email or schedule was enabled by implementation.
+rollout verification. See the rollout evidence for live tests and recipient confirmation.
 
 Jobs have 20-minute limits. Normal hosted runs cap total HTTP attempts at 40,
 pages/source at 3, details at 20, request timeouts at 10 seconds, retries at 1,

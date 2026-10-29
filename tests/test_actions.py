@@ -136,11 +136,26 @@ def test_smoke_samples_both_origins_without_state(tmp_path):
     assert bounded_settings("config.example.yaml")["requests"]["detail_requests"] == 20
 
 
-def test_workflow_has_no_active_schedule_and_preserves_active_run():
+def test_workflow_daily_schedule_preserves_active_run_and_delivery_gates():
     workflow = yaml.load(
         Path(".github/workflows/event-radar.yml").read_text(), Loader=yaml.BaseLoader
     )
-    assert set(workflow["on"]) == {"workflow_dispatch"}
+    assert set(workflow["on"]) == {"workflow_dispatch", "schedule"}
+    assert workflow["on"]["schedule"] == [{"cron": "17 15 * * *"}]
+    delivery = next(
+        step
+        for step in workflow["jobs"]["write-state"]["steps"]
+        if step.get("name") == "Explicit or verified scheduled delivery"
+    )
+    assert "send --scheduled" in delivery["run"]
+    assert (
+        delivery["env"]["EVENT_RADAR_DELIVERY_ENABLED"]
+        == "${{ vars.EVENT_RADAR_DELIVERY_ENABLED }}"
+    )
+    assert (
+        delivery["env"]["EVENT_RADAR_ROLLOUT_VERIFIED"]
+        == "${{ vars.EVENT_RADAR_ROLLOUT_VERIFIED }}"
+    )
     assert workflow["concurrency"]["cancel-in-progress"] == "false"
     assert workflow["permissions"] == {"contents": "read"}
     assert workflow["jobs"]["write-state"]["permissions"] == {"contents": "write"}

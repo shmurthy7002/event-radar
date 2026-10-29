@@ -12,9 +12,8 @@ on:
         description: INITIALIZE_EMPTY_STATE or SEND_CONFIGURED_RECIPIENT for write modes
         type: string
         default: ''
-  # Enable only after issue #20's real-send/rollout authorization and validation:
-  # schedule:
-  #   - cron: '17 15 * * *' # 08:17 PDT / 07:17 PST; scheduler delays are possible.
+  schedule:
+    - cron: '17 15 * * *' # 08:17 PDT / 07:17 PST; scheduler delays are possible.
 
 permissions:
   contents: read

@@ -1,11 +1,10 @@
 # Milestone 3 rollout evidence
 
-Status: read-only rollout checks passed; authorized live requests were rejected
-before acceptance by Resend's test-recipient restriction. Receipt and daily
-activation remain pending. Issue
-#20 and milestone 3 must stay open until the remaining
-criteria are satisfied. Test sending to a user-selected account was authorized
-in the task; its address is stored only as an encrypted environment secret.
+Status: rollout checks passed. Two authorized live digests were accepted on
+fresh hosted runners, with durable acknowledgement and no repeated events.
+The recipient confirmed useful HTML and plain text, confirmed failure alerts,
+and authorized daily delivery at 15:17 UTC. Milestone 3 remains open at the
+user's request. Recipient settings remain encrypted environment secrets.
 
 ## Verified on October 29, 2026
 
@@ -73,28 +72,33 @@ main `87a7d55` produced the controlled diagnosis:
 [run 40948915733](https://github.com/shmurthy7002/event-radar/actions/runs/40948915733),
 HTTP **403**, `test_recipient_restricted`, zero provider-accepted events,
 26 pending matches, 10 selected and 16 omitted. Resend's account test mode only
-permits its own account recipient. The intended recipient remains unchanged;
-no sender/key/address values are recorded here. The user must verify a sending
-domain/from address or supply a Resend account matching the authorized test
-recipient. The delivery gate was disabled immediately after the diagnostic run.
+permits its own account recipient. The delivery gate was disabled immediately
+after the diagnostic run. The user subsequently authorized their registered
+account recipient and updated the environment secret directly. No
+sender/key/address values are recorded here.
 
 The complete offline suite now contains **215 passing tests**, and all four
 Python/OS CI combinations passed before the rollout-refinement PR merged.
 
-## Remaining release gates
+## Successful live delivery and daily activation
 
-- Resolve `test_recipient_restricted`. All three secret names are configured in
-  `event-radar-delivery`, but successful provider acceptance is still unverified.
-  No secret/address values belong in Git or artifacts.
-- Perform an authorized real send. Record acceptance separately from recipient
-  confirmation of useful HTML and plain-text content.
-- Repeat real delivery on a fresh runner: verify suppression and later delivery
-  of eligible length-limit omissions.
-- Confirm configured Actions failure notifications reach the operator. The
-  failure job/annotation/report path is verified; notification receipt is not.
-- Confirm daily deployment scope, mark rollout verified only after checks pass,
-  and activate cron through a reviewed PR.
+| Check | Evidence |
+| --- | --- |
+| First accepted digest | [Run 40949500188](https://github.com/shmurthy7002/event-radar/actions/runs/40949500188), main `87a7d55`, 10 accepted and durably acknowledged, 27 pending |
+| Fresh-run delivery and suppression | [Run 40949707560](https://github.com/shmurthy7002/event-radar/actions/runs/40949707560), main `f0f98cd`, another 10 accepted, 27 pending after additional enrichment |
 
-The delivery variable was enabled only for authorized tests, then disabled
-after rejection. No cron trigger has been activated. Do not close
-issue #20 or the milestone on these read-only checks alone.
+A fresh remote fetch after the second send confirmed 20 acknowledged events
+across two disjoint accepted batches. All first-batch acknowledgement timestamps
+were preserved. Every second-batch event was already observed and unemailed in
+the first snapshot, verifying later delivery of pending omissions. No prepared
+or ambiguous batches remained. Additional cached enrichment explains why the
+pending count remained 27 while another ten events were delivered. These are
+bounded, partial discovery results, not an exhaustive inventory.
+
+On October 29 the user confirmed that HTML and plain text arrived and were useful,
+confirmed Actions failure alerts were working/enabled, and explicitly authorized
+daily delivery to the configured recipient at **15:17 UTC** (08:17 PDT / 07:17 PST).
+The activation PR enables that cron after offline checks and CI; both
+`EVENT_RADAR_DELIVERY_ENABLED` and `EVENT_RADAR_ROLLOUT_VERIFIED` must be `true`.
+Manual delivery still requires typed confirmation. The first automatic scheduled
+run has not yet occurred; GitHub scheduling can be delayed. Keep milestone 3 open.
