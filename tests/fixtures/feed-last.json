@@ -1,0 +1,8 @@
+{
+  "entries": [
+    {"api_id":"evt-one","event":{"api_id":"evt-one","name":"Example robotics","url":"example-one","start_at":"2026-12-28T10:00:00-08:00","timezone":"America/Los_Angeles"},"registration_availability":"sold-out"},
+    {"api_id":"evt-three","event":{"api_id":"evt-three","name":"Earlier example event","url":"example-three","start_at":"2026-10-28T10:00:00-07:00","timezone":"America/Los_Angeles"}}
+  ],
+  "has_more":false,
+  "next_cursor":null
+}

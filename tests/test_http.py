@@ -1,5 +1,6 @@
 from dataclasses import replace
 from datetime import UTC, datetime
+from http.client import IncompleteRead
 from urllib.error import URLError
 
 import pytest
@@ -35,7 +36,14 @@ def response(status=200, body=b"{}", **headers):
 
 
 @pytest.mark.parametrize(
-    "failure", [TimeoutError("secret"), URLError("secret"), response(503), response(429)]
+    "failure",
+    [
+        TimeoutError("secret"),
+        URLError("secret"),
+        IncompleteRead(b"partial"),
+        response(503),
+        response(429),
+    ],
 )
 def test_transient_retry(failure):
     client, calls, sleeps = client_for([failure, response()])

@@ -118,8 +118,8 @@ class Event:
             if value is not None and (
                 isinstance(value, bool)
                 or not isinstance(value, (int, float))
-                or not math.isfinite(value)
                 or not -limit <= value <= limit
+                or not math.isfinite(value)
             ):
                 raise RecordError(f"{label}: invalid coordinate")
         try:
