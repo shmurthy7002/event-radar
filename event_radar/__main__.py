@@ -23,9 +23,15 @@ from event_radar.state import (
 )
 
 
-def main(
-    argv=None, *, client_factory=LumaClient, provider_factory=None, now: datetime | None = None
+def _main(
+    argv=None,
+    *,
+    client_factory=LumaClient,
+    provider_factory=None,
+    now: datetime | None = None,
+    report=None,
 ) -> int:
+    emit = report.log
     parser = argparse.ArgumentParser(description="Event Radar local discovery tools")
     parser.add_argument("--version", action="version", version="event-radar 0.1.0")
     parser.add_argument("--config", default="config.yaml", help="non-sensitive YAML settings")
@@ -68,7 +74,19 @@ def main(
         action="store_true",
         help="after provider verification, release a batch confirmed not accepted",
     )
+    parser.add_argument("--summary-json", help="sanitized structured run report")
+    parser.add_argument("--summary-markdown", help="sanitized Actions-compatible summary")
+    parser.add_argument(
+        "--diagnostics-only",
+        action="store_true",
+        help="write/print only sanitized diagnostics, no event artifacts",
+    )
     args = parser.parse_args(argv)
+    report.json_path, report.markdown_path, report.only = (
+        args.summary_json,
+        args.summary_markdown,
+        args.diagnostics_only,
+    )
     if (
         sum(
             bool(x)
@@ -99,24 +117,24 @@ def main(
                 accepted_message_id=args.reconcile_accepted,
                 confirmed_not_accepted=args.reconcile_not_accepted,
             )
-            print("Confirmed provider outcome recorded; no email sent.")
+            emit("Confirmed provider outcome recorded; no email sent.")
             return 0
         if args.init_state:
             save_state(args.state, State(), initialize=True)
-            print("Empty state initialized; no delivery history overwritten.")
+            emit("Empty state initialized; no delivery history overwritten.")
             return 0
         state = (
             load_state(args.state) if args.observe or args.pending_preview or args.send else None
         )
     except StateError as exc:
-        print(f"State error: {exc}", file=sys.stderr)
+        emit(f"State error: {exc}", file=sys.stderr)
         return 6
     try:
         config = load_config(args.config)
         if args.smoke_check:
             config = smoke_config(config)
     except ConfigError as exc:
-        print(f"Configuration error: {exc}", file=sys.stderr)
+        emit(f"Configuration error: {exc}", file=sys.stderr)
         return 2
     try:
         if args.send:
@@ -135,25 +153,33 @@ def main(
                 now=now,
                 send_enabled=True,
                 nothing_new=args.send_empty,
+                report=report,
             )
-            print(
+            report.outcome = (
+                "provider_accepted" if result.outcome == "accepted" else "healthy_empty"
+            )
+            report.update({"pending": result.pending, "pending_batches": 0})
+            emit(
                 f"Delivery {result.outcome}: {result.included} provider-accepted events; {result.pending} eligible events remain pending."
             )
             for warning in result.warnings:
-                print(f"Warning: {warning}")
+                emit(f"Warning: {warning}")
             return 0
         if args.smoke_check:
             summary = run_smoke(config, client=client_factory(config.requests), now=now)
+            report.update(summary)
+            report.outcome = "smoke_healthy" if summary["healthy"] else None
             try:
                 directory = Path(args.output)
                 directory.mkdir(parents=True, exist_ok=True)
-                (directory / "smoke.json").write_text(
-                    json.dumps(summary, indent=2) + "\n", encoding="utf-8"
-                )
+                if not report.only:
+                    (directory / "smoke.json").write_text(
+                        json.dumps(summary, indent=2) + "\n", encoding="utf-8"
+                    )
             except OSError:
-                print("Output error: could not write smoke diagnostics.", file=sys.stderr)
+                emit("Output error: could not write smoke diagnostics.", file=sys.stderr)
                 return 4
-            print(json.dumps(summary, indent=2))
+            emit(json.dumps(summary, indent=2))
             return 0 if summary["healthy"] else 5
         preview = build_preview(
             config,
@@ -170,28 +196,49 @@ def main(
             if args.pending_preview
             else None,
         )
-    except PostSendStateError as exc:
-        print(f"Post-send persistence error: {exc}", file=sys.stderr)
+    except PostSendStateError:
+        emit(
+            "Post-send persistence error: provider accepted; inspect retained state before retry (duplicate risk).",
+            file=sys.stderr,
+        )
         return 8
     except StateError as exc:
-        print(f"State error: {exc}", file=sys.stderr)
+        emit(f"State error: {exc}", file=sys.stderr)
         return 6
     except DeliveryError as exc:
-        print(f"Delivery {exc.outcome}: {exc}", file=sys.stderr)
+        report.outcome = {
+            "ambiguous": "provider_ambiguous",
+            "rejected": "provider_rejected",
+            "configuration": "configuration_error",
+        }.get(exc.outcome, "provider_failed")
+        emit(
+            f"Delivery {report.outcome}: inspect settings/provider logs and retained batch before retry.",
+            file=sys.stderr,
+        )
         return 7
     except TotalCollectionFailure as exc:
-        print(
+        from dataclasses import asdict
+
+        report.update(
+            {
+                "sources": [asdict(source) for source in exc.result.sources],
+                "requests": exc.result.requests,
+            }
+        )
+        emit(
             "Collection failed: no source produced usable data; no new artifacts written.",
             file=sys.stderr,
         )
         for source in exc.result.sources:
             for error in source.errors:
-                print(f"{source.source}: {error}", file=sys.stderr)
+                emit(f"{source.source}: {error}", file=sys.stderr)
         return 3
+    report.update(preview.summary)
     try:
-        write_preview(preview, args.output)
+        if not report.only:
+            write_preview(preview, args.output)
     except (OSError, UnicodeError):
-        print(
+        emit(
             "Output error: could not write preview artifacts; check directory permissions and disk space.",
             file=sys.stderr,
         )
@@ -209,16 +256,30 @@ def main(
                     lock_held=True,
                 )
         except StateError as exc:
-            print(f"State error: {exc}", file=sys.stderr)
+            emit(f"State error: {exc}", file=sys.stderr)
             return 6
     summary = preview.summary
-    print(
+    emit(
         f"{'PARTIAL' if summary['partial'] else 'OK'}: {summary['collected']} collected, {summary['matches']} matches, {len(preview.digest.selected_ids)} shown; {summary['requests']}/{summary['request_budget']} HTTP attempts."
     )
     for warning in summary["warnings"]:
-        print(f"Warning: {warning}")
-    print(f"Preview written to {args.output}")
+        emit(f"Warning: {warning}")
+    emit(f"Preview written to {args.output}")
     return 0
+
+
+def main(argv=None, *, client_factory=LumaClient, provider_factory=None, now=None):
+    from event_radar.diagnostics import RunReport
+
+    report = RunReport()
+    code = _main(
+        argv,
+        client_factory=client_factory,
+        provider_factory=provider_factory,
+        now=now,
+        report=report,
+    )
+    return report.finish(code)
 
 
 if __name__ == "__main__":

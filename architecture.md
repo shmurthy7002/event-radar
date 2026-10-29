@@ -291,3 +291,9 @@ deduplication, description coverage, matches, pending and delivered counts,
 truncation, and errors. Use those signals to tune relevance and detect source
 breakage. Public discovery is incomplete; source changes and request budgets
 can hide events even when a run succeeds.
+
+`diagnostics.py` provides allowlisted JSON and Markdown run summaries. The CLI
+can emit diagnostics only for CI, omitting event artifacts. Outcomes distinguish
+healthy empty/partial discovery, collection failure, rejection, ambiguous
+acceptance, and post-send persistence failure. Numeric counts never include raw
+event/person/provider payloads; unavailable counts stay unavailable after failure.

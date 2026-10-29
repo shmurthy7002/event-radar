@@ -180,6 +180,15 @@ Fixtures use synthetic event data and contain no attendee/host data.
 
 ## Offline CI and bounded live smoke check
 
+Use `--summary-json output/run.json --summary-markdown output/run.md` for
+allowlisted operational reports. `--diagnostics-only` suppresses event artifacts
+and raw run output, emitting only counters and controlled outcomes suitable for
+Actions summaries/artifacts. It still performs the explicitly selected operation.
+Reports contain per-source counts, malformed/truncated counts, description
+coverage, exclusions, pending batches, and provider-accepted counts, with no event
+payloads, recipient settings, keys, or provider response bodies. Unknown counters
+remain unavailable on failures rather than implying successful empty discovery.
+
 Pull requests and pushes to main run installation, offline tests, Ruff lint and
 format checks, and CLI help on Python 3.11/3.14 on Ubuntu and Windows. The workflow
 uses read-only repository permissions, pinned official actions, and no secrets.
