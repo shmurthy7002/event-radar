@@ -168,3 +168,43 @@ def run_delivery(
             preview.summary["partial"],
             tuple(preview.summary["warnings"]),
         )
+
+
+def reconcile_batch(
+    path,
+    batch_key: str,
+    *,
+    now: datetime,
+    accepted_message_id: str | None = None,
+    confirmed_not_accepted: bool = False,
+) -> None:
+    """Operator assertion after checking the provider. No provider/network action."""
+    if bool(accepted_message_id) == bool(confirmed_not_accepted):
+        raise StateError("reconciliation requires exactly one confirmed provider outcome")
+    now = utc_timestamp(now)
+    with state_lock(path):
+        state = load_state(path)
+        batch = state.batches.get(batch_key)
+        if batch is None or batch.outcome not in ("prepared", "ambiguous"):
+            raise StateError("reconciliation requires an existing unresolved batch")
+        if now < batch.created_at:
+            raise StateError("reconciliation clock precedes batch creation")
+        entries = dict(state.events)
+        if accepted_message_id:
+            resolved = replace(
+                batch,
+                outcome="accepted",
+                provider_message_id=accepted_message_id,
+                accepted_at=now,
+                html="",
+                text="",
+            )
+            for key in batch.event_ids:
+                entries[key] = replace(entries[key], emailed_at=now)
+        else:
+            resolved = replace(batch, outcome="rejected", html="", text="")
+        save_state(
+            path,
+            replace(state, events=entries, batches={**state.batches, batch.key: resolved}),
+            lock_held=True,
+        )

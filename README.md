@@ -114,6 +114,40 @@ It never automatically retries. Resend retains idempotency keys for 24 hours;
 ambiguous requests must reuse the exact persisted payload/key within that window
 or be reconciled manually afterward. Preview and automated tests cannot send.
 
+## Delivery failure recovery
+
+Keep the state file and check the provider's message/request logs before resolving
+an uncertain outcome. The batch key is the key under `batches` in local state.
+After provider verification, use **one** of these offline commands:
+
+```powershell
+python -m event_radar --state state/state.json --batch-id BATCH_KEY --reconcile-accepted PROVIDER_MESSAGE_ID
+python -m event_radar --state state/state.json --batch-id BATCH_KEY --reconcile-not-accepted
+```
+
+The first records confirmed acceptance and suppresses the included events. The
+second releases a batch only when the provider confirms it was not accepted;
+events remain pending for a later explicit send. Neither command sends email or
+contacts the provider. If the outcome remains unknown, leave the batch unresolved.
+Reinitializing/deleting history or falsely asserting non-acceptance can duplicate
+an already accepted message, especially beyond the 24-hour idempotency window.
+
+| Failure point | Persisted outcome and recovery |
+| --- | --- |
+| Observation/prepared-state write fails | Provider is not contacted; fix storage, then rerun. |
+| Crash with prepared intent, or connection outcome unknown | Retain exact batch; explicit retry within 24 hours reuses payload/key. |
+| Known provider rejection | Events stay pending; fix configuration/provider problem and rerun. |
+| Provider accepts, acknowledgement save fails (exit 8) | Pending intent survives; retry within the window or reconcile verified acceptance. |
+| Acceptance and state commit succeed, then process crashes | A later run suppresses acknowledged events, even after provider keys expire. |
+| Pending batch is too old, changed envelope, expired, or no longer relevant | Automatic retry stops; verify the provider outcome and reconcile explicitly. |
+
+A hard process termination can leave `state.json.lock`. Verify that no writer is
+running before removing that local lock; never delete the state file as cleanup.
+The local lock protects one filesystem, not multiple runners. Cross-runner
+serialization and durable remote state remain milestone 3 work. Provider
+acceptance still does not prove inbox delivery, and exactly-once email delivery
+is not guaranteed.
+
 ## Implementation boundaries
 
 `collectors/luma.py` owns undocumented Luma transport, metadata, schema parsing,

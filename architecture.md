@@ -163,6 +163,14 @@ silently changing a potentially accepted request. Post-acceptance save failure
 exits 8 with duplicate risk; provider/config/recovery errors exit 7, state access
 errors exit 6. All paths retain pending intent for recovery.
 
+Explicit offline reconciliation records a provider-verified accepted message ID,
+or a provider-confirmed non-acceptance. It never contacts the provider or sends.
+Accepted reconciliation acknowledges only the batch's included IDs; confirmed
+non-acceptance releases them for a new explicit run. Unknown outcomes stay
+unresolved. Recovery tests inject interruption before send, after acceptance,
+and after state commit, plus fsync/replacement failures, expiry, changed relevance,
+payload corruption, lock contention, and provider-key retention expiry.
+
 The first provider is Resend's HTTPS `/emails` API, using the standard library
 and environment-only key/sender/recipients. Explicit send enablement and valid
 settings are mandatory. Requests include HTML and plain text, with one attempt
@@ -251,6 +259,14 @@ tests/               Offline behavioral tests and sanitized fixtures
 config.example.yaml  Non-sensitive starting configuration
 .github/workflows/   Checks and, later, scheduled execution
 ```
+
+## Current implementation status (October 29, 2026)
+
+Milestone 2 implementation is available: local versioned observations, Resend,
+explicit transactional sending, and offline rerun/crash recovery validation.
+The milestone remains open by user request. No real send or deployment was
+performed during implementation; remote state and scheduled delivery remain
+milestone 3 work.
 
 ## Implementation milestones
 

@@ -195,6 +195,13 @@ def parse_state(data) -> State:
             raise ValueError
         if sum(batch.outcome in ("prepared", "ambiguous") for batch in batches.values()) > 1:
             raise ValueError
+        if any(
+            entries[event_id].emailed_at is None
+            for batch in batches.values()
+            if batch.outcome == "accepted"
+            for event_id in batch.event_ids
+        ):
+            raise ValueError
         return State(entries, batches)
     except (ValueError, TypeError, KeyError, OverflowError, RecursionError):
         raise StateError("state is corrupt or has an unsupported schema/version") from None
@@ -225,7 +232,12 @@ def state_lock(path: str | Path):
         os.close(fd)
         yield
     finally:
-        lock_path.unlink()
+        try:
+            lock_path.unlink()
+        except OSError:
+            raise StateError(
+                "state lock cleanup failed; inspect saved history and verify no active writer before recovery"
+            ) from None
 
 
 def save_state(
@@ -272,7 +284,12 @@ def _save_state(path: str | Path, state: State, *, initialize: bool) -> None:
         ) from None
     finally:
         if temporary and os.path.exists(temporary):
-            os.unlink(temporary)
+            try:
+                os.unlink(temporary)
+            except OSError:
+                raise StateError(
+                    "state temporary-file cleanup failed; check storage permissions"
+                ) from None
 
 
 def observe(state: State, events: list[Event], *, now: datetime) -> State:
