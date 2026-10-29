@@ -149,6 +149,7 @@ class Event:
         data = asdict(self)
         data["start"] = self.start.isoformat()
         data["end"] = self.end.isoformat() if self.end else None
+        data["warnings"] = list(self.warnings)
         data["provenance"] = [
             {"source": p.source, "collected_at": p.collected_at.isoformat()}
             for p in self.provenance
