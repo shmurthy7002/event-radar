@@ -42,12 +42,22 @@ def run_delivery(
     now: datetime | None = None,
     send_enabled: bool = False,
     nothing_new: bool = False,
+    report=None,
 ) -> DeliveryRun:
     if not send_enabled:
         raise DeliveryError("configuration", "delivery orchestration requires explicit send mode")
     clock = lambda: utc_timestamp(now if now is not None else datetime.now(UTC))
     with state_lock(path):
         state = load_state(path)
+        if report:
+            report.update(
+                {
+                    "pending_batches": sum(
+                        b.outcome in ("prepared", "ambiguous") for b in state.batches.values()
+                    ),
+                    "provider_accepted": 0,
+                }
+            )
         preview = build_preview(
             config,
             client=client,
@@ -58,6 +68,8 @@ def run_delivery(
             },
         )
         state = observe(state, preview.observed_events, now=clock())
+        if report:
+            report.update(preview.summary)
         entries = dict(state.events)
         for event in preview.candidate_events:
             entries[event.id] = replace(entries[event.id], event=event)
@@ -67,6 +79,8 @@ def run_delivery(
             filter_events(unemailed_events(state, now=clock()), config, now=clock()).events, config
         ).matches
         eligible_ids = {r.event.id for r in eligible}
+        if report:
+            report.update({"pending": len(eligible_ids)})
         pending = [
             batch for batch in state.batches.values() if batch.outcome in ("prepared", "ambiguous")
         ]
@@ -124,12 +138,16 @@ def run_delivery(
             save_state(
                 path, state, lock_held=True
             )  # Durable intent must precede the provider call.
+        if report:
+            report.update({"pending_batches": 1})
         try:
             acceptance = provider.send(
                 Message(batch.subject, batch.html, batch.text), idempotency_key=batch.key
             )
         except DeliveryError as exc:
             outcome = "ambiguous" if exc.outcome == "ambiguous" else "rejected"
+            if report:
+                report.update({"pending_batches": 1 if outcome == "ambiguous" else 0})
             failed = replace(
                 batch,
                 outcome=outcome,
@@ -141,6 +159,8 @@ def run_delivery(
             )
             raise
         accepted_at = clock()
+        if report:
+            report.update({"provider_accepted": len(batch.event_ids)})
         acknowledged = replace(
             batch,
             outcome="accepted",
