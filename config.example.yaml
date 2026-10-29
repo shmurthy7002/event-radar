@@ -1,0 +1,28 @@
+sources:
+  - {slug: sf, kind: city}
+  - {slug: ai, kind: category}
+  - {slug: tech, kind: category}
+horizon_days: 14
+origin: {latitude: 37.8715, longitude: -122.2730}
+radius_km: 60
+unknown_location: exclude
+exclude_sold_out: false
+exclude_waitlist: false
+requests:
+  timeout_seconds: 15
+  retries: 2
+  max_backoff_seconds: 30
+  pages_per_source: 5
+  total_requests: 50
+  detail_requests: 20
+digest_length: 10
+interests:
+  robotics: [robotics, robots, embodied AI]
+  research: [RL, ML, reinforcement learning, machine learning]
+  safety: [AI safety, alignment]
+  hackathons: [hackathon, hackathons]
+  startups: [technical startup, AI startup, founders, developer tools]
+title_weight: 3
+description_weight: 1
+negative_keywords: [speed dating]
+minimum_score: 1
