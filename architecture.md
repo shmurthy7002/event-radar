@@ -15,6 +15,15 @@ in the ordered backlog. Sections below describe the target design unless noted.
 
 ## Data flow
 
+The current CLI is read-only. It collects and normalizes, filters date/location/
+availability, enriches only those eligible events to conserve detail requests,
+ranks, and writes local HTML/text/JSON previews. `--config` and `--output` select
+settings and artifacts. Exit codes are 0 for successful (possibly partial)
+preview, 2 for invalid configuration, 3 for total collection failure, and 4 for
+output failure. Partial warnings appear in console and artifacts. Failed runs
+must not be treated as a fresh successful preview; old/partial artifacts may
+remain in an output directory. State and email below are future milestones.
+
 ```text
 Local CLI or GitHub Actions
   -> load configuration and persistent state
