@@ -29,7 +29,15 @@ def test_nested_text():
 
 
 @pytest.mark.parametrize(
-    "value", [None, "text", {}, {"type": "doc", "content": {}}, {"type": "text", "text": 42}]
+    "value",
+    [
+        None,
+        "text",
+        {},
+        {"type": "unknown"},
+        {"type": "doc", "content": {}},
+        {"type": "text", "text": 42},
+    ],
 )
 def test_malformed_description(value):
     with pytest.raises(CollectionError):

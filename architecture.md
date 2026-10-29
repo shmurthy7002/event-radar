@@ -10,8 +10,9 @@ Luma API, or always-on personal computer.
 The local proof of concept established that public web endpoints can supply
 usable event data. The user has selected those endpoints instead of MCP.
 All prototype code and artifacts have been removed. The new Python package and
-development tooling are in place; collection and delivery are being implemented
-in the ordered backlog. Sections below describe the target design unless noted.
+read-only collector, enrichment, filtering/ranking, preview CLI, and offline CI
+are implemented. State and delivery remain in the ordered backlog. Sections
+below describe the target design unless noted.
 
 ## Data flow
 
@@ -167,6 +168,11 @@ make a nothing-new summary optional. Events omitted by a digest length limit
 must remain eligible for a subsequent run.
 
 ## Scheduling and durable storage
+
+Offline CI now checks Python 3.11/3.14 on Ubuntu/Windows for PRs and main pushes.
+It uses no Luma requests or secrets. An explicitly invoked `--smoke-check` caps
+live requests, reports description coverage, and compares SF page/feed IDs before
+filtering; normal CI never invokes it. No daily execution or delivery is enabled.
 
 Add a daily GitHub Actions workflow plus a manual trigger after local collection
 and delivery are verified. Store credentials in Actions secrets. Scheduled
