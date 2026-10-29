@@ -3,17 +3,29 @@
 import argparse
 import json
 import sys
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 
 from event_radar.collectors.luma import LumaClient, TotalCollectionFailure
-from event_radar.config import ConfigError, load_config
+from event_radar.config import ConfigError, load_config, load_email_settings
+from event_radar.delivery import DeliveryError, ResendProvider, validate_email_settings
 from event_radar.pipeline import build_preview, write_preview
+from event_radar.runner import PostSendStateError, run_delivery
 from event_radar.smoke import run_smoke, smoke_config
-from event_radar.state import State, StateError, load_state, observe, save_state
+from event_radar.state import (
+    State,
+    StateError,
+    load_state,
+    observe,
+    save_state,
+    state_lock,
+    unemailed_events,
+)
 
 
-def main(argv=None, *, client_factory=LumaClient, now: datetime | None = None) -> int:
+def main(
+    argv=None, *, client_factory=LumaClient, provider_factory=None, now: datetime | None = None
+) -> int:
     parser = argparse.ArgumentParser(description="Event Radar local discovery tools")
     parser.add_argument("--version", action="version", version="event-radar 0.1.0")
     parser.add_argument("--config", default="config.yaml", help="non-sensitive YAML settings")
@@ -32,15 +44,32 @@ def main(argv=None, *, client_factory=LumaClient, now: datetime | None = None) -
         action="store_true",
         help="persist observations after preview; never mark delivered",
     )
+    parser.add_argument(
+        "--pending-preview",
+        action="store_true",
+        help="read state to preview pending matches without modifying history",
+    )
+    parser.add_argument(
+        "--send", action="store_true", help="explicitly send pending matches via Resend"
+    )
+    parser.add_argument(
+        "--send-empty",
+        action="store_true",
+        help="with --send, allow one nothing-new summary per UTC day",
+    )
     args = parser.parse_args(argv)
-    if sum((args.init_state, args.observe, args.smoke_check)) > 1:
-        parser.error("choose only one of --init-state, --observe, --smoke-check")
+    if sum((args.init_state, args.observe, args.smoke_check, args.pending_preview, args.send)) > 1:
+        parser.error("choose only one operation: init, observe, smoke, pending preview, or send")
+    if args.send_empty and not args.send:
+        parser.error("--send-empty requires --send")
     try:
         if args.init_state:
             save_state(args.state, State(), initialize=True)
             print("Empty state initialized; no delivery history overwritten.")
             return 0
-        state = load_state(args.state) if args.observe else None
+        state = (
+            load_state(args.state) if args.observe or args.pending_preview or args.send else None
+        )
     except StateError as exc:
         print(f"State error: {exc}", file=sys.stderr)
         return 6
@@ -52,6 +81,29 @@ def main(argv=None, *, client_factory=LumaClient, now: datetime | None = None) -
         print(f"Configuration error: {exc}", file=sys.stderr)
         return 2
     try:
+        if args.send:
+            settings = load_email_settings()
+            validate_email_settings(settings)
+            provider = (
+                provider_factory(settings)
+                if provider_factory
+                else ResendProvider(settings, send_enabled=True)
+            )
+            result = run_delivery(
+                config,
+                args.state,
+                provider,
+                client=client_factory(config.requests),
+                now=now,
+                send_enabled=True,
+                nothing_new=args.send_empty,
+            )
+            print(
+                f"Delivery {result.outcome}: {result.included} provider-accepted events; {result.pending} eligible events remain pending."
+            )
+            for warning in result.warnings:
+                print(f"Warning: {warning}")
+            return 0
         if args.smoke_check:
             summary = run_smoke(config, client=client_factory(config.requests), now=now)
             try:
@@ -65,7 +117,30 @@ def main(argv=None, *, client_factory=LumaClient, now: datetime | None = None) -
                 return 4
             print(json.dumps(summary, indent=2))
             return 0 if summary["healthy"] else 5
-        preview = build_preview(config, client=client_factory(config.requests), now=now)
+        preview = build_preview(
+            config,
+            client=client_factory(config.requests),
+            now=now,
+            previous_events=unemailed_events(
+                state, now=now if now is not None else datetime.now(UTC)
+            )
+            if args.pending_preview
+            else None,
+            suppressed_ids={
+                key for key, entry in state.events.items() if entry.emailed_at is not None
+            }
+            if args.pending_preview
+            else None,
+        )
+    except PostSendStateError as exc:
+        print(f"Post-send persistence error: {exc}", file=sys.stderr)
+        return 8
+    except StateError as exc:
+        print(f"State error: {exc}", file=sys.stderr)
+        return 6
+    except DeliveryError as exc:
+        print(f"Delivery {exc.outcome}: {exc}", file=sys.stderr)
+        return 7
     except TotalCollectionFailure as exc:
         print(
             "Collection failed: no source produced usable data; no new artifacts written.",
@@ -85,16 +160,16 @@ def main(argv=None, *, client_factory=LumaClient, now: datetime | None = None) -
         return 4
     if args.observe:
         try:
-            from datetime import UTC
-
-            save_state(
-                args.state,
-                observe(
-                    state,
-                    preview.observed_events,
-                    now=now if now is not None else datetime.now(UTC),
-                ),
-            )
+            with state_lock(args.state):
+                save_state(
+                    args.state,
+                    observe(
+                        load_state(args.state),
+                        preview.observed_events,
+                        now=now if now is not None else datetime.now(UTC),
+                    ),
+                    lock_held=True,
+                )
         except StateError as exc:
             print(f"State error: {exc}", file=sys.stderr)
             return 6

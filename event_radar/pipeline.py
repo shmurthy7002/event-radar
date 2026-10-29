@@ -17,16 +17,25 @@ class Preview:
     digest: Digest
     summary: dict
     observed_events: list[Event]
+    candidate_events: list[Event]
 
 
 def build_preview(
-    config: Config, *, client: LumaClient | None = None, now: datetime | None = None
+    config: Config,
+    *,
+    client: LumaClient | None = None,
+    now: datetime | None = None,
+    previous_events: list[Event] | None = None,
+    suppressed_ids: set[str] | None = None,
 ) -> Preview:
     clock = utc_timestamp(now if now is not None else datetime.now(UTC))
     client = client or LumaClient(config.requests)
     collection = collect(config, client, now=clock)
-    filtered = filter_events(collection.events, config, now=clock)
-    enrichment = enrich(filtered.events, client, detail_budget=config.requests.detail_requests)
+    candidates = {event.id: event for event in previous_events or []}
+    candidates.update({event.id: event for event in collection.events})
+    filtered = filter_events(list(candidates.values()), config, now=clock)
+    pending = [event for event in filtered.events if event.id not in (suppressed_ids or set())]
+    enrichment = enrich(pending, client, detail_budget=config.requests.detail_requests)
     ranking = rank_events(enrichment.events, config)
     warnings = []
     for source in collection.sources:
@@ -59,7 +68,12 @@ def build_preview(
         ranking.matches, limit=config.digest_length, now=clock, warnings=warnings, coverage=summary
     )
     enriched = {event.id: event for event in enrichment.events}
-    return Preview(digest, summary, [enriched.get(event.id, event) for event in collection.events])
+    return Preview(
+        digest,
+        summary,
+        [enriched.get(event.id, event) for event in collection.events],
+        enrichment.events,
+    )
 
 
 def write_preview(preview: Preview, directory: str | Path) -> None:

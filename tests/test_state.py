@@ -91,6 +91,30 @@ def test_duplicate_json_and_missing_save(tmp_path):
         save_state(tmp_path / "missing.json", State())
 
 
+def test_transient_windows_replace_conflict_retries_only_storage(tmp_path, monkeypatch):
+    import event_radar.state as store
+
+    path = tmp_path / "state.json"
+    save_state(path, State(), initialize=True)
+    real_replace = store.os.replace
+    calls = []
+    sleeps = []
+
+    def replace_file(source, target):
+        calls.append(target)
+        if len(calls) == 1:
+            error = PermissionError("temporary lock")
+            error.winerror = 5
+            raise error
+        real_replace(source, target)
+
+    monkeypatch.setattr(store.os, "replace", replace_file)
+    monkeypatch.setattr(store.time, "sleep", sleeps.append)
+    save_state(path, observe(State(), [event()], now=NOW))
+    assert len(calls) == 2 and sleeps == [0.05]
+    assert load_state(path).events
+
+
 def test_init_cli_has_no_network_and_preserves_existing(tmp_path):
     path = tmp_path / "state.json"
     assert main(["--init-state", "--state", str(path)]) == 0

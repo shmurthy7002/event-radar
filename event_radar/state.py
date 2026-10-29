@@ -1,8 +1,11 @@
 """Versioned, validated local observations; seen is deliberately distinct from sent."""
 
+import hashlib
 import json
 import os
+import re
 import tempfile
+import time
 from contextlib import contextmanager, nullcontext
 from dataclasses import dataclass, field, replace
 from datetime import datetime
@@ -26,6 +29,94 @@ class Entry:
 @dataclass(frozen=True)
 class State:
     events: dict[str, Entry] = field(default_factory=dict)
+    batches: dict[str, "Batch"] = field(default_factory=dict)
+
+
+def message_hash(subject: str, html: str, text: str) -> str:
+    return hashlib.sha256(
+        json.dumps([subject, html, text], ensure_ascii=True, separators=(",", ":")).encode()
+    ).hexdigest()
+
+
+@dataclass(frozen=True)
+class Batch:
+    created_at: datetime
+    event_ids: tuple[str, ...]
+    scope: str
+    payload_hash: str
+    subject: str
+    html: str
+    text: str
+    outcome: str = "prepared"
+    provider_message_id: str | None = None
+    accepted_at: datetime | None = None
+
+    @property
+    def key(self) -> str:
+        value = [self.created_at.isoformat(), self.event_ids, self.scope, self.payload_hash]
+        return (
+            "event-radar/"
+            + hashlib.sha256(json.dumps(value, separators=(",", ":")).encode()).hexdigest()
+        )
+
+    def to_dict(self) -> dict:
+        return {
+            "created_at": self.created_at.isoformat(),
+            "event_ids": list(self.event_ids),
+            "scope": self.scope,
+            "payload_hash": self.payload_hash,
+            "subject": self.subject,
+            "html": self.html,
+            "text": self.text,
+            "outcome": self.outcome,
+            "provider_message_id": self.provider_message_id,
+            "accepted_at": self.accepted_at.isoformat() if self.accepted_at else None,
+        }
+
+
+def _batch_from_dict(data) -> Batch:
+    if not isinstance(data, dict) or set(data) != set(Batch.__dataclass_fields__):
+        raise ValueError
+    values = dict(data)
+    ids = values["event_ids"]
+    if (
+        not isinstance(ids, list)
+        or any(not isinstance(x, str) or not x for x in ids)
+        or len(set(ids)) != len(ids)
+    ):
+        raise ValueError
+    values["event_ids"] = tuple(ids)
+    values["created_at"] = utc_timestamp(values["created_at"])
+    values["accepted_at"] = (
+        utc_timestamp(values["accepted_at"]) if values["accepted_at"] is not None else None
+    )
+    batch = Batch(**values)
+    if batch.outcome not in ("prepared", "ambiguous", "rejected", "accepted") or any(
+        not isinstance(getattr(batch, k), str)
+        for k in ("scope", "payload_hash", "subject", "html", "text")
+    ):
+        raise ValueError
+    if not re.fullmatch(r"[a-f0-9]{64}", batch.scope) or not re.fullmatch(
+        r"[a-f0-9]{64}", batch.payload_hash
+    ):
+        raise ValueError
+    if batch.outcome in ("prepared", "ambiguous") and (
+        not batch.html
+        or not batch.text
+        or message_hash(batch.subject, batch.html, batch.text) != batch.payload_hash
+    ):
+        raise ValueError
+    if batch.outcome == "accepted":
+        if (
+            not isinstance(batch.provider_message_id, str)
+            or not re.fullmatch(r"[A-Za-z0-9_-]{1,200}", batch.provider_message_id)
+            or batch.accepted_at is None
+            or batch.accepted_at < batch.created_at
+        ):
+            raise ValueError
+    elif batch.provider_message_id is not None or batch.accepted_at is not None:
+        raise ValueError
+    return batch
 
 
 def _unique_object(pairs):
@@ -50,6 +141,7 @@ def event_from_dict(data: dict) -> Event:
 def state_data(state: State) -> dict:
     return {
         "version": 1,
+        "batches": {key: batch.to_dict() for key, batch in sorted(state.batches.items())},
         "events": {
             key: {
                 "event": entry.event.to_dict(),
@@ -66,7 +158,7 @@ def parse_state(data) -> State:
     try:
         if (
             not isinstance(data, dict)
-            or set(data) != {"version", "events"}
+            or not {"version", "events"} <= set(data) <= {"version", "events", "batches"}
             or type(data["version"]) is not int
             or data["version"] != 1
             or not isinstance(data["events"], dict)
@@ -92,7 +184,18 @@ def parse_state(data) -> State:
             if key != event.id or first > last or (emailed is not None and emailed < first):
                 raise ValueError
             entries[key] = Entry(event, first, last, emailed)
-        return State(entries)
+        raw_batches = data.get("batches", {})
+        if not isinstance(raw_batches, dict):
+            raise TypeError
+        batches = {key: _batch_from_dict(value) for key, value in raw_batches.items()}
+        if any(
+            key != batch.key or any(event_id not in entries for event_id in batch.event_ids)
+            for key, batch in batches.items()
+        ):
+            raise ValueError
+        if sum(batch.outcome in ("prepared", "ambiguous") for batch in batches.values()) > 1:
+            raise ValueError
+        return State(entries, batches)
     except (ValueError, TypeError, KeyError, OverflowError, RecursionError):
         raise StateError("state is corrupt or has an unsupported schema/version") from None
 
@@ -150,10 +253,22 @@ def _save_state(path: str | Path, state: State, *, initialize: bool) -> None:
             file.write("\n")
             file.flush()
             os.fsync(file.fileno())
-        os.replace(temporary, path)
-    except (OSError, ValueError, TypeError):
+        for attempt in range(3):
+            try:
+                os.replace(temporary, path)
+                break
+            except OSError as exc:
+                # Windows sync/indexing processes can briefly hold the destination.
+                # Retry only replacement, never provider delivery or state recreation.
+                if getattr(exc, "winerror", None) not in (5, 32, 33) or attempt == 2:
+                    raise
+                time.sleep(0.05 * (attempt + 1))
+    except (OSError, ValueError, TypeError) as exc:
+        code = (
+            f" (OS error {getattr(exc, 'winerror', exc.errno)})" if isinstance(exc, OSError) else ""
+        )
         raise StateError(
-            "state write failed; existing state was not intentionally replaced"
+            f"state write failed{code}; existing state was not intentionally replaced"
         ) from None
     finally:
         if temporary and os.path.exists(temporary):
@@ -170,7 +285,7 @@ def observe(state: State, events: list[Event], *, now: datetime) -> State:
         entries[event.id] = (
             replace(previous, event=event, last_seen_at=now) if previous else Entry(event, now, now)
         )
-    return State(entries)
+    return replace(state, events=entries)
 
 
 def unemailed_events(state: State, *, now: datetime) -> list[Event]:

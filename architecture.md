@@ -11,19 +11,20 @@ The local proof of concept established that public web endpoints can supply
 usable event data. The user has selected those endpoints instead of MCP.
 All prototype code and artifacts have been removed. The new Python package and
 read-only collector, enrichment, filtering/ranking, preview CLI, and offline CI
-are implemented. State and delivery remain in the ordered backlog. Sections
+are implemented, along with local state and explicitly enabled delivery. Sections
 below describe the target design unless noted.
 
 ## Data flow
 
-The current CLI is read-only. It collects and normalizes, filters date/location/
+The CLI defaults to read-only preview. It collects and normalizes, filters date/location/
 availability, enriches only those eligible events to conserve detail requests,
 ranks, and writes local HTML/text/JSON previews. `--config` and `--output` select
 settings and artifacts. Exit codes are 0 for successful (possibly partial)
 preview, 2 for invalid configuration, 3 for total collection failure, and 4 for
 output failure. Partial warnings appear in console and artifacts. Failed runs
 must not be treated as a fresh successful preview; old/partial artifacts may
-remain in an output directory. State and email below are future milestones.
+remain in an output directory. State and explicit email modes are described below;
+scheduled execution and cross-runner durability remain future work.
 
 ```text
 Local CLI or GitHub Actions
@@ -143,6 +144,25 @@ single-line summaries. Rendering has no state or delivery side effects.
 
 ## State and delivery semantics
 
+`--send` is the only send-capable CLI operation. It locks state across collection,
+selection, provider contact, and acknowledgement. Cached future unemailed events
+are reevaluated along with current discoveries. `--pending-preview` reads the
+same cached state and suppresses acknowledged events without mutating history.
+`--send-empty` optionally allows one empty summary per UTC day after usable
+collection; total collection failure always aborts before sending.
+
+The version-1 state schema accepts an additive `batches` map (older files remain
+readable). A prepared batch persists the exact subject/HTML/text, selected IDs,
+creation time, payload hash, envelope HMAC, and deterministic idempotency key
+before send. Accepted/rejected batches retain outcome metadata but discard bodies.
+Only provider-accepted included events get `emailed_at`; omitted and rejected
+events remain pending. Prepared/ambiguous retries freeze the original payload,
+require the same envelope and still-relevant events, and stop at 24 hours.
+Pending events that expire or lose relevance require reconciliation rather than
+silently changing a potentially accepted request. Post-acceptance save failure
+exits 8 with duplicate risk; provider/config/recovery errors exit 7, state access
+errors exit 6. All paths retain pending intent for recovery.
+
 The first provider is Resend's HTTPS `/emails` API, using the standard library
 and environment-only key/sender/recipients. Explicit send enablement and valid
 settings are mandatory. Requests include HTML and plain text, with one attempt
@@ -162,6 +182,8 @@ creates an empty file without network access and refuses existing history.
 never read or mutate state. Unknown/missing/corrupt state fails with exit 6.
 Writes validate normalized records, fsync a same-directory temporary file, and
 atomically replace the destination under an exclusive local writer lock.
+Windows sharing/access conflicts during replacement get at most three local
+attempts (150 ms total backoff); this never repeats a provider request.
 A leftover `.lock` is an operator recovery condition, never removed automatically
 as stale. Verify there is no active writer before removing it. This local lock
 does not serialize machines; Actions serialization belongs to milestone 3.
