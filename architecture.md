@@ -124,6 +124,13 @@ inclusive. Ordering is score descending, start ascending, then stable ID.
 Explanations retain terms from both fields and each group's points. Unfetched or
 failed descriptions explicitly mark title-only scoring; fetched-empty is distinct.
 
+`digest.py` renders HTML, plain text, and JSON without I/O. It revalidates links,
+escapes every external HTML field, uses Pacific timezone labels plus UTC offsets,
+and displays coverage warnings even when no matches remain. Selection uses the
+ranking order and exposes omitted eligible IDs; JSON retains all eligible matches
+with provenance, contributions, and inclusion status. Descriptions become short
+single-line summaries. Rendering has no state or delivery side effects.
+
 ## State and delivery semantics
 
 Start with a versioned JSON state file keyed by event ID, recording
