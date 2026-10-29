@@ -24,7 +24,7 @@
       "text": ""
     },
     "event-radar/716315e279728104f753cfd1d29ddb9ea0fd27b8102f7268c037cdbe373c4f9a": {
-      "accepted_at": null,
+      "accepted_at": "2026-10-29T20:31:21.913745+00:00",
       "created_at": "2026-10-29T20:31:20.087810+00:00",
       "event_ids": [
         "evt-o0t9Oo7KiZe8FJw",
@@ -38,13 +38,13 @@
         "evt-6K6Dz8q71pnBl1K",
         "evt-197EIIUmbjNh5sV"
       ],
-      "html": "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Event Radar</title>\n<style>body{margin:0;background:#f4f5f1;color:#18342d;font:16px/1.55 system-ui,sans-serif}main{max-width:680px;margin:32px auto;padding:0 20px}h1{font-size:34px;margin-bottom:0}h2{font-size:21px;margin:0 0 8px}a{color:#12654c}article{background:white;padding:24px;margin:20px 0;border:1px solid #d8e1dc;border-radius:12px}.meta,.reason,footer{font-size:14px;color:#42594f}.notes{padding:16px 20px;background:#e9eee7;border-radius:10px}li{margin:6px 0}p{overflow-wrap:anywhere}h2{overflow-wrap:anywhere}</style></head><body><main>\n<header><h1>Event Radar</h1><p>Your upcoming event matches<br><span class=\"meta\">Generated Thu, Oct 29, 2026 \u00b7 01:31 PM PDT (UTC-0700)</span></p></header>\n<section class=\"notes\" aria-label=\"Coverage notes\"><strong>Coverage notes</strong><ul>\n<li>sf: page budget exhausted; more results remain</li>\n<li>ai: page budget exhausted; more results remain</li>\n<li>tech: page budget exhausted; more results remain</li>\n<li>description request budget exhausted; coverage reduced</li>\n<li>Public discovery is incomplete; source limits can hide events.</li>\n</ul></section>\n<article><h2><a href=\"https://luma.com/2opylbqn\">FC SF \u2022 Founders Run &amp; Coffee!</a></h2><p class=\"meta\">Tue, Nov 03, 2026 \u00b7 07:00 AM PST (UTC-0800)<br>Blue Bottle Coffee \u00b7 Embarcadero \u00b7 San Francisco \u00b7 available</p><p>Description not fetched.</p><p class=\"reason\">startups: founders (+3) \u00b7 score 3 \u00b7 title-only scoring</p><a href=\"https://luma.com/2opylbqn\">View registration \u2192</a></article>\n<article><h2><a href=\"https://luma.com/w7on81hs\">Korean Founders &amp; Funders</a></h2><p class=\"meta\">Tue, Nov 03, 2026 \u00b7 04:00 PM PST (UTC-0800)<br>100 Middlefield Rd \u00b7 South of Seminary - Vintage Oaks \u00b7 Menlo Park \u00b7 available</p><p>Description not fetched.</p><p class=\"reason\">startups: founders (+3) \u00b7 score 3 \u00b7 title-only scoring</p><a href=\"https://luma.com/w7on81hs\">View registration \u2192</a></article>\n<article><h2><a href=\"https://luma.com/cpqlpbpi\">Agentic AI Day: From Models to Systems That Act</a></h2><p class=\"meta\">Thu, Oct 29, 2026 \u00b7 02:00 PM PDT (UTC-0700)<br>SoMa \u00b7 San Francisco \u00b7 available</p><p>12 Demos \u00b7 RSVP 80 People Agentic AI Day is a focused gathering for the founders, engineers, researchers, investors, and enterprise leaders building that future. Meet the builders on Thursday&#x27;s afternoon. \ud83d\ude4c 12 live pr\u2026</p><p class=\"reason\">hackathons: hackathons (+1); startups: founders (+1) \u00b7 score 2</p><a href=\"https://luma.com/cpqlpbpi\">View registration \u2192</a></article>\n<article><h2><a href=\"https://luma.com/khwnkdc7\">The FDE Conference III</a></h2><p class=\"meta\">Thu, Oct 29, 2026 \u00b7 03:00 PM PDT (UTC-0700)<br>North Beach \u00b7 San Francisco \u00b7 available</p><p>You asked. We listened. So we\u2019re doing it again. FDE Conference I and II filled up within a week, bringing together hundreds of FDEs, founders, and operators building at the forefront of AI. Now we\u2019re back for round t\u2026</p><p class=\"reason\">research: ml (+1); startups: founders (+1) \u00b7 score 2</p><a href=\"https://luma.com/khwnkdc7\">View registration \u2192</a></article>\n<article><h2><a href=\"https://luma.com/9qyybpyn\">The Deployment Moat: A Physical AI Industry Panel</a></h2><p class=\"meta\">Thu, Oct 29, 2026 \u00b7 06:00 PM PDT (UTC-0700)<br>Mission Robotics \u00b7 Mission District \u00b7 San Francisco \u00b7 available</p><p>Is Deployment the Real Moat in Physical AI? What does it really take to deploy robots at scale, and can deployment become a lasting competitive advantage? As robotics foundation models and hardware continue to advance\u2026</p><p class=\"reason\">robotics: robotics, robots (+1); startups: founders (+1) \u00b7 score 2</p><a href=\"https://luma.com/9qyybpyn\">View registration \u2192</a></article>\n<article><h2><a href=\"https://luma.com/wkhm3fke\">Haas Tech &amp; AI Summit 2026 \u00b7 Where Intelligence Goes Next</a></h2><p class=\"meta\">Fri, Oct 30, 2026 \u00b7 09:00 AM PDT (UTC-0700)<br>Chou Hall \u00b7 Berkeley \u00b7 available</p><p>The Haas Tech &amp; AI Summit is the biggest event of the year for the Haas Tech Club and the Haas AI Club at UC Berkeley, and this year&#x27;s theme is Where Intelligence Goes Next. On Friday, October 30, more than 250 studen\u2026</p><p class=\"reason\">robotics: robotics (+1); startups: founders (+1) \u00b7 score 2</p><a href=\"https://luma.com/wkhm3fke\">View registration \u2192</a></article>\n<article><h2><a href=\"https://luma.com/murray-c4bu\">GC Executive Forum, Private Lunch</a></h2><p class=\"meta\">Fri, Oct 30, 2026 \u00b7 12:00 PM PDT (UTC-0700)<br>Financial District \u00b7 San Francisco \u00b7 available</p><p>GC Executive Forum, Private Lunch A private lunch for general counsels and chief legal officers, hosted with Foley &amp; Lardner, Lockton and Simmons &amp; Simmons. Registration: by approval Governing AI Agents That Don&#x27;t Beh\u2026</p><p class=\"reason\">safety: alignment (+1); startups: founders (+1) \u00b7 score 2</p><a href=\"https://luma.com/murray-c4bu\">View registration \u2192</a></article>\n<article><h2><a href=\"https://luma.com/axjsq5fn\">AI of the Coast Dinner #2 : The AI leaders talk!</a></h2><p class=\"meta\">Fri, Oct 30, 2026 \u00b7 06:30 PM PDT (UTC-0700)<br>Civic Center \u00b7 San Francisco \u00b7 available</p><p>Dinner #1 was in April and a huge success, the outcomes are shaping AI space in Europe now. So it is the right time for AI of the Coast Dinner #2:) The machines are about to do the labor. What stays with us is the thi\u2026</p><p class=\"reason\">robotics: robots (+1); startups: founders (+1) \u00b7 score 2</p><a href=\"https://luma.com/axjsq5fn\">View registration \u2192</a></article>\n<article><h2><a href=\"https://luma.com/vvlnzg6t\">Build &amp; Sprint \u2615 Founder Reps</a></h2><p class=\"meta\">Thu, Oct 29, 2026 \u00b7 02:00 PM PDT (UTC-0700)<br>2323 Broadway \u00b7 Northgate - Waverly \u00b7 Oakland \u00b7 available</p><p>Sip. Build. Ship. Build real products with AI. No coding required. Hosted by TheSprintFit \u00d7 Lovable. An afternoon of coffee, creativity, and hands-on AI building for founders, domain experts, and people turning real-w\u2026</p><p class=\"reason\">startups: founders (+1) \u00b7 score 1</p><a href=\"https://luma.com/vvlnzg6t\">View registration \u2192</a></article>\n<article><h2><a href=\"https://luma.com/sbb-nlq1\">Fireside Chat with David Rhew, Chief Medical Officer and VP of Healthcare at Microsoft</a></h2><p class=\"meta\">Thu, Oct 29, 2026 \u00b7 04:00 PM PDT (UTC-0700)<br>Stanford \u00b7 available</p><p>Join us for a fireside chat with David Rhew, Chief Medical Officer and VP of Healthcare at Microsoft. The conversation will explore the rapidly evolving intersection of AI, healthcare, and AI for science. We\u2019ll discus\u2026</p><p class=\"reason\">startups: founders (+1) \u00b7 score 1</p><a href=\"https://luma.com/sbb-nlq1\">View registration \u2192</a></article>\n<footer><p>Showing 10 of 37 eligible matches. 27 omitted by the digest limit.</p><p>All times America/Los_Angeles.</p></footer>\n</main></body></html>",
-      "outcome": "prepared",
+      "html": "",
+      "outcome": "accepted",
       "payload_hash": "8c00655c63e53c0aa977fbd3f635a3e9aedf5f94e0cff20e8dc10df8665c32bb",
-      "provider_message_id": null,
+      "provider_message_id": "01a1895c-2cd0-752c-b178-1d4588a69b18",
       "scope": "28ffa579b8f46a03033fa4c5e1fe8e011614a6b1d75762327ce402ea944e6a29",
       "subject": "Event Radar: upcoming matches",
-      "text": "Event Radar\nYour upcoming event matches\nGenerated Thu, Oct 29, 2026 \u00b7 01:31 PM PDT (UTC-0700)\n\nCoverage notes:\n- sf: page budget exhausted; more results remain\n- ai: page budget exhausted; more results remain\n- tech: page budget exhausted; more results remain\n- description request budget exhausted; coverage reduced\n- Public discovery is incomplete; source limits can hide events.\n\nFC SF \u2022 Founders Run & Coffee!\nTue, Nov 03, 2026 \u00b7 07:00 AM PST (UTC-0800)\nBlue Bottle Coffee \u00b7 Embarcadero \u00b7 San Francisco \u00b7 available\nDescription not fetched.\nstartups: founders (+3) \u00b7 score 3 \u00b7 title-only scoring\nhttps://luma.com/2opylbqn\n\nKorean Founders & Funders\nTue, Nov 03, 2026 \u00b7 04:00 PM PST (UTC-0800)\n100 Middlefield Rd \u00b7 South of Seminary - Vintage Oaks \u00b7 Menlo Park \u00b7 available\nDescription not fetched.\nstartups: founders (+3) \u00b7 score 3 \u00b7 title-only scoring\nhttps://luma.com/w7on81hs\n\nAgentic AI Day: From Models to Systems That Act\nThu, Oct 29, 2026 \u00b7 02:00 PM PDT (UTC-0700)\nSoMa \u00b7 San Francisco \u00b7 available\n12 Demos \u00b7 RSVP 80 People Agentic AI Day is a focused gathering for the founders, engineers, researchers, investors, and enterprise leaders building that future. Meet the builders on Thursday's afternoon. \ud83d\ude4c 12 live pr\u2026\nhackathons: hackathons (+1); startups: founders (+1) \u00b7 score 2\nhttps://luma.com/cpqlpbpi\n\nThe FDE Conference III\nThu, Oct 29, 2026 \u00b7 03:00 PM PDT (UTC-0700)\nNorth Beach \u00b7 San Francisco \u00b7 available\nYou asked. We listened. So we\u2019re doing it again. FDE Conference I and II filled up within a week, bringing together hundreds of FDEs, founders, and operators building at the forefront of AI. Now we\u2019re back for round t\u2026\nresearch: ml (+1); startups: founders (+1) \u00b7 score 2\nhttps://luma.com/khwnkdc7\n\nThe Deployment Moat: A Physical AI Industry Panel\nThu, Oct 29, 2026 \u00b7 06:00 PM PDT (UTC-0700)\nMission Robotics \u00b7 Mission District \u00b7 San Francisco \u00b7 available\nIs Deployment the Real Moat in Physical AI? What does it really take to deploy robots at scale, and can deployment become a lasting competitive advantage? As robotics foundation models and hardware continue to advance\u2026\nrobotics: robotics, robots (+1); startups: founders (+1) \u00b7 score 2\nhttps://luma.com/9qyybpyn\n\nHaas Tech & AI Summit 2026 \u00b7 Where Intelligence Goes Next\nFri, Oct 30, 2026 \u00b7 09:00 AM PDT (UTC-0700)\nChou Hall \u00b7 Berkeley \u00b7 available\nThe Haas Tech & AI Summit is the biggest event of the year for the Haas Tech Club and the Haas AI Club at UC Berkeley, and this year's theme is Where Intelligence Goes Next. On Friday, October 30, more than 250 studen\u2026\nrobotics: robotics (+1); startups: founders (+1) \u00b7 score 2\nhttps://luma.com/wkhm3fke\n\nGC Executive Forum, Private Lunch\nFri, Oct 30, 2026 \u00b7 12:00 PM PDT (UTC-0700)\nFinancial District \u00b7 San Francisco \u00b7 available\nGC Executive Forum, Private Lunch A private lunch for general counsels and chief legal officers, hosted with Foley & Lardner, Lockton and Simmons & Simmons. Registration: by approval Governing AI Agents That Don't Beh\u2026\nsafety: alignment (+1); startups: founders (+1) \u00b7 score 2\nhttps://luma.com/murray-c4bu\n\nAI of the Coast Dinner #2 : The AI leaders talk!\nFri, Oct 30, 2026 \u00b7 06:30 PM PDT (UTC-0700)\nCivic Center \u00b7 San Francisco \u00b7 available\nDinner #1 was in April and a huge success, the outcomes are shaping AI space in Europe now. So it is the right time for AI of the Coast Dinner #2:) The machines are about to do the labor. What stays with us is the thi\u2026\nrobotics: robots (+1); startups: founders (+1) \u00b7 score 2\nhttps://luma.com/axjsq5fn\n\nBuild & Sprint \u2615 Founder Reps\nThu, Oct 29, 2026 \u00b7 02:00 PM PDT (UTC-0700)\n2323 Broadway \u00b7 Northgate - Waverly \u00b7 Oakland \u00b7 available\nSip. Build. Ship. Build real products with AI. No coding required. Hosted by TheSprintFit \u00d7 Lovable. An afternoon of coffee, creativity, and hands-on AI building for founders, domain experts, and people turning real-w\u2026\nstartups: founders (+1) \u00b7 score 1\nhttps://luma.com/vvlnzg6t\n\nFireside Chat with David Rhew, Chief Medical Officer and VP of Healthcare at Microsoft\nThu, Oct 29, 2026 \u00b7 04:00 PM PDT (UTC-0700)\nStanford \u00b7 available\nJoin us for a fireside chat with David Rhew, Chief Medical Officer and VP of Healthcare at Microsoft. The conversation will explore the rapidly evolving intersection of AI, healthcare, and AI for science. We\u2019ll discus\u2026\nstartups: founders (+1) \u00b7 score 1\nhttps://luma.com/sbb-nlq1\n\nShowing 10 of 37 eligible matches. 27 omitted by the digest limit.\nAll times America/Los_Angeles.\n"
+      "text": ""
     },
     "event-radar/89ee51563a44c3be36fde0ad70f7fd92556be8fd1dde937deeab0339b780bc83": {
       "accepted_at": null,
@@ -211,7 +211,7 @@
       "last_seen_at": "2026-10-29T20:31:18.292385+00:00"
     },
     "evt-197EIIUmbjNh5sV": {
-      "emailed_at": null,
+      "emailed_at": "2026-10-29T20:31:21.913745+00:00",
       "event": {
         "availability": "available",
         "city": "Stanford",
@@ -779,7 +779,7 @@
       "last_seen_at": "2026-10-29T20:31:18.292385+00:00"
     },
     "evt-6K6Dz8q71pnBl1K": {
-      "emailed_at": null,
+      "emailed_at": "2026-10-29T20:31:21.913745+00:00",
       "event": {
         "availability": "available",
         "city": "Oakland",
@@ -2343,7 +2343,7 @@
       "last_seen_at": "2026-10-29T20:31:18.292385+00:00"
     },
     "evt-Uv8iL3pc2HP27Xi": {
-      "emailed_at": null,
+      "emailed_at": "2026-10-29T20:31:21.913745+00:00",
       "event": {
         "availability": "available",
         "city": "San Francisco",
@@ -2823,7 +2823,7 @@
       "last_seen_at": "2026-10-29T20:31:18.292385+00:00"
     },
     "evt-be5Dy8wvAdtwLLt": {
-      "emailed_at": null,
+      "emailed_at": "2026-10-29T20:31:21.913745+00:00",
       "event": {
         "availability": "available",
         "city": "San Francisco",
@@ -3751,7 +3751,7 @@
       "last_seen_at": "2026-10-29T20:31:18.292385+00:00"
     },
     "evt-o0t9Oo7KiZe8FJw": {
-      "emailed_at": null,
+      "emailed_at": "2026-10-29T20:31:21.913745+00:00",
       "event": {
         "availability": "available",
         "city": "San Francisco",
@@ -4259,7 +4259,7 @@
       "last_seen_at": "2026-10-29T20:31:18.292385+00:00"
     },
     "evt-uiA2sfTzfHkfYdf": {
-      "emailed_at": null,
+      "emailed_at": "2026-10-29T20:31:21.913745+00:00",
       "event": {
         "availability": "available",
         "city": "San Francisco",
@@ -4287,7 +4287,7 @@
       "last_seen_at": "2026-10-29T20:31:18.292385+00:00"
     },
     "evt-umM8FBp7vhjPLES": {
-      "emailed_at": null,
+      "emailed_at": "2026-10-29T20:31:21.913745+00:00",
       "event": {
         "availability": "available",
         "city": "San Francisco",
@@ -4427,7 +4427,7 @@
       "last_seen_at": "2026-10-29T20:31:18.292385+00:00"
     },
     "evt-wcF9kQGhBylM3mV": {
-      "emailed_at": null,
+      "emailed_at": "2026-10-29T20:31:21.913745+00:00",
       "event": {
         "availability": "available",
         "city": "Berkeley",
@@ -4711,7 +4711,7 @@
       "last_seen_at": "2026-10-29T20:31:18.292385+00:00"
     },
     "evt-zIuaawS2Kr8qDM4": {
-      "emailed_at": null,
+      "emailed_at": "2026-10-29T20:31:21.913745+00:00",
       "event": {
         "availability": "available",
         "city": "San Francisco",
@@ -4767,7 +4767,7 @@
       "last_seen_at": "2026-10-29T20:31:18.292385+00:00"
     },
     "evt-zVTBhBTKYbvKEm0": {
-      "emailed_at": null,
+      "emailed_at": "2026-10-29T20:31:21.913745+00:00",
       "event": {
         "availability": "available",
         "city": "Menlo Park",
