@@ -35,3 +35,18 @@ Keep local configuration in ignored `config.yaml`, preview artifacts in
 `output/`, and working state in `state/`. Credentials, sender, and recipients
 belong in environment variables, never in checked-in configuration. See
 `architecture.md` and `AGENTS.md` for decisions and implementation milestones.
+
+## Configuration
+
+Copy `config.example.yaml` to `config.yaml` and edit non-sensitive settings.
+`event_radar.config.load_config(path)` validates the file before use and rejects
+unknown settings. Budgets cap pages per source, total HTTP attempts (including
+retries), and later description requests. A zero detail budget disables
+enrichment. Title weight must exceed description weight. Unknown coordinates
+are excluded by default; sold-out and waitlisted events are retained by default.
+
+Email settings are loaded separately from `EVENT_RADAR_EMAIL_API_KEY`,
+`EVENT_RADAR_EMAIL_FROM`, and comma-separated `EVENT_RADAR_EMAIL_TO`. YAML cannot
+set these values. An explicitly injected environment mapping replaces the
+process environment for tests. No email adapter exists yet; send-time validation
+belongs to issue #13. Configuration and settings loading have no delivery effects.
