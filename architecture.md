@@ -229,6 +229,18 @@ must remain eligible for a subsequent run.
 
 ## Scheduling and durable storage
 
+`git_state.py` now stores `state.json` alone on the dedicated `event-radar-state`
+branch, using an isolated bare Git cache rather than the application checkout.
+Bootstrap is explicit and refuses existing history; an existing local state file
+can be explicitly migrated. Every normal run fetches/validates current state.
+Publication compares the expected remote head and pushes only a descendant
+commit without force or automatic merging. Changed/deleted/unavailable heads
+fail visibly. "Stale" means a superseded revision, not a wall-clock age limit.
+Runner checkpoints can publish observations and prepared intent before provider
+contact, then accepted/rejected outcomes afterward. A post-acceptance push error
+retains remote prepared intent for exact-payload idempotent recovery. Independent
+machines still need shared Actions concurrency and protected state-branch history.
+
 Offline CI now checks Python 3.11/3.14 on Ubuntu/Windows for PRs and main pushes.
 It uses no Luma requests or secrets. An explicitly invoked `--smoke-check` caps
 live requests, reports description coverage, and compares SF page/feed IDs before

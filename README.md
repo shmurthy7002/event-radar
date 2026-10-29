@@ -127,6 +127,24 @@ It never automatically retries. Resend retains idempotency keys for 24 hours;
 ambiguous requests must reuse the exact persisted payload/key within that window
 or be reconciled manually afterward. Preview and automated tests cannot send.
 
+## Durable Git state
+
+The dedicated state branch contains only validated normalized state, never
+credentials or recipients. Bootstrap deliberately with
+`python -m event_radar.git_state initialize --remote origin`. If local delivery
+history already exists, add `--from-state state/state.json` rather than starting
+empty. Existing branches cannot be reinitialized. Fetch a working copy with
+`python -m event_radar.git_state fetch --remote origin --state state/durable.json`.
+The separate bare cache lives in ignored `state/git-cache/` by default.
+
+All remote revisions are checked before non-forced publication; concurrent or
+unexpected missing state fails instead of overwriting history. The workflow
+integration publishes prepared intent before provider contact and outcomes after.
+If a post-send push fails, retain both the local outcome and remote prepared
+batch and reconcile/retry safely. Never force-push or bootstrap over missing
+history without investigating. Use `contents: read` for retrieval and
+`contents: write` only for bootstrap/send, plus serialized workflow runs.
+
 ## Delivery failure recovery
 
 Keep the state file and check the provider's message/request logs before resolving

@@ -43,10 +43,17 @@ def run_delivery(
     send_enabled: bool = False,
     nothing_new: bool = False,
     report=None,
+    checkpoint=None,
 ) -> DeliveryRun:
     if not send_enabled:
         raise DeliveryError("configuration", "delivery orchestration requires explicit send mode")
     clock = lambda: utc_timestamp(now if now is not None else datetime.now(UTC))
+
+    def persist(path, state, **kwargs):
+        save_state(path, state, **kwargs)
+        if checkpoint:
+            checkpoint(state)
+
     with state_lock(path):
         state = load_state(path)
         if report:
@@ -74,7 +81,7 @@ def run_delivery(
         for event in preview.candidate_events:
             entries[event.id] = replace(entries[event.id], event=event)
         state = replace(state, events=entries)
-        save_state(path, state, lock_held=True)
+        persist(path, state, lock_held=True)
         eligible = rank_events(
             filter_events(unemailed_events(state, now=clock()), config, now=clock()).events, config
         ).matches
@@ -135,9 +142,7 @@ def run_delivery(
                 message.text,
             )
             state = replace(state, batches={**state.batches, batch.key: batch})
-            save_state(
-                path, state, lock_held=True
-            )  # Durable intent must precede the provider call.
+            persist(path, state, lock_held=True)  # Durable intent must precede the provider call.
         if report:
             report.update({"pending_batches": 1})
         try:
@@ -154,7 +159,7 @@ def run_delivery(
                 html=batch.html if outcome == "ambiguous" else "",
                 text=batch.text if outcome == "ambiguous" else "",
             )
-            save_state(
+            persist(
                 path, replace(state, batches={**state.batches, batch.key: failed}), lock_held=True
             )
             raise
@@ -176,7 +181,7 @@ def run_delivery(
             state, events=entries, batches={**state.batches, batch.key: acknowledged}
         )
         try:
-            save_state(path, acknowledged_state, lock_held=True)
+            persist(path, acknowledged_state, lock_held=True)
         except StateError as exc:
             raise PostSendStateError(
                 f"provider accepted but {exc}; duplicate-delivery risk; retain pending batch and reconcile/retry within 24 hours"
