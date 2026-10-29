@@ -78,8 +78,8 @@ def _number(value, label, low, high, integer=False):
         isinstance(value, bool)
         or not isinstance(value, (int, float))
         or (integer and not isinstance(value, int))
-        or not math.isfinite(value)
         or not low <= value <= high
+        or not math.isfinite(value)
     ):
         raise ConfigError(
             f"{label}: expected {'integer' if integer else 'number'} in [{low}, {high}]"

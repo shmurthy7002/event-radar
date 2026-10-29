@@ -25,7 +25,7 @@ and must never send email. Ruff checks formatting and basic Python errors.
 ## Implementation boundaries
 
 `event_radar/collectors/` owns public Luma HTTP, metadata, and schema handling.
-`models.py` will own normalized records; `config.py` validated YAML;
+`models.py` owns normalized records; `config.py` validates YAML. Planned modules:
 `relevance.py` filtering/ranking; `digest.py` rendering; `state.py` durable
 observations; and `delivery.py` provider communication. These modules are added
 in their respective issues. The entry point currently displays help/version;
@@ -50,3 +50,53 @@ Email settings are loaded separately from `EVENT_RADAR_EMAIL_API_KEY`,
 set these values. An explicitly injected environment mapping replaces the
 process environment for tests. No email adapter exists yet; send-time validation
 belongs to issue #13. Configuration and settings loading have no delivery effects.
+
+## Read-only discovery API
+
+The package now collects SF, AI, and tech feeds, normalizes records, and merges
+duplicates. Ranking, enrichment, preview rendering, state, and email are later
+issues. All undocumented source parsing stays in `collectors/luma.py`.
+
+For an explicitly requested bounded live check, run this Python snippet in the
+installed environment (ordinary tests never call Luma):
+
+```python
+from dataclasses import replace
+from event_radar.config import load_config
+from event_radar.collectors.luma import collect, TotalCollectionFailure
+
+config = load_config("config.example.yaml")
+config = replace(
+    config,
+    requests=replace(
+        config.requests,
+        pages_per_source=2,
+        total_requests=9,
+        retries=0,
+        detail_requests=0,
+    ),
+)
+try:
+    result = collect(config)
+except TotalCollectionFailure as error:
+    for source in error.result.sources:
+        print(source)
+    raise
+for source in result.sources:
+    print(source)
+print(len(result.events), result.duplicate_count, result.requests, result.partial)
+```
+
+Metadata fetches and retries count toward the global budget. Two pages per feed
+deliberately truncate discovery and produce visible warnings; this is a health
+check, not exhaustive coverage. Partial source errors and skipped malformed
+records remain visible in `result.sources`. Total failure raises an exception
+with the same diagnostic result; a valid empty feed is a successful empty result.
+Descriptions remain explicitly `not_fetched` until enrichment is implemented.
+
+Local validation on October 28, 2026: nine HTTP attempts fetched two pages and
+40 records per source, yielding 109 unique records, 11 duplicates, no malformed
+records, and expected page-budget truncation on all three feeds. This verifies
+the observed interfaces from this machine; it does not establish runner coverage
+or eliminate location bias. Fixtures use synthetic event data matching the
+observed shape and contain no attendee/host data.

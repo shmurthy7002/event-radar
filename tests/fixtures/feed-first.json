@@ -1,0 +1,9 @@
+{
+  "entries": [
+    {"api_id":"evt-one","event":{"api_id":"evt-one","name":"Example robotics","url":"example-one","start_at":"2026-12-28T10:00:00-08:00","end_at":"2026-12-28T11:00:00-08:00","timezone":"America/Los_Angeles","geo_address_info":{"city":"Berkeley","sublocality":"Downtown","address":"Example Hall"},"coordinate":{"latitude":37.87,"longitude":-122.27}},"registration_availability":"open"},
+    {"api_id":"evt-two","event":{"api_id":"evt-two","name":"Example ML workshop","url":"example-two","start_at":"2026-10-29T10:00:00-07:00","timezone":"America/Los_Angeles","coordinate":null},"registration_availability":"waitlist"},
+    {"event":{"api_id":"evt-malformed","name":"Missing start","url":"bad"}}
+  ],
+  "has_more":true,
+  "next_cursor":"opaque+/=first"
+}

@@ -51,9 +51,9 @@ changes need consistency and diff checks, not a new test suite. Update
 
 ## Current milestone
 
-The proof of concept has been removed. This repository currently contains only
-the contributor instructions and architecture. Start implementation with a
-read-only local collector, normalized event records, YAML configuration,
-relevance filtering, and an inspectable digest preview. Add durable state and
-email next, then the daily workflow. Do not assume any of these components
-already exists.
+The proof of concept has been removed. Issues #1–#5 establish the Python package,
+validated YAML configuration, normalized event records, bounded HTTP transport,
+and read-only paginated SF/AI/tech collection. Continue the local milestone with
+description enrichment, relevance filtering, and an inspectable digest preview
+(issues #6–#11). Durable state, email, and the daily workflow follow afterward.
+Do not assume those later components already exist.

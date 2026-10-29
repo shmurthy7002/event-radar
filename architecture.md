@@ -47,6 +47,18 @@ statuses retry with capped exponential or Retry-After backoff; permanent errors,
 invalid JSON, and exhausted budgets fail explicitly. Transport, sleep, and the
 clock are injectable for offline testing. Responses are capped at 8 MB.
 
+Discovery collection is implemented. Public `__NEXT_DATA__` metadata resolves
+the configured place/category IDs, with expected kind and slug validation.
+City requests use `discover_place_api_id`; category requests use
+`discover_category_api_id` and the verified metadata slug. All feed requests
+include explicit configured latitude/longitude. The unrelated `category_api_id`
+parameter was observed to be silently ignored and must not be used. Follow
+`pagination_cursor` with `pagination_limit=20`, validate `entries`/`has_more`,
+and report missing/repeated cursors or page-budget truncation. No date filtering
+occurs during collection. Nonempty pages with no parseable records fail visibly;
+valid empty pages count as successful collection. Results retain per-source
+diagnostics, including when a later page fails after usable earlier pages.
+
 Use request timeouts, bounded retries for transient errors, rate-limit backoff,
 and configurable page and detail-request budgets. Follow opaque cursors, detect
 repeated or missing cursors, and expose truncated feeds. Do not assume records
