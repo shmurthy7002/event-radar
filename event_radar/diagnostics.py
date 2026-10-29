@@ -2,6 +2,7 @@
 
 import builtins
 import json
+import math
 import os
 import re
 from dataclasses import dataclass, field
@@ -30,6 +31,7 @@ OUTCOMES = {
     8: "post_send_persistence_failed",
 }
 GUIDANCE = {
+    "delivery_gated": "Enable the delivery variable and provide explicit confirmation; scheduled delivery also requires completed rollout verification.",
     "collection_failed": "Check source schemas/connectivity; no successful empty run or delivery is implied.",
     "provider_rejected": "Fix provider/settings; events remain pending.",
     "provider_ambiguous": "Retain the pending batch; retry the identical request within its window or reconcile provider logs.",
@@ -62,6 +64,54 @@ class RunReport:
     json_path: str | None = None
     markdown_path: str | None = None
     only: bool = False
+
+    def preview(self, data):
+        from event_radar.digest import local_time
+        from event_radar.models import utc_timestamp
+
+        samples = []
+        for match in data.get("matches", [])[:3]:
+            score = match.get("score")
+            if (
+                isinstance(score, bool)
+                or not isinstance(score, (int, float))
+                or not math.isfinite(score)
+            ):
+                continue
+            try:
+                start = utc_timestamp(match["event"]["start"])
+            except (KeyError, ValueError, TypeError):
+                continue
+            groups = []
+            for contribution in match.get("contributions", []):
+                points = contribution.get("points")
+                if (
+                    isinstance(points, bool)
+                    or not isinstance(points, (int, float))
+                    or not math.isfinite(points)
+                ):
+                    continue
+                groups.append(
+                    {
+                        "group": contribution["group"]
+                        if contribution.get("group")
+                        in ("robotics", "research", "safety", "hackathons", "startups")
+                        else "configured-interest",
+                        "points": points,
+                        "title_matches": len(contribution.get("title_terms", [])),
+                        "description_matches": len(contribution.get("description_terms", [])),
+                    }
+                )
+            samples.append(
+                {
+                    "start_utc": start.isoformat(),
+                    "display_time": local_time(start),
+                    "score": score,
+                    "title_only": bool(match.get("title_only")),
+                    "contributions": groups,
+                }
+            )
+        self.metrics["preview_samples"] = samples
 
     def update(self, summary: dict):
         for key in COUNTERS:
@@ -150,6 +200,12 @@ class RunReport:
                     + ", ".join(f"{key}={value}" for key, value in self.metrics[section].items())
                     + "\n"
                 )
+        for sample in self.metrics.get("preview_samples", []):
+            markdown += (
+                f"\nPreview audit: {sample['display_time']}, score={sample['score']}, title-only={sample['title_only']}; "
+                + ", ".join(f"{c['group']} +{c['points']}" for c in sample["contributions"])
+                + "\n"
+            )
         try:
             for name, content in (
                 (self.json_path, json.dumps(data, indent=2) + "\n"),

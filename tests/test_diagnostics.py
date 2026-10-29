@@ -47,6 +47,41 @@ def test_allowlist_never_exports_event_secret_or_provider_content(tmp_path):
         )
 
 
+def test_preview_audit_omits_titles_ids_and_terms():
+    report = RunReport()
+    report.preview(
+        {
+            "matches": [
+                {
+                    "event": {
+                        "id": "private-id",
+                        "title": "Private Person",
+                        "start": "2026-11-01T09:30:00+00:00",
+                    },
+                    "score": 3,
+                    "title_only": True,
+                    "contributions": [
+                        {
+                            "group": "private@example.test",
+                            "points": 3,
+                            "title_terms": ["private-secret"],
+                            "description_terms": [],
+                        }
+                    ],
+                }
+            ]
+        }
+    )
+    text = json.dumps(report.metrics)
+    assert (
+        "Private Person" not in text
+        and "private-id" not in text
+        and "private-secret" not in text
+        and "example.test" not in text
+    )
+    assert "PST" in text and "configured-interest" in text
+
+
 @pytest.mark.parametrize(
     "failure,outcome,code",
     [

@@ -196,6 +196,33 @@ page-budget truncation on every feed. This verifies the observed interfaces from
 this machine, not exhaustive discovery or coverage on an Actions runner.
 Fixtures use synthetic event data and contain no attendee/host data.
 
+## GitHub Actions operations
+
+The **Event Radar operations** workflow has manual `smoke`, `preview`,
+`initialize`, and `send` modes. Preview retrieves persisted state; smoke compares
+bounded Berkeley/SF samples without touching state. Initialization requires the
+literal confirmation `INITIALIZE_EMPTY_STATE` and refuses existing history.
+Sending requires `EVENT_RADAR_DELIVERY_ENABLED=true`, the Resend secrets, and
+`SEND_CONFIGURED_RECIPIENT` confirmation. Write modes run only from main and use
+the `event-radar-delivery` environment; configure protection/reviewers there.
+
+All operations share `event-radar-delivery-state` concurrency with
+`cancel-in-progress: false`. Only bootstrap/send have `contents: write`; preview
+and smoke use read permissions. State checkpoints publish prepared intent before
+send and outcomes afterward. Jobs fail on persistence/provider errors and publish
+only sanitized JSON reports (seven-day retention) and Markdown summaries.
+No state files, credentials, or event/person payloads are uploaded as artifacts.
+Preview audit samples retain dates and numeric relevance contributions only.
+
+Jobs have a 20-minute timeout. Normal operations cap requests at 40 total,
+three pages/source, 12 detail attempts, ten-second request timeouts, one retry,
+and three-second backoff. Smoke runs two samples, each capped at 15 requests.
+The proposed daily schedule is **15:17 UTC** (08:17 PDT / 07:17 PST); it remains
+commented out until issue #20's authorized rollout passes. Scheduled execution
+would also require `EVENT_RADAR_ROLLOUT_VERIFIED=true`. Public repositories can
+have schedules disabled after 60 days without activity, and runs may be delayed
+or dropped; see [GitHub schedule documentation](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
+
 ## Offline CI and bounded live smoke check
 
 Use `--summary-json output/run.json --summary-markdown output/run.md` for

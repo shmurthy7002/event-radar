@@ -229,6 +229,16 @@ must remain eligible for a subsequent run.
 
 ## Scheduling and durable storage
 
+The operations workflow now supports manual smoke, persisted-state preview,
+explicit bootstrap, and gated send. A shared concurrency group never cancels an
+active run. Write jobs require the delivery environment and `contents: write`;
+read jobs need only repository read access. Prepared/outcome remote checkpoints
+run under the same local transaction as delivery. Artifacts are sanitized reports
+only, with bounded date/score audit samples and seven-day retention.
+No cron trigger is active. The proposed 15:17 UTC daily schedule and its Pacific
+DST shift are documented; manual sends require explicit confirmation and a
+delivery variable, and scheduled sends additionally require rollout verification.
+
 `git_state.py` now stores `state.json` alone on the dedicated `event-radar-state`
 branch, using an isolated bare Git cache rather than the application checkout.
 Bootstrap is explicit and refuses existing history; an existing local state file
