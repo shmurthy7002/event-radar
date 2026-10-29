@@ -6,6 +6,8 @@ build-backend = "setuptools.build_meta"
 name = "event-radar"
 version = "0.1.0"
 description = "Inspectable discovery of relevant Bay Area Luma events"
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.11"
 dependencies = ["PyYAML>=6.0.2,<7", "tzdata>=2025.1; sys_platform == 'win32'"]
 

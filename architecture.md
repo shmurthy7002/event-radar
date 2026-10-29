@@ -24,7 +24,7 @@ preview, 2 for invalid configuration, 3 for total collection failure, and 4 for
 output failure. Partial warnings appear in console and artifacts. Failed runs
 must not be treated as a fresh successful preview; old/partial artifacts may
 remain in an output directory. State and explicit email modes are described below;
-scheduled execution and cross-runner durability remain future work.
+manual Actions and remote state are implemented; the daily trigger remains gated.
 
 ```text
 Local CLI or GitHub Actions
@@ -222,8 +222,8 @@ these limits and test recovery rather than promising exactly-once delivery.
 
 Render a short HTML email with a plain-text alternative: title, local date and
 time, neighborhood or venue, one-line description, match reason, and direct
-registration link. Initially implement one provider adapter, choosing Resend
-or SMTP at the delivery milestone. Send only when there are eligible matches;
+registration link. The implemented provider adapter uses Resend as described
+above. Send only when there are eligible matches;
 make a nothing-new summary optional. Events omitted by a digest length limit
 must remain eligible for a subsequent run.
 
@@ -256,8 +256,8 @@ It uses no Luma requests or secrets. An explicitly invoked `--smoke-check` caps
 live requests, reports description coverage, and compares SF page/feed IDs before
 filtering; normal CI never invokes it. No daily execution or delivery is enabled.
 
-Add a daily GitHub Actions workflow plus a manual trigger after local collection
-and delivery are verified. Store credentials in Actions secrets. Scheduled
+The manual workflow is implemented; activate its daily trigger only after
+rollout verification and authorization. Store credentials in Actions secrets. Scheduled
 execution may be delayed; fixed UTC cron times also shift local time with
 daylight saving changes. Choose and document the schedule at deployment.
 
@@ -271,7 +271,7 @@ the target repository and keep private data out of committed state. Move to a
 hosted store if repository permissions or reliability require it; do not depend
 on an Actions cache for durable delivery history.
 
-## Proposed project layout
+## Project layout
 
 ```text
 event_radar/          CLI and application modules
@@ -282,23 +282,28 @@ event_radar/          CLI and application modules
   state.py           Versioned state and atomic writes
   digest.py          HTML and text rendering
   delivery.py        Email provider adapter
+  runner.py          Transactional delivery and reconciliation
+  diagnostics.py     Sanitized operational reports
+  git_state.py       Conflict-safe durable Git state
+  actions.py         Bounded hosted-runner operations
 tests/               Offline behavioral tests and sanitized fixtures
+docs/operations.md   Setup, activation, monitoring, and recovery
 config.example.yaml  Non-sensitive starting configuration
 .github/workflows/   Checks and, later, scheduled execution
 ```
 
 ## Current implementation status (October 29, 2026)
 
-Milestone 2 implementation is available: local versioned observations, Resend,
-explicit transactional sending, and offline rerun/crash recovery validation.
-Verification and completion are tracked in [GitHub milestone 2](https://github.com/shmurthy7002/event-radar/milestone/2).
-No real send or deployment was performed during implementation; remote state
-and scheduled delivery remain milestone 3 work.
+Milestones 1 and 2 provide local discovery, state, Resend, and offline recovery.
+Milestone 3 adds diagnostics, durable Git state, bounded manual Actions, and an
+operations guide. Issue #20 records live rollout evidence and remaining gates.
+No real send or daily schedule has been enabled by implementation. Keep milestone
+3 open as requested; provider acceptance never substitutes for receipt evidence.
 
 ## Implementation milestones
 
-Milestone 1 was verified and completed on October 28, 2026. Milestone 2 is
-implemented, with verification tracked above; milestone 3 remains planned.
+Milestone 1 was verified October 28, 2026; subsequent implementation and rollout
+status are described above and tracked in GitHub.
 
 1. Implement the read-only local collector, event schema, YAML configuration,
    deterministic ranking, and JSON and HTML preview outputs. Add meaningful
