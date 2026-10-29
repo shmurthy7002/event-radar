@@ -85,3 +85,43 @@ yielding 109 unique events, 11 duplicates, no malformed records, and expected
 page-budget truncation on every feed. This verifies the observed interfaces from
 this machine, not exhaustive discovery or coverage on an Actions runner.
 Fixtures use synthetic event data and contain no attendee/host data.
+
+## Offline CI and bounded live smoke check
+
+Pull requests and pushes to main run installation, offline tests, Ruff lint and
+format checks, and CLI help on Python 3.11/3.14 on Ubuntu and Windows. The workflow
+uses read-only repository permissions, pinned official actions, and no secrets.
+Tests block real HTTP/socket connections, so Luma availability cannot affect CI.
+The official [checkout](https://github.com/actions/checkout) and
+[setup-python](https://github.com/actions/setup-python) actions provide runner setup.
+
+Run the live check explicitly; it is never part of default tests or CI:
+
+```powershell
+.venv\Scripts\python -m event_radar --smoke-check --config config.example.yaml --output output/smoke
+```
+
+This command caps configured budgets at two pages per source, 15 total HTTP
+attempts, three detail attempts, one retry, ten-second timeouts, and three-second
+backoff. Smaller configured limits remain in effect. It requires the SF city
+source and supports the SF/AI/tech sources. It writes only sanitized counts,
+schema diagnostics, and warnings in `smoke.json`, with no event/person payloads.
+It compares city-page event IDs with all fetched city-feed IDs **before relevance
+filtering**. Page-only/feed-only counts describe a bounded sample; neither source
+is exhaustive. Exit 5 means a source/schema/detail health failure; expected budget
+truncation alone is not failure. Exit codes 2/3/4 retain their usual meaning.
+
+October 28, 2026 smoke check: 12/15 HTTP attempts, 40 records per source,
+109 unique events, 11 duplicates, three content descriptions, zero failed details
+and zero malformed records. All 20 SF page IDs overlapped the 40 city-feed IDs
+(page-only 0, feed-only 20). All feeds and detail coverage reported expected
+budget truncation. This check ran locally, with no email or persistent state.
+
+To refresh fixtures after a source change, inspect only the public adapter paths
+with a small explicit request budget. Keep raw captures in ignored `output/`.
+Compare metadata keys, page cursors, nested event/location fields, and rich-text
+shape. Recreate the shape with synthetic IDs, titles, addresses, and timestamps
+under `tests/fixtures/`; omit host/guest data, tracking values, and personal data.
+Add an offline regression for the changed shape, run the complete suite, then
+repeat the bounded smoke check and record counts/warnings. Never silently treat
+an unfamiliar response schema as an empty successful result.

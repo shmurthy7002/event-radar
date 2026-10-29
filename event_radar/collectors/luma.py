@@ -208,6 +208,26 @@ def discovery_identifier(page: str, source: Source) -> str:
         ) from None
 
 
+def discovery_page_event_ids(page: str) -> set[str]:
+    parser = _PageDataParser()
+    try:
+        parser.feed(page)
+        entries = json.loads("".join(parser.parts))["props"]["pageProps"]["initialData"]["data"][
+            "events"
+        ]
+        if not isinstance(entries, list):
+            raise TypeError
+        ids = set()
+        for entry in entries:
+            identifier = entry["event"]["api_id"]
+            if not isinstance(identifier, str) or not identifier:
+                raise ValueError
+            ids.add(identifier)
+        return ids
+    except (ValueError, KeyError, TypeError, RecursionError):
+        raise CollectionError("city page event ID schema changed") from None
+
+
 def normalize_record(record, source: str, collected_at: datetime) -> Event:
     """Map the observed public feed schema into source-independent Event fields."""
     if not isinstance(record, dict) or not isinstance(record.get("event"), dict):
@@ -306,6 +326,7 @@ class SourceReport:
     truncated: bool = False
     warnings: list[str] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
+    page_comparison: dict[str, int] | None = None
 
 
 @dataclass
@@ -327,7 +348,11 @@ class TotalCollectionFailure(CollectionError):
 
 
 def collect(
-    config: Config, client: LumaClient | None = None, *, now: datetime | None = None
+    config: Config,
+    client: LumaClient | None = None,
+    *,
+    now: datetime | None = None,
+    compare_page_ids: bool = False,
 ) -> CollectionResult:
     """Collect every fetched record, without date/rank filtering or delivery side effects."""
     client = client or LumaClient(config.requests)
@@ -337,8 +362,15 @@ def collect(
     for source in config.sources:
         report = SourceReport(source.slug)
         reports.append(report)
+        page_ids, feed_ids = None, set()
         try:
-            report.identifier = discovery_identifier(client.page(source.slug), source)
+            page = client.page(source.slug)
+            report.identifier = discovery_identifier(page, source)
+            if compare_page_ids and source.kind == "city":
+                try:
+                    page_ids = discovery_page_event_ids(page)
+                except CollectionError as exc:
+                    report.warnings.append(str(exc))
             params = {
                 "discover_place_api_id"
                 if source.kind == "city"
@@ -369,6 +401,7 @@ def collect(
                         report.warnings.append(f"skipped malformed record: {exc}")
                     else:
                         events.append(event)
+                        feed_ids.add(event.id)
                         report.normalized += 1
                         parsed += 1
                         report.warnings.extend(event.warnings)
@@ -391,6 +424,14 @@ def collect(
         except CollectionError as exc:
             report.errors.append(str(exc))
             report.truncated = True
+        if page_ids is not None:
+            report.page_comparison = {
+                "page_ids": len(page_ids),
+                "feed_ids": len(feed_ids),
+                "overlap": len(page_ids & feed_ids),
+                "page_only": len(page_ids - feed_ids),
+                "feed_only": len(feed_ids - page_ids),
+            }
     merged = merge_events(events)
     result = CollectionResult(
         merged, reports, len(events) - len(merged), client.attempts - initial_attempts
@@ -402,6 +443,8 @@ def collect(
 
 def description_text(value) -> str:
     """Extract text from the observed rich-text tree without interpreting markup."""
+    if not isinstance(value, dict) or value.get("type") != "doc":
+        raise CollectionError("malformed rich-text description document")
     count = 0
 
     def walk(node, depth=0):

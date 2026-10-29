@@ -51,9 +51,9 @@ changes need consistency and diff checks, not a new test suite. Update
 
 ## Current milestone
 
-The proof of concept has been removed. Issues #1–#5 establish the Python package,
-validated YAML configuration, normalized event records, bounded HTTP transport,
-and read-only paginated SF/AI/tech collection. Continue the local milestone with
-description enrichment, relevance filtering, and an inspectable digest preview
-(issues #6–#11). Durable state, email, and the daily workflow follow afterward.
-Do not assume those later components already exist.
+The proof of concept has been replaced by the implementation from issues #1–#11:
+Python packaging, validated YAML, normalized records, bounded public collection
+and enrichment, relevance filtering/ranking, inspectable previews, offline CI,
+and an explicit live smoke check. The local milestone remains open by user
+request. Durable state, email, and the daily workflow follow in later issues;
+do not assume those components already exist.
