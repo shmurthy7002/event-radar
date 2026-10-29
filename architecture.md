@@ -143,6 +143,19 @@ single-line summaries. Rendering has no state or delivery side effects.
 
 ## State and delivery semantics
 
+The first provider is Resend's HTTPS `/emails` API, using the standard library
+and environment-only key/sender/recipients. Explicit send enablement and valid
+settings are mandatory. Requests include HTML and plain text, with one attempt
+per call and no redirects. 4xx rejection (except uncertain timeout/conflict
+responses) is distinct from ambiguous network/5xx/malformed-success outcomes.
+Errors never echo provider bodies, credentials, or addresses. Provider acceptance
+returns a message ID; it does not prove inbox delivery. Tests use a fake provider.
+Resend [idempotency keys](https://resend.com/docs/dashboard/emails/idempotency-keys)
+last 24 hours and require identical request payloads. Retry orchestration must
+persist the original message and key, bind its envelope with a keyed fingerprint,
+and stop for operator reconciliation after the retention window. Rotated keys
+or changed recipients invalidate that fingerprint; addresses never enter state.
+
 Local version-1 JSON state is implemented in `state.py`. Explicit `--init-state`
 creates an empty file without network access and refuses existing history.
 `--observe` updates observations after a successful preview; ordinary previews

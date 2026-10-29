@@ -81,6 +81,16 @@ Keep local artifacts in ignored `output/` and state working copies in `state/`.
 
 ## Implementation boundaries
 
+The email adapter uses [Resend](https://resend.com/docs/api-reference/emails/send-email).
+Before explicitly enabling sending, configure a verified sender/domain in the
+provider and set `EVENT_RADAR_EMAIL_API_KEY`, `EVENT_RADAR_EMAIL_FROM`, and
+comma-separated `EVENT_RADAR_EMAIL_TO` in the environment. Keep them out of YAML
+and logs. The adapter requires explicit send enablement, sends both HTML and
+plain text, and reports acceptance IDs separately from inbox delivery.
+It never automatically retries. Resend retains idempotency keys for 24 hours;
+ambiguous requests must reuse the exact persisted payload/key within that window
+or be reconciled manually afterward. Preview and automated tests cannot send.
+
 `collectors/luma.py` owns undocumented Luma transport, metadata, schema parsing,
 and enrichment. `models.py` owns normalized events; `config.py` validates YAML;
 `relevance.py` filters and ranks; `digest.py` renders; and `pipeline.py` connects
