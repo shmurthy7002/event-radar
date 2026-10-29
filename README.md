@@ -76,10 +76,33 @@ raises instead of presenting a healthy empty run.
 
 Credentials, sender, and recipients belong only in `EVENT_RADAR_EMAIL_API_KEY`,
 `EVENT_RADAR_EMAIL_FROM`, and comma-separated `EVENT_RADAR_EMAIL_TO`. Preview does
-not read or use them. Sending, persistent state, and scheduling are later issues.
+not read or use them. Local state and explicit sending are available; scheduling
+and remote durable state belong to later issues.
 Keep local artifacts in ignored `output/` and state working copies in `state/`.
 
-## Implementation boundaries
+## Explicit local sending
+
+Initialize state intentionally, configure the three email environment variables,
+and inspect pending matches with `python -m event_radar --pending-preview
+--state state/state.json --config config.yaml` (one command). When ready to send,
+replace `--pending-preview` with `--send`. Sending never occurs in ordinary preview
+or smoke mode. `--send-empty` is an additional opt-in for one empty summary per
+UTC day; by default empty runs send nothing. No scheduled delivery is enabled.
+
+The sender saves a stable batch and exact payload before contacting Resend.
+Only included events are acknowledged after provider acceptance. Length-limited
+omissions, rejected requests, and earlier observations remain eligible for later
+runs. State retains provider message ID and batch outcome without sender or
+recipient values. A keyed fingerprint binds recovery to the same API key/envelope.
+
+Exit 6 means state access/write failure; exit 7 means provider configuration,
+rejection, ambiguous outcome, or recovery guard; exit 8 means acceptance occurred
+but acknowledgement could not be saved. For uncertain outcomes, retain state
+and rerun explicitly within 24 hours to reuse the same payload/key. Changed
+recipients/API key, expired/no-longer-relevant events, or a batch older than
+24 hours stop automatic retry for operator reconciliation. Never delete or
+reinitialize state to bypass these guards: the provider may already have accepted
+the message. Provider acceptance is not proof of inbox delivery.
 
 The email adapter uses [Resend](https://resend.com/docs/api-reference/emails/send-email).
 Before explicitly enabling sending, configure a verified sender/domain in the
@@ -91,10 +114,13 @@ It never automatically retries. Resend retains idempotency keys for 24 hours;
 ambiguous requests must reuse the exact persisted payload/key within that window
 or be reconciled manually afterward. Preview and automated tests cannot send.
 
+## Implementation boundaries
+
 `collectors/luma.py` owns undocumented Luma transport, metadata, schema parsing,
 and enrichment. `models.py` owns normalized events; `config.py` validates YAML;
 `relevance.py` filters and ranks; `digest.py` renders; and `pipeline.py` connects
-read-only preview. Planned `state.py` and `delivery.py` belong to later issues.
+read-only preview. `state.py` persists observations/batches, `delivery.py` owns
+the provider, and `runner.py` coordinates explicit delivery.
 See `architecture.md` and `AGENTS.md` for decisions and remaining milestones.
 
 ## Live verification evidence
