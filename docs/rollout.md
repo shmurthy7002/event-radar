@@ -1,7 +1,8 @@
 # Milestone 3 rollout evidence
 
-Status: read-only rollout checks passed; the first authorized live request was
-rejected before acceptance. Receipt and daily activation remain pending. Issue
+Status: read-only rollout checks passed; authorized live requests were rejected
+before acceptance by Resend's test-recipient restriction. Receipt and daily
+activation remain pending. Issue
 #20 and milestone 3 must stay open until the remaining
 criteria are satisfied. Test sending to a user-selected account was authorized
 in the task; its address is stored only as an encrypted environment secret.
@@ -59,9 +60,30 @@ Rejections now retain HTTP status and a controlled reason code (such as invalid
 key, unverified sender domain, or restricted test recipient), without exporting
 provider bodies, addresses, or credentials.
 
+The refined preview passed on a hosted runner at `23489fc`:
+[run 40948620434](https://github.com/shmurthy7002/event-radar/actions/runs/40948620434)
+reported 167 collected events, 26 matches, 10 shown, 16 omitted, 32/40 HTTP
+attempts, 32 cached/fetched content descriptions, and zero failed details. The
+20 new detail requests were combined with 12 descriptions cached in durable
+state after the first rejected send. Selection counts and date/score samples
+were checked without exporting event identifiers or keyword text.
+
+After PR #42 and all four CI jobs passed, a second explicitly authorized test on
+main `87a7d55` produced the controlled diagnosis:
+[run 40948915733](https://github.com/shmurthy7002/event-radar/actions/runs/40948915733),
+HTTP **403**, `test_recipient_restricted`, zero provider-accepted events,
+26 pending matches, 10 selected and 16 omitted. Resend's account test mode only
+permits its own account recipient. The intended recipient remains unchanged;
+no sender/key/address values are recorded here. The user must verify a sending
+domain/from address or supply a Resend account matching the authorized test
+recipient. The delivery gate was disabled immediately after the diagnostic run.
+
+The complete offline suite now contains **215 passing tests**, and all four
+Python/OS CI combinations passed before the rollout-refinement PR merged.
+
 ## Remaining release gates
 
-- Resolve the provider rejection. All three secret names are configured in
+- Resolve `test_recipient_restricted`. All three secret names are configured in
   `event-radar-delivery`, but successful provider acceptance is still unverified.
   No secret/address values belong in Git or artifacts.
 - Perform an authorized real send. Record acceptance separately from recipient
@@ -73,6 +95,6 @@ provider bodies, addresses, or credentials.
 - Confirm daily deployment scope, mark rollout verified only after checks pass,
   and activate cron through a reviewed PR.
 
-The delivery variable was enabled only for the authorized test, then disabled
+The delivery variable was enabled only for authorized tests, then disabled
 after rejection. No cron trigger has been activated. Do not close
 issue #20 or the milestone on these read-only checks alone.
