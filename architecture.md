@@ -108,6 +108,13 @@ exclusion count. This policy can miss events with hidden locations. Keep
 registration availability visible; make any sold-out or waitlist exclusion an
 explicit setting. Render dates in America/Los_Angeles, not the runner timezone.
 
+Filtering is implemented in `relevance.py`: starts must lie in the half-open
+UTC interval `[now, now + horizon_days)`, with an injected aware clock. Distance
+uses the haversine formula and mean Earth radius 6371.0088 km; the configured
+radius boundary is included. Exclusion counts use the first applicable reason
+in date, location, then availability order, so counts sum to excluded events.
+Unknown-location inclusion and sold-out/waitlist exclusion are explicit settings.
+
 ## State and delivery semantics
 
 Start with a versioned JSON state file keyed by event ID, recording
