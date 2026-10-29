@@ -1,4 +1,4 @@
-"""Explicit read-only local collection and preview commands."""
+"""Safe-default preview and explicitly selected state/delivery operations."""
 
 import argparse
 import json
@@ -10,7 +10,7 @@ from event_radar.collectors.luma import LumaClient, TotalCollectionFailure
 from event_radar.config import ConfigError, load_config, load_email_settings
 from event_radar.delivery import DeliveryError, ResendProvider, validate_email_settings
 from event_radar.pipeline import build_preview, write_preview
-from event_radar.runner import PostSendStateError, run_delivery
+from event_radar.runner import PostSendStateError, reconcile_batch, run_delivery
 from event_radar.smoke import run_smoke, smoke_config
 from event_radar.state import (
     State,
@@ -57,12 +57,50 @@ def main(
         action="store_true",
         help="with --send, allow one nothing-new summary per UTC day",
     )
+    parser.add_argument("--batch-id", help="unresolved batch key for explicit reconciliation")
+    parser.add_argument(
+        "--reconcile-accepted",
+        metavar="MESSAGE_ID",
+        help="after provider verification, acknowledge an accepted batch without sending",
+    )
+    parser.add_argument(
+        "--reconcile-not-accepted",
+        action="store_true",
+        help="after provider verification, release a batch confirmed not accepted",
+    )
     args = parser.parse_args(argv)
-    if sum((args.init_state, args.observe, args.smoke_check, args.pending_preview, args.send)) > 1:
-        parser.error("choose only one operation: init, observe, smoke, pending preview, or send")
+    if (
+        sum(
+            bool(x)
+            for x in (
+                args.init_state,
+                args.observe,
+                args.smoke_check,
+                args.pending_preview,
+                args.send,
+                args.reconcile_accepted,
+                args.reconcile_not_accepted,
+            )
+        )
+        > 1
+    ):
+        parser.error("choose only one preview, state, send, or reconciliation operation")
+    reconciliation = bool(args.reconcile_accepted or args.reconcile_not_accepted)
+    if bool(args.batch_id) != reconciliation:
+        parser.error("--batch-id and exactly one reconciliation outcome must be provided together")
     if args.send_empty and not args.send:
         parser.error("--send-empty requires --send")
     try:
+        if reconciliation:
+            reconcile_batch(
+                args.state,
+                args.batch_id,
+                now=now if now is not None else datetime.now(UTC),
+                accepted_message_id=args.reconcile_accepted,
+                confirmed_not_accepted=args.reconcile_not_accepted,
+            )
+            print("Confirmed provider outcome recorded; no email sent.")
+            return 0
         if args.init_state:
             save_state(args.state, State(), initialize=True)
             print("Empty state initialized; no delivery history overwritten.")
