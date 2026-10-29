@@ -51,8 +51,10 @@ changes need consistency and diff checks, not a new test suite. Update
 
 ## Current milestone
 
-Milestone 1 (local discovery and preview) was verified and completed on
-October 28, 2026. Milestone 2 adds local versioned state, explicitly enabled
-Resend delivery, and offline rerun/crash recovery tests. Its verification and
-completion status is tracked in GitHub milestone 2. Remote durable state and the daily workflow remain milestone 3
-work; do not assume those components already exist.
+Milestones 1 and 2 provide discovery/preview, local state, explicitly enabled
+Resend delivery, and offline recovery tests. Milestone 3 adds sanitized diagnostics,
+conflict-safe remote Git state, bounded manual Actions operations, delivery gates,
+and an operations guide. Live rollout verification is issue #20; real sending and
+the daily trigger remain gated until its prerequisites and authorization are
+satisfied. Do not claim recipient receipt from provider acceptance alone. Keep
+milestone 3 open as requested by the user.
