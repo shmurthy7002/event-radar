@@ -40,6 +40,13 @@ on `https://api.lu.ma`, with discovery metadata from `https://luma.com/sf`,
 `https://luma.com/ai`, and `https://luma.com/tech`. Treat these as observed
 interfaces that can change, not supported public API contracts.
 
+`collectors/luma.py` uses the standard-library HTTP transport without login,
+cookies, or redirects. Each attempt (including metadata fetches and retries)
+consumes the shared configured request budget. Timeouts and selected transient
+statuses retry with capped exponential or Retry-After backoff; permanent errors,
+invalid JSON, and exhausted budgets fail explicitly. Transport, sleep, and the
+clock are injectable for offline testing. Responses are capped at 8 MB.
+
 Use request timeouts, bounded retries for transient errors, rate-limit backoff,
 and configurable page and detail-request budgets. Follow opaque cursors, detect
 repeated or missing cursors, and expose truncated feeds. Do not assume records
