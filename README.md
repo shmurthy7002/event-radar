@@ -24,6 +24,15 @@ send email. In a restrictive sandbox, add `--basetemp output/pytest` to pytest.
 
 ## Local preview
 
+State can be explicitly initialized with `python -m event_radar --init-state
+--state state/state.json` (one command). Add `--observe --state state/state.json`
+to the preview command to persist observations without marking anything sent.
+Plain preview does not touch state. Missing/corrupt state or persistence failures
+exit 6; initialization never overwrites existing delivery history. Working state
+and lock files belong in the ignored `state/` directory. Atomic writes protect
+the prior file on failed replacement. A stale `.lock` requires checking that no
+writer is running before manual removal.
+
 Copy `config.example.yaml` to ignored `config.yaml` and edit it, then run:
 
 ```powershell

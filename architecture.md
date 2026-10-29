@@ -143,6 +143,18 @@ single-line summaries. Rendering has no state or delivery side effects.
 
 ## State and delivery semantics
 
+Local version-1 JSON state is implemented in `state.py`. Explicit `--init-state`
+creates an empty file without network access and refuses existing history.
+`--observe` updates observations after a successful preview; ordinary previews
+never read or mutate state. Unknown/missing/corrupt state fails with exit 6.
+Writes validate normalized records, fsync a same-directory temporary file, and
+atomically replace the destination under an exclusive local writer lock.
+A leftover `.lock` is an operator recovery condition, never removed automatically
+as stale. Verify there is no active writer before removing it. This local lock
+does not serialize machines; Actions serialization belongs to milestone 3.
+First-seen time persists, current metadata replaces prior observations, and
+unemailed future events remain available for relevance reevaluation on later runs.
+
 Start with a versioned JSON state file keyed by event ID, recording
 `first_seen_at`, `last_seen_at`, and nullable `emailed_at`. Newly seen means
 first discovered by this service, not newly published on Luma. Update event

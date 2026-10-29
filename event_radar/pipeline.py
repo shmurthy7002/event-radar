@@ -8,7 +8,7 @@ from pathlib import Path
 from event_radar.collectors.luma import LumaClient, collect, enrich
 from event_radar.config import Config
 from event_radar.digest import Digest, render_digest
-from event_radar.models import utc_timestamp
+from event_radar.models import Event, utc_timestamp
 from event_radar.relevance import filter_events, rank_events
 
 
@@ -16,6 +16,7 @@ from event_radar.relevance import filter_events, rank_events
 class Preview:
     digest: Digest
     summary: dict
+    observed_events: list[Event]
 
 
 def build_preview(
@@ -57,7 +58,8 @@ def build_preview(
     digest = render_digest(
         ranking.matches, limit=config.digest_length, now=clock, warnings=warnings, coverage=summary
     )
-    return Preview(digest, summary)
+    enriched = {event.id: event for event in enrichment.events}
+    return Preview(digest, summary, [enriched.get(event.id, event) for event in collection.events])
 
 
 def write_preview(preview: Preview, directory: str | Path) -> None:
