@@ -66,6 +66,13 @@ are ordered by date when deciding whether to stop pagination. Fetch event
 descriptions within an explicit budget and distinguish missing descriptions
 from descriptions that have been fetched and are empty.
 
+Description enrichment uses public `/event/get` responses and extracts plain
+text from top-level `description_mirror` rich-text trees. It prioritizes earliest
+start then stable ID, skips completed fetches, and counts retries against both
+the detail and global HTTP attempt budgets. Failed/malformed details retain the
+discovery event with `failed` status; empty trees produce `empty`, and events
+omitted by a budget remain `not_fetched`. Coverage counts and warnings are returned.
+
 Normalize each event to a stable ID, canonical registration URL, title,
 description, UTC start and optional end, source timezone, city, neighborhood,
 venue, coordinates, registration availability, and source provenance. Merge
