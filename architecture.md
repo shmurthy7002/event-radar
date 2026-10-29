@@ -24,7 +24,8 @@ preview, 2 for invalid configuration, 3 for total collection failure, and 4 for
 output failure. Partial warnings appear in console and artifacts. Failed runs
 must not be treated as a fresh successful preview; old/partial artifacts may
 remain in an output directory. State and explicit email modes are described below;
-manual Actions and remote state are implemented; the daily trigger remains gated.
+manual Actions and remote state are implemented; the authorized daily trigger
+requires both delivery and rollout-verification environment gates.
 
 ```text
 Local CLI or GitHub Actions
@@ -235,7 +236,7 @@ active run. Write jobs require the delivery environment and `contents: write`;
 read jobs need only repository read access. Prepared/outcome remote checkpoints
 run under the same local transaction as delivery. Artifacts are sanitized reports
 only, with bounded date/score audit samples and seven-day retention.
-No cron trigger is active. The proposed 15:17 UTC daily schedule and its Pacific
+The authorized 15:17 UTC daily cron trigger is active. Its Pacific
 DST shift are documented; manual sends require explicit confirmation and a
 delivery variable, and scheduled sends additionally require rollout verification.
 
@@ -254,10 +255,10 @@ machines still need shared Actions concurrency and protected state-branch histor
 Offline CI now checks Python 3.11/3.14 on Ubuntu/Windows for PRs and main pushes.
 It uses no Luma requests or secrets. An explicitly invoked `--smoke-check` caps
 live requests, reports description coverage, and compares SF page/feed IDs before
-filtering; normal CI never invokes it. No daily execution or delivery is enabled.
+filtering; normal CI never invokes it. Daily execution uses the separate operations workflow.
 
-The manual workflow is implemented; activate its daily trigger only after
-rollout verification and authorization. Store credentials in Actions secrets. Scheduled
+The daily trigger follows verified live rollout and user authorization recorded
+in `docs/rollout.md`. Store credentials in Actions secrets. Scheduled
 execution may be delayed; fixed UTC cron times also shift local time with
 daylight saving changes. Choose and document the schedule at deployment.
 
@@ -289,16 +290,18 @@ event_radar/          CLI and application modules
 tests/               Offline behavioral tests and sanitized fixtures
 docs/operations.md   Setup, activation, monitoring, and recovery
 config.example.yaml  Non-sensitive starting configuration
-.github/workflows/   Checks and, later, scheduled execution
+.github/workflows/   Offline checks and gated scheduled execution
 ```
 
 ## Current implementation status (October 29, 2026)
 
 Milestones 1 and 2 provide local discovery, state, Resend, and offline recovery.
 Milestone 3 adds diagnostics, durable Git state, bounded manual Actions, and an
-operations guide. Issue #20 records live rollout evidence and remaining gates.
-No real send or daily schedule has been enabled by implementation. Keep milestone
-3 open as requested; provider acceptance never substitutes for receipt evidence.
+operations guide. Issue #20 records live rollout evidence: two disjoint accepted
+batches on fresh runners, durable acknowledgement, recipient-confirmed HTML/text
+receipt, and confirmed failure alerts. Daily delivery at 15:17 UTC is authorized.
+Keep milestone 3 open as requested; provider acceptance never substitutes for
+receipt evidence.
 
 ## Implementation milestones
 
