@@ -20,7 +20,7 @@ def bounded_settings(path):
     caps = {
         "pages_per_source": 3,
         "total_requests": 40,
-        "detail_requests": 12,
+        "detail_requests": 20,
         "timeout_seconds": 10,
         "retries": 1,
         "max_backoff_seconds": 3,

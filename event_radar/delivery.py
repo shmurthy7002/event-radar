@@ -16,9 +16,39 @@ IDEMPOTENCY_HOURS = 24
 
 
 class DeliveryError(RuntimeError):
-    def __init__(self, outcome: str, message: str):
+    def __init__(
+        self, outcome: str, message: str, *, http_status: int | None = None, code: str = "unknown"
+    ):
         super().__init__(message)
         self.outcome = outcome
+        self.http_status = http_status
+        self.code = code
+
+
+def rejection_code(body: bytes) -> str:
+    try:
+        data = json.loads(body)
+        message = data.get("message", "").casefold()
+        name = data.get("name", "")
+        if "only send testing emails" in message or "own email address" in message:
+            return "test_recipient_restricted"
+        if "domain" in message and "not verified" in message:
+            return "sender_domain_unverified"
+        if "api key" in message and ("invalid" in message or "not active" in message):
+            return "api_key_invalid"
+        if name in (
+            "missing_api_key",
+            "restricted_api_key",
+            "suspended_api_key",
+            "invalid_permission",
+            "rate_limit_exceeded",
+            "daily_quota_exceeded",
+            "monthly_quota_exceeded",
+        ):
+            return name
+    except (ValueError, TypeError, AttributeError, UnicodeError, RecursionError):
+        pass
+    return "unclassified_rejection"
 
 
 @dataclass(frozen=True)
@@ -136,6 +166,8 @@ class ResendProvider:
                 raise DeliveryError(
                     "rejected",
                     f"provider rejected request (HTTP {response.status}); no automatic retry",
+                    http_status=response.status,
+                    code=rejection_code(response.body),
                 )
             raise DeliveryError("ambiguous", f"provider HTTP {response.status}; acceptance unknown")
         try:

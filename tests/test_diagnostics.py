@@ -82,6 +82,37 @@ def test_preview_audit_omits_titles_ids_and_terms():
     assert "PST" in text and "configured-interest" in text
 
 
+def test_smoke_budget_metrics_survive_sanitization():
+    report = RunReport()
+    report.update(
+        {
+            "budgets": {
+                "total_requests": 15,
+                "pages_per_source": 2,
+                "detail_requests": 3,
+                "timeout_seconds": 10,
+                "private": "secret",
+            }
+        }
+    )
+    assert report.metrics["request_budget"] == 15
+    assert report.metrics["page_budget_per_source"] == 2
+    assert "private" not in report.metrics["budgets"]
+
+
+def test_preview_selection_counts_do_not_include_event_ids():
+    report = RunReport()
+    report.preview(
+        {
+            "matches": [],
+            "selected_ids": ["event-private-1"],
+            "omitted_ids": ["event-private-2", "event-private-3"],
+        }
+    )
+    assert report.metrics["shown"] == 1 and report.metrics["omitted"] == 2
+    assert "event-private" not in json.dumps(report.metrics)
+
+
 @pytest.mark.parametrize(
     "failure,outcome,code",
     [

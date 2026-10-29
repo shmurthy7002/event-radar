@@ -208,6 +208,7 @@ def _main(
         emit(f"State error: {exc}", file=sys.stderr)
         return 6
     except DeliveryError as exc:
+        report.update({"provider_http_status": exc.http_status, "provider_error": exc.code})
         report.outcome = {
             "ambiguous": "provider_ambiguous",
             "rejected": "provider_rejected",

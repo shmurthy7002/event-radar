@@ -118,6 +118,13 @@ it, uncertain requests may be processed again. Local acknowledgements suppress
 known delivered events beyond provider retention; crashes and failed persistence
 still prevent an exactly-once guarantee. Acceptance does not prove inbox delivery.
 
+Provider rejection reports retain HTTP status and an allowlisted reason code.
+`test_recipient_restricted` requires a verified sending domain/from address for
+the intended recipient; `sender_domain_unverified` requires sender verification;
+`api_key_invalid` requires an active valid key. Response bodies and embedded
+addresses never appear in diagnostics. Check the provider dashboard when the
+reason is unclassified; do not change to an unauthorized recipient as a workaround.
+
 After verifying the provider outcome, recover a current durable copy and use one
 offline reconciliation command:
 

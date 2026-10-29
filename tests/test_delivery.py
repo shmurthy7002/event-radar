@@ -93,3 +93,26 @@ def test_network_failure_sanitized_and_fake_idempotent():
     fake = FakeProvider()
     assert fake.send(MESSAGE, idempotency_key="test") == fake.send(MESSAGE, idempotency_key="test")
     assert len(fake.accepted) == 1
+
+
+@pytest.mark.parametrize(
+    "message,code",
+    [
+        (
+            "You can only send testing emails to your own email address private@example.test",
+            "test_recipient_restricted",
+        ),
+        ("The private.example domain is not verified", "sender_domain_unverified"),
+        ("API key is invalid private-secret", "api_key_invalid"),
+        ("Private Person and private@example.test", "unclassified_rejection"),
+    ],
+)
+def test_rejection_reason_is_controlled_not_raw(message, code):
+    body = json.dumps({"name": "validation_error", "message": message}).encode()
+    provider = ResendProvider(
+        SETTINGS, send_enabled=True, transport=lambda *_: ProviderResponse(403, body)
+    )
+    with pytest.raises(DeliveryError) as exc:
+        provider.send(MESSAGE, idempotency_key="diagnostic-test")
+    assert exc.value.http_status == 403 and exc.value.code == code
+    assert "private" not in str(exc.value) and "private" not in exc.value.code
