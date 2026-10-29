@@ -269,14 +269,14 @@ config.example.yaml  Non-sensitive starting configuration
 
 Milestone 2 implementation is available: local versioned observations, Resend,
 explicit transactional sending, and offline rerun/crash recovery validation.
-The milestone remains open by user request. No real send or deployment was
-performed during implementation; remote state and scheduled delivery remain
-milestone 3 work.
+Verification and completion are tracked in [GitHub milestone 2](https://github.com/shmurthy7002/event-radar/milestone/2).
+No real send or deployment was performed during implementation; remote state
+and scheduled delivery remain milestone 3 work.
 
 ## Implementation milestones
 
 Milestone 1 was verified and completed on October 28, 2026. Milestone 2 is
-implemented and awaiting final verification; milestone 3 remains planned.
+implemented, with verification tracked above; milestone 3 remains planned.
 
 1. Implement the read-only local collector, event schema, YAML configuration,
    deterministic ranking, and JSON and HTML preview outputs. Add meaningful

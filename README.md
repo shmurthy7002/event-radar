@@ -101,6 +101,13 @@ missing or failed details do not erase a cached description. Cached descriptions
 also survive observation-only updates and temporary eligibility exclusions.
 Automatic description refresh is not implemented.
 
+October 29, 2026 verification: all 188 offline tests pass, including 60 state,
+provider, orchestration, and recovery cases. Regressions cover cached content and
+fetched-empty descriptions, negative-keyword exclusions after detail-budget
+exhaustion, changed metadata, and temporary location exclusions. Delivery checks
+use fake transports/providers; no real email is sent. Completion is tracked in
+[milestone 2](https://github.com/shmurthy7002/event-radar/milestone/2).
+
 Exit 6 means state access/write failure; exit 7 means provider configuration,
 rejection, ambiguous outcome, or recovery guard; exit 8 means acceptance occurred
 but acknowledgement could not be saved. For uncertain outcomes, retain state

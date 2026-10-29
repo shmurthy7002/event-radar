@@ -53,6 +53,6 @@ changes need consistency and diff checks, not a new test suite. Update
 
 Milestone 1 (local discovery and preview) was verified and completed on
 October 28, 2026. Milestone 2 adds local versioned state, explicitly enabled
-Resend delivery, and offline rerun/crash recovery tests; it is awaiting final
-verification. Remote durable state and the daily workflow remain milestone 3
+Resend delivery, and offline rerun/crash recovery tests. Its verification and
+completion status is tracked in GitHub milestone 2. Remote durable state and the daily workflow remain milestone 3
 work; do not assume those components already exist.
