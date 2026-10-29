@@ -54,6 +54,14 @@ duplicates across feeds by event ID. Record collection timestamps and parsing
 warnings. One failed feed may produce a visibly partial result; total collection
 failure must fail the run and must not send a nothing-new message.
 
+The normalized `Event` model validates required fields and offset-aware times,
+canonicalizes registration links to HTTPS `luma.com`, and retains IANA source
+timezone metadata. Duplicate merge precedence is the latest collection time,
+with canonical JSON as a stable tie-break. Missing optional metadata falls back
+to earlier observations; completed description fetches outrank failed or
+unattempted ones. Provenance and warnings are unioned. Conflicting required
+metadata is reported, and coordinates are always selected as a pair.
+
 ## Configuration and relevance
 
 Use YAML for non-sensitive settings: discovery sources, date horizon, Berkeley

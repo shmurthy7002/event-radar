@@ -1,0 +1,4 @@
+[
+  {"id":"evt-example","url":"https://lu.ma/example?utm_source=test","title":"Example robotics event","start":"2026-11-01T01:30:00-07:00","source_timezone":"America/Los_Angeles","city":"Berkeley"},
+  {"id":"evt-example","url":"https://luma.com/example","title":"Updated robotics event","start":"2026-11-01T01:30:00-08:00","source_timezone":"America/Los_Angeles","venue":"Example Hall","latitude":37.87,"longitude":-122.27}
+]
