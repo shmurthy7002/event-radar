@@ -104,7 +104,7 @@ metadata is reported, and coordinates are always selected as a pair.
 
 Use YAML for non-sensitive settings: discovery sources, date horizon, Berkeley
 origin coordinates, radius, unknown-location policy, interest groups and
-synonyms, title and description weights, negative keywords, minimum score,
+synonyms, per-keyword title points, negative keywords, minimum score,
 request budgets, and digest length. Validate configuration at startup. Keep
 email credentials and recipient settings in environment variables.
 
@@ -127,13 +127,19 @@ radius boundary is included. Exclusion counts use the first applicable reason
 in date, location, then availability order, so counts sum to excluded events.
 Unknown-location inclusion and sold-out/waitlist exclusion are explicit settings.
 
-Ranking contributes at most once per interest group: the title weight if any
-title synonym matches, otherwise the description weight. Terms use Unicode word
+Ranking sums independent group contributions. Within a group, the maximum
+configured title-keyword points wins; with no title match, any description matches
+award exactly 1 point total. This deliberately retains a group maximum so related
+synonyms and overlapping phrases cannot inflate that interest, while allowing
+specific title terms to outweigh broader ones. Title plus description matches
+never add within a group. Repeated occurrences never multiply points; overlapping
+terms across different groups can contribute independently. Terms use Unicode word
 boundaries and case folding; phrase whitespace is flexible. Overlapping terms
 within a group do not multiply its score; independent groups can each contribute.
 Negative matches in either field exclude the event. The minimum score is
 inclusive. Ordering is score descending, start ascending, then stable ID.
-Explanations retain terms from both fields and each group's points. Unfetched or
+Explanations retain terms from both fields, all tied maximum scoring terms, and
+each group's points. Unfetched or
 failed descriptions explicitly mark title-only scoring; fetched-empty is distinct.
 
 `digest.py` renders HTML, plain text, and JSON without I/O. It revalidates links,
@@ -142,6 +148,14 @@ and displays coverage warnings even when no matches remain. Selection uses the
 ranking order and exposes omitted eligible IDs; JSON retains all eligible matches
 with provenance, contributions, and inclusion status. Descriptions become short
 single-line summaries. Rendering has no state or delivery side effects.
+
+`interests` uses group mappings of keyword/phrase to numeric title points in
+[1, 1000]. Legacy all-list groups still load with their global title weight
+(default 3) and description weight 1; other description weights require explicit
+migration. Mixed schemas and ignored global weights on mapping groups fail.
+YAML duplicate keys and normalized duplicate weighted terms are rejected rather
+than silently overwritten. The example preserves previous production scores;
+the editing and migration workflow is documented in `docs/relevance.md`.
 
 ## State and delivery semantics
 

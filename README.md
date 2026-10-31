@@ -38,14 +38,17 @@ digest-limit omissions. Plain preview does not read or mutate delivery state.
 
 YAML controls discovery sources, date horizon, Berkeley origin, radius,
 unknown-location/availability policies, request budgets, interests/synonyms,
-weights, negative keywords, minimum score, and digest length. Invalid types,
+per-keyword title points, negative keywords, minimum score, and digest length. Invalid types,
 ranges, and keys fail early. Starts must lie in `[now, now + horizon_days)`;
 distance must be at most the radius. Hidden coordinates are excluded by default;
 sold-out/waitlisted events are retained unless configured otherwise. Display
 times use America/Los_Angeles, including daylight saving offsets.
 
-Each interest group scores once, using title weight when matched there, otherwise
-description weight. Word boundaries prevent AI/RL/ML matching inside other words.
+Each interest group awards its strongest matching title keyword's points, or
+1 point for description-only matches; group contributions add together.
+See [customizing relevance](docs/relevance.md) for adding/removing keywords and
+groups, a worked scoring example, safe previews, and legacy YAML migration.
+Word boundaries prevent AI/RL/ML matching inside other words.
 Negative keywords exclude events; ties use start then ID. Unavailable descriptions
 visibly use title-only scoring. State-aware runs retain completed cached
 descriptions, including fetched-empty results; automatic refresh is not implemented.

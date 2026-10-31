@@ -17,12 +17,28 @@ requests:
   detail_requests: 20
 digest_length: 10
 interests:
-  robotics: [robotics, robots, embodied AI]
-  research: [RL, ML, reinforcement learning, machine learning]
-  safety: [AI safety, alignment]
-  hackathons: [hackathon, hackathons]
-  startups: [technical startup, AI startup, founders, developer tools]
-title_weight: 3
-description_weight: 1
+  # Each keyword/phrase maps to its title points. Edit these independently.
+  # Strongest title match per group wins; description-only groups get 1 point.
+  # See docs/relevance.md for examples, aggregation, and preview instructions.
+  robotics:
+    robotics: 3
+    robots: 3
+    embodied AI: 3
+  research:
+    RL: 3
+    ML: 3
+    reinforcement learning: 3
+    machine learning: 3
+  safety:
+    AI safety: 3
+    alignment: 3
+  hackathons:
+    hackathon: 3
+    hackathons: 3
+  startups:
+    technical startup: 3
+    AI startup: 3
+    founders: 3
+    developer tools: 3
 negative_keywords: [speed dating]
 minimum_score: 1

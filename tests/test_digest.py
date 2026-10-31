@@ -81,3 +81,20 @@ def test_links_revalidated():
     object.__setattr__(a.event, "url", "javascript:alert(1)")
     with pytest.raises(RecordError):
         render_digest([a], limit=1, now=NOW)
+
+
+def test_weighted_reason_explains_maximum_and_escapes_configured_terms():
+    config = replace(
+        load_config("config.example.yaml"),
+        interests={"<research>": {"<ai>": 8, "ml": 2}},
+    )
+    item = replace(matches()[0].event, title="<AI> and ML", description="ML")
+    digest = render_digest(rank_events([item], config).matches, limit=1, now=NOW)
+    assert "title maximum [<ai>] (+8)" in digest.text
+    assert "title [<ai>, ml]; description [ml]" in digest.text
+    assert "&lt;research&gt;" in digest.html
+    assert "title maximum [&lt;ai&gt;] (+8)" in digest.html
+    assert "<ai>" not in digest.html and "<research>" not in digest.html
+    contribution = digest.data["matches"][0]["contributions"][0]
+    assert contribution["scoring_terms"] == ("<ai>",)
+    assert contribution["points"] == 8

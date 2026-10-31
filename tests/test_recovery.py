@@ -89,7 +89,7 @@ def test_seen_event_becomes_relevant_and_cached_metadata_rechecked(context):
     config, path, provider = context
     assert deliver(context, [event(title="Music gathering")]).outcome == "empty"
     assert load_state(path).events["evt-test"].emailed_at is None
-    config = replace(config, interests={"music": ("music",)})
+    config = replace(config, interests={"music": {"music": 3}})
     assert deliver((config, path, provider), now=NOW + timedelta(hours=1)).included == 1
     assert (
         deliver(

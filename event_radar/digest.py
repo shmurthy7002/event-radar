@@ -38,7 +38,10 @@ def _description(ranked: RankedEvent) -> str:
 
 def _reason(ranked: RankedEvent) -> str:
     groups = [
-        f"{c.group}: {', '.join(sorted(set(c.title_terms + c.description_terms)))} (+{c.points:g})"
+        f"{c.group}: title [{', '.join(c.title_terms) or 'none'}]; "
+        f"description [{', '.join(c.description_terms) or 'none'}]; "
+        f"{'title maximum' if c.title_terms else 'description only'} "
+        f"[{', '.join(c.scoring_terms)}] (+{c.points:g})"
         for c in ranked.contributions
     ]
     text = "; ".join(groups) or "No interest keywords matched"
