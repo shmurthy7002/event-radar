@@ -141,7 +141,7 @@ def test_workflow_daily_schedule_preserves_active_run_and_delivery_gates():
         Path(".github/workflows/event-radar.yml").read_text(), Loader=yaml.BaseLoader
     )
     assert set(workflow["on"]) == {"workflow_dispatch", "schedule"}
-    assert workflow["on"]["schedule"] == [{"cron": "17 15 * * *"}]
+    assert workflow["on"]["schedule"] == [{"cron": "0 12 * * *", "timezone": "America/Los_Angeles"}]
     delivery = next(
         step
         for step in workflow["jobs"]["write-state"]["steps"]

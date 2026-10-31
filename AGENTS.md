@@ -56,6 +56,6 @@ Resend delivery, and offline recovery tests. Milestone 3 adds sanitized diagnost
 conflict-safe remote Git state, bounded manual Actions operations, delivery gates,
 and an operations guide. Issue #20 verified live acceptance, recipient-confirmed
 HTML/text receipt, fresh-run suppression, pending omissions, and failure alerts.
-Daily delivery at 15:17 UTC is authorized, with both environment gates required.
-Do not claim recipient receipt from provider acceptance alone. Keep
-milestone 3 open as requested by the user.
+Daily delivery at noon America/Los_Angeles is authorized, with both environment gates required.
+Do not claim recipient receipt from provider acceptance alone. Milestone 3 was
+verified and completed on October 29, 2026, as authorized by the user.

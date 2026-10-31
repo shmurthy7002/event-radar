@@ -3,8 +3,8 @@
 Status: rollout checks passed. Two authorized live digests were accepted on
 fresh hosted runners, with durable acknowledgement and no repeated events.
 The recipient confirmed useful HTML and plain text, confirmed failure alerts,
-and authorized daily delivery at 15:17 UTC. Milestone 3 remains open at the
-user's request. Recipient settings remain encrypted environment secrets.
+and authorized daily delivery at 15:17 UTC. Milestone 3 was verified and completed
+on October 29, 2026. Recipient settings remain encrypted environment secrets.
 
 ## Verified on October 29, 2026
 
@@ -101,4 +101,23 @@ daily delivery to the configured recipient at **15:17 UTC** (08:17 PDT / 07:17 P
 The activation PR enables that cron after offline checks and CI; both
 `EVENT_RADAR_DELIVERY_ENABLED` and `EVENT_RADAR_ROLLOUT_VERIFIED` must be `true`.
 Manual delivery still requires typed confirmation. The first automatic scheduled
-run has not yet occurred; GitHub scheduling can be delayed. Keep milestone 3 open.
+run has not yet occurred; GitHub scheduling can be delayed.
+
+## Schedule change
+
+On October 29, 2026, the user subsequently requested daily delivery at noon.
+The schedule now targets **12:00 noon America/Los_Angeles**, automatically
+following daylight saving time (19:00 UTC in PDT / 20:00 UTC in PST), with both
+delivery gates still required. GitHub may delay the scheduled start.
+
+## Final milestone verification
+
+October 29, 2026, revision `d89e6a3`: all 215 offline tests passed; local Git
+fixture tests required execution outside the restricted sandbox. Ruff lint,
+formatting, CLI help, and diff checks passed, along with all four main CI jobs
+in [run 40950677744](https://github.com/shmurthy7002/event-radar/actions/runs/40950677744).
+Live artifacts and a fresh read of durable state confirmed 20 acknowledged events
+in two disjoint accepted batches, with no unresolved batches. Both delivery gates
+were enabled and the daily workflow was active. The user reconfirmed successful
+live email receipt. No additional send was performed during this verification.
+[Milestone 3 is complete](https://github.com/shmurthy7002/event-radar/milestone/3).

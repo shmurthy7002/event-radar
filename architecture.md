@@ -250,9 +250,9 @@ active run. Write jobs require the delivery environment and `contents: write`;
 read jobs need only repository read access. Prepared/outcome remote checkpoints
 run under the same local transaction as delivery. Artifacts are sanitized reports
 only, with bounded date/score audit samples and seven-day retention.
-The authorized 15:17 UTC daily cron trigger is active. Its Pacific
-DST shift are documented; manual sends require explicit confirmation and a
-delivery variable, and scheduled sends additionally require rollout verification.
+The authorized daily cron is set to 12:00 noon with `timezone: America/Los_Angeles`,
+following Pacific daylight saving time automatically. Manual sends require explicit
+confirmation and a delivery variable; scheduled sends also require rollout verification.
 
 `git_state.py` now stores `state.json` alone on the dedicated `event-radar-state`
 branch, using an isolated bare Git cache rather than the application checkout.
@@ -273,8 +273,8 @@ filtering; normal CI never invokes it. Daily execution uses the separate operati
 
 The daily trigger follows verified live rollout and user authorization recorded
 in `docs/rollout.md`. Store credentials in Actions secrets. Scheduled
-execution may be delayed; fixed UTC cron times also shift local time with
-daylight saving changes. Choose and document the schedule at deployment.
+execution may be delayed. The timezone-aware schedule keeps noon Pacific through
+daylight saving changes (19:00 UTC in PDT / 20:00 UTC in PST).
 
 Ephemeral runners must retrieve persistent state before every run and save it
 afterward. The initial approach is a dedicated state branch in the repository,
@@ -313,9 +313,10 @@ Milestones 1 and 2 provide local discovery, state, Resend, and offline recovery.
 Milestone 3 adds diagnostics, durable Git state, bounded manual Actions, and an
 operations guide. Issue #20 records live rollout evidence: two disjoint accepted
 batches on fresh runners, durable acknowledgement, recipient-confirmed HTML/text
-receipt, and confirmed failure alerts. Daily delivery at 15:17 UTC is authorized.
-Keep milestone 3 open as requested; provider acceptance never substitutes for
-receipt evidence.
+receipt, and confirmed failure alerts. Daily delivery is authorized; the user
+subsequently changed the time from 15:17 UTC to 12:00 noon Pacific.
+Milestone 3 was verified and completed on October 29, 2026; provider acceptance
+never substitutes for receipt evidence.
 
 ## Implementation milestones
 

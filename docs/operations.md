@@ -17,7 +17,7 @@
 7. Repeat from a fresh runner: acknowledged events must be suppressed, omissions
    remain pending, and history survive. Review recovery and failure notifications.
 8. Record issue #20 evidence, then activate daily execution only with rollout
-   authorization. Leave the milestone open until the user closes it.
+   authorization. Close the milestone only after verification and user authorization.
 
 ## GitHub settings
 
@@ -82,8 +82,10 @@ while checking receipt and rerun suppression.
 After issue #20 validation and send/deployment authorization, set
 `EVENT_RADAR_ROLLOUT_VERIFIED=true` and uncomment the schedule in
 `.github/workflows/event-radar.yml` through a reviewed PR. This rollout was verified
-and daily delivery authorized on October 29, 2026; see [evidence](rollout.md). The fixed time
-is **15:17 UTC**, 08:17 PDT / 07:17 PST. Scheduled jobs run on main, may be
+and daily delivery authorized on October 29, 2026; see [evidence](rollout.md). The user
+subsequently changed delivery to **12:00 noon Pacific** daily. The schedule sets
+`timezone: America/Los_Angeles` so it follows daylight saving time automatically
+(19:00 UTC in PDT / 20:00 UTC in PST). Scheduled jobs run on main, may be
 delayed/dropped, and public-repository schedules may stop after 60 inactive days.
 See [schedule documentation](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
 

@@ -95,7 +95,9 @@ See the [operations guide](docs/operations.md) for secret setup, bootstrap and
 migration, permissions, first-run verification, notifications, schedule controls,
 and operational recovery.
 
-The authorized daily time is **15:17 UTC** (08:17 PDT / 07:17 PST). The cron trigger
+The authorized daily time is **12:00 noon Pacific** (`America/Los_Angeles`),
+automatically following daylight saving time (19:00 UTC in PDT / 20:00 UTC in PST).
+GitHub may delay the scheduled start. The cron trigger
 is enabled following issue #20's verified rollout. Manual send requires an
 enabled delivery variable and typed confirmation; scheduled send also requires
 rollout verification. See the rollout evidence for live tests and recipient confirmation.
