@@ -9,6 +9,7 @@ from pathlib import Path
 from event_radar.collectors.luma import LumaClient, TotalCollectionFailure
 from event_radar.config import ConfigError, load_config, load_email_settings
 from event_radar.delivery import DeliveryError, ResendProvider, validate_email_settings
+from event_radar.pages import PublicationError
 from event_radar.pipeline import build_preview, write_preview
 from event_radar.runner import PostSendStateError, reconcile_batch, run_delivery
 from event_radar.smoke import run_smoke, smoke_config
@@ -31,6 +32,7 @@ def _main(
     now: datetime | None = None,
     report=None,
     checkpoint=None,
+    publisher=None,
 ) -> int:
     emit = report.log
     parser = argparse.ArgumentParser(description="Event Radar local discovery tools")
@@ -156,6 +158,7 @@ def _main(
                 nothing_new=args.send_empty,
                 report=report,
                 checkpoint=checkpoint,
+                publisher=publisher,
             )
             report.outcome = (
                 "provider_accepted" if result.outcome == "accepted" else "healthy_empty"
@@ -198,6 +201,12 @@ def _main(
             if args.pending_preview
             else None,
         )
+    except PublicationError:
+        emit(
+            "Pages publication/verification failed; no email sent. Preserve the prepared batch and inspect the archive/build before retry.",
+            file=sys.stderr,
+        )
+        return 9
     except PostSendStateError:
         emit(
             "Post-send persistence error: provider accepted; inspect retained state before retry (duplicate risk).",
@@ -272,7 +281,15 @@ def _main(
     return 0
 
 
-def main(argv=None, *, client_factory=LumaClient, provider_factory=None, now=None, checkpoint=None):
+def main(
+    argv=None,
+    *,
+    client_factory=LumaClient,
+    provider_factory=None,
+    now=None,
+    checkpoint=None,
+    publisher=None,
+):
     from event_radar.diagnostics import RunReport
 
     report = RunReport()
@@ -283,6 +300,7 @@ def main(argv=None, *, client_factory=LumaClient, provider_factory=None, now=Non
         now=now,
         report=report,
         checkpoint=checkpoint,
+        publisher=publisher,
     )
     return report.finish(code)
 

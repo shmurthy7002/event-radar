@@ -11,6 +11,7 @@ from event_radar.__main__ import main as app_main
 from event_radar.config import ConfigError, load_config
 from event_radar.diagnostics import RunReport
 from event_radar.git_state import GitStateStore
+from event_radar.pages import PagesArchive, PagesPublisher, PublicationError
 from event_radar.state import StateError, save_state
 
 
@@ -27,11 +28,10 @@ def bounded_settings(path):
     }
     for key, cap in caps.items():
         data["requests"][key] = min(data["requests"].get(key, cap), cap)
-    data["digest_length"] = min(data["digest_length"], 10)
     return data
 
 
-def main(argv=None, *, store_factory=GitStateStore, invoke=app_main):
+def main(argv=None, *, store_factory=GitStateStore, invoke=app_main, publisher_factory=None):
     parser = argparse.ArgumentParser(description="Bounded Event Radar Actions operation")
     parser.add_argument("mode", choices=("initialize", "preview", "smoke", "send"))
     parser.add_argument("--config", default="config.example.yaml")
@@ -40,7 +40,10 @@ def main(argv=None, *, store_factory=GitStateStore, invoke=app_main):
     parser.add_argument("--remote", default="origin")
     parser.add_argument("--confirmation", default="")
     parser.add_argument("--scheduled", action="store_true")
+    parser.add_argument("--send-empty", action="store_true")
     args = parser.parse_args(argv)
+    if args.send_empty and args.mode != "send":
+        parser.error("--send-empty requires send mode")
     directory, reports = Path(args.directory), Path(args.reports)
     report = RunReport(
         json_path=str(reports / "workflow.json"),
@@ -119,7 +122,27 @@ def main(argv=None, *, store_factory=GitStateStore, invoke=app_main):
             "--summary-markdown",
             str(reports / "run.md"),
         ]
-        return invoke(arguments, checkpoint=store.publish if args.mode == "send" else None)
+        if args.send_empty:
+            arguments.append("--send-empty")
+        kwargs = {"checkpoint": store.publish if args.mode == "send" else None}
+        if args.mode == "send":
+            kwargs["publisher"] = (
+                publisher_factory()
+                if publisher_factory
+                else PagesPublisher(
+                    PagesArchive(
+                        directory / "pages-cache", remote, token=os.environ.get("GITHUB_TOKEN")
+                    ),
+                    os.environ.get("EVENT_RADAR_PAGES_BASE_URL", ""),
+                    os.environ.get("GITHUB_REPOSITORY", ""),
+                    os.environ.get("GITHUB_TOKEN", ""),
+                )
+            )
+        return invoke(arguments, **kwargs)
+    except PublicationError:
+        return report.finish(9)
+    except ValueError:
+        return report.finish(2)
     except ConfigError:
         return report.finish(2)
     except StateError:

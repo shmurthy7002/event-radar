@@ -91,6 +91,17 @@ bootstrap/send use `contents: write` in `event-radar-delivery`. All modes share 
 non-cancelling concurrency group. Validated `state.json` lives on the dedicated
 `event-radar-state` branch, separate from application code.
 
+Hosted sends publish a mobile-friendly digest of up to **30** pending matches
+on public GitHub Pages, then email a short notification linking to its immutable
+snapshot. `digest_length` controls the cap (1–100). Only provider acceptance of
+that notification acknowledges the page's included events; omissions stay pending.
+The page must be publicly fetched and match the saved HTML before email is sent.
+Previous emailed snapshots remain on the dedicated `event-radar-pages` branch
+and in every subsequent deployment. The root page links to the latest digest;
+emails always use a batch-specific URL. See [Pages setup and recovery](docs/pages.md).
+Local previews never publish or send; the existing local `--send` inline mode
+and prepared inline batches remain supported for compatibility.
+
 See the [operations guide](docs/operations.md) for secret setup, bootstrap and
 migration, permissions, first-run verification, notifications, schedule controls,
 and operational recovery.
@@ -136,6 +147,7 @@ credentials, or recipients.
 | 6 | Missing/corrupt/locked state, Git access failure, or push conflict. |
 | 7 | Delivery gated, provider config/rejection, ambiguity, or recovery guard. |
 | 8 | Provider accepted but acknowledgement/checkpoint persistence failed. |
+| 9 | Pages publication or public-content verification failed; no email sent. |
 
 Check exit codes before using files: failed runs can leave stale/partial local
 artifacts. Never reset state to make failure appear empty.

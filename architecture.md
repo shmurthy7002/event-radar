@@ -157,6 +157,41 @@ YAML duplicate keys and normalized duplicate weighted terms are rejected rather
 than silently overwritten. The example preserves previous production scores;
 the editing and migration workflow is documented in `docs/relevance.md`.
 
+## Public digest publication
+
+Hosted daily and explicitly confirmed manual sends use `digest_length` (default
+30, range 1–100) to create a safe HTML digest plus a short HTML/text notification
+containing only its Pacific date, count, and immutable HTTPS snapshot URL. Local
+preview has no publishing side effects; the legacy local inline-send path remains
+compatible. Existing ordering, filtering, empty/partial/failed collection rules,
+and noon America/Los_Angeles scheduling are preserved.
+
+`snapshots.py` freezes the public HTML, content hash, batch-specific path and URL,
+and exact notification before side effects. Version-1 batches add an optional
+snapshot field; old inline batches retain their key and payload. New batch keys
+also bind snapshot identity/hash. Both intent and outcome use existing remote
+checkpoints. Retries use the original page/email and idempotency key, with the
+same 24-hour, envelope, and relevance guards. Only provider acceptance marks the
+snapshot's included IDs; omissions stay pending. Publication alone never does.
+
+`pages.py` archives only `.nojekyll`, a fixed latest-link homepage, and immutable
+`digests/PACIFIC-DATE/HASH.html` files on `event-radar-pages`. Every deployment
+includes all prior files indefinitely; no artifact/cache retention is relied on.
+Archive bootstrap is explicit, regular pushes are conflict-checked/non-forced,
+and unexpected paths or snapshot overwrites fail. Shared workflow concurrency
+and the delivery lock serialize publication, provider contact, and acknowledgement.
+Pages source is the archive branch root using GitHub's supplied HTTPS domain.
+Project-site paths are validated; private state/config/settings/diagnostics are
+never copied into the site. External content remains escaped and links validated.
+
+The publisher requires `pages: write` in addition to existing Git write access,
+explicitly requests a Pages build, and bounds propagation checks to 30 attempts
+with 10-second spacing/request timeouts. It fetches the exact public URL without
+authentication or redirects and requires byte-for-byte HTML equality before
+provider contact. Failure exits 9, retaining unacknowledged prepared intent.
+Post-acceptance state failure retains existing reconciliation semantics and
+duplicate risk. See `docs/pages.md` for setup, retention, monitoring, and rollback.
+
 ## State and delivery semantics
 
 `--send` is the only send-capable CLI operation. It locks state across collection,

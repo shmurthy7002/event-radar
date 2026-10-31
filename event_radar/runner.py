@@ -44,6 +44,7 @@ def run_delivery(
     nothing_new: bool = False,
     report=None,
     checkpoint=None,
+    publisher=None,
 ) -> DeliveryRun:
     if not send_enabled:
         raise DeliveryError("configuration", "delivery orchestration requires explicit send mode")
@@ -132,7 +133,15 @@ def run_delivery(
                 warnings=preview.summary["warnings"],
                 coverage=preview.summary,
             )
-            message = Message("Event Radar: upcoming matches", digest.html, digest.text)
+            snapshot = None
+            if publisher is not None:
+                from event_radar.snapshots import prepare_snapshot
+
+                snapshot, message = prepare_snapshot(
+                    digest, base_url=publisher.base_url, now=clock()
+                )
+            else:
+                message = Message("Event Radar: upcoming matches", digest.html, digest.text)
             batch = Batch(
                 clock(),
                 digest.selected_ids,
@@ -141,11 +150,18 @@ def run_delivery(
                 message.subject,
                 message.html,
                 message.text,
+                snapshot=snapshot,
             )
             state = replace(state, batches={**state.batches, batch.key: batch})
             persist(path, state, lock_held=True)  # Durable intent must precede the provider call.
         if report:
             report.update({"pending_batches": 1})
+        if batch.snapshot is not None:
+            if publisher is None:
+                from event_radar.pages import PublicationError
+
+                raise PublicationError("snapshot batch requires its Pages publisher before email")
+            publisher.publish(batch.snapshot)
         try:
             acceptance = provider.send(
                 Message(batch.subject, batch.html, batch.text), idempotency_key=batch.key

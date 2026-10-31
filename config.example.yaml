@@ -15,7 +15,7 @@ requests:
   pages_per_source: 5
   total_requests: 50
   detail_requests: 20
-digest_length: 10
+digest_length: 30
 interests:
   # Each keyword/phrase maps to its title points. Edit these independently.
   # Strongest title match per group wins; description-only groups get 1 point.
