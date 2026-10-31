@@ -41,9 +41,7 @@ class Config:
     exclude_waitlist: bool
     requests: Requests
     digest_length: int
-    interests: dict[str, tuple[str, ...]]
-    title_weight: float
-    description_weight: float
+    interests: dict[str, dict[str, float]]
     negative_keywords: tuple[str, ...]
     minimum_score: float
 
@@ -115,7 +113,7 @@ def parse_config(data) -> Config:
         "minimum_score",
     )
     data = _mapping(data, keys, "configuration")
-    if any(key not in data for key in keys):
+    if any(key not in data for key in keys if key not in ("title_weight", "description_weight")):
         raise ConfigError(
             "configuration: missing required settings; start with config.example.yaml"
         )
@@ -167,10 +165,48 @@ def parse_config(data) -> Config:
         raise ConfigError("interests: expected nonempty group mapping")
     if any(not isinstance(k, str) or not k.strip() for k in interests):
         raise ConfigError("interests: group names must be nonempty strings")
-    title = _number(data["title_weight"], "title_weight", 0, 1000)
-    description = _number(data["description_weight"], "description_weight", 0, 1000)
-    if title <= description:
-        raise ConfigError("title_weight: must exceed description_weight")
+    legacy = all(isinstance(v, list) for v in interests.values())
+    weighted = all(isinstance(v, dict) for v in interests.values())
+    if not legacy and not weighted:
+        raise ConfigError(
+            "interests: use keyword-to-title-points mappings for every group; do not mix lists and mappings"
+        )
+    if weighted and any(key in data for key in ("title_weight", "description_weight")):
+        raise ConfigError(
+            "interests: remove title_weight and description_weight when using per-keyword points"
+        )
+    parsed_interests = {}
+    if legacy:
+        title = _number(data.get("title_weight", 3), "title_weight", 0, 1000)
+        description = _number(data.get("description_weight", 1), "description_weight", 0, 1000)
+        if description != 1:
+            raise ConfigError(
+                "description_weight: now fixed at 1; set it to 1 and review minimum_score (see docs/relevance.md)"
+            )
+        if title <= 1:
+            raise ConfigError("title_weight: must exceed description_weight (1)")
+    for group, entries in interests.items():
+        label = f"interests.{group}"
+        if legacy:
+            parsed_interests[group] = dict.fromkeys(_terms(entries, label), title)
+            continue
+        if not entries:
+            raise ConfigError(
+                f"{label}: add at least one keyword with title points, or remove the group"
+            )
+        terms = {}
+        for term, points in entries.items():
+            if not isinstance(term, str) or not term.strip():
+                raise ConfigError(
+                    f"{label}: keyword names must be nonempty strings (quote numeric words)"
+                )
+            normalized = " ".join(term.casefold().split())
+            if normalized in terms:
+                raise ConfigError(
+                    f"{label}.{term}: duplicate keyword after case/whitespace normalization"
+                )
+            terms[normalized] = _number(points, f"{label}.{term}: title points", 1, 1000)
+        parsed_interests[group] = terms
     return Config(
         tuple(sources),
         _number(data["horizon_days"], "horizon_days", 1, 366, True),
@@ -182,12 +218,31 @@ def parse_config(data) -> Config:
         data["exclude_waitlist"],
         requests,
         _number(data["digest_length"], "digest_length", 1, 100, True),
-        {k: _terms(v, f"interests.{k}") for k, v in interests.items()},
-        title,
-        description,
+        parsed_interests,
         _terms(data["negative_keywords"], "negative_keywords", allow_empty=True),
         _number(data["minimum_score"], "minimum_score", 0, 1000000),
     )
+
+
+class _UniqueLoader(yaml.SafeLoader):
+    """Reject accidental duplicate YAML keys instead of silently losing edits."""
+
+    def construct_mapping(self, node, deep=False):
+        mapping = {}
+        for key_node, value_node in node.value:
+            key = self.construct_object(key_node, deep=deep)
+            try:
+                duplicate = key in mapping
+            except TypeError:
+                raise ConfigError(
+                    "configuration: YAML mapping keys must be simple values"
+                ) from None
+            if duplicate:
+                raise ConfigError(
+                    f"configuration: duplicate YAML key on line {key_node.start_mark.line + 1}; remove the repeated key"
+                )
+            mapping[key] = self.construct_object(value_node, deep=deep)
+        return mapping
 
 
 def load_config(path: str | Path) -> Config:
@@ -195,6 +250,6 @@ def load_config(path: str | Path) -> Config:
         text = Path(path).read_text(encoding="utf-8")
         if len(text) > 100_000:
             raise ConfigError("configuration: exceeds 100 KB limit")
-        return parse_config(yaml.safe_load(text))
+        return parse_config(yaml.load(text, Loader=_UniqueLoader))
     except (OSError, UnicodeError, yaml.YAMLError, RecursionError):
         raise ConfigError("configuration: cannot read valid YAML; check file and syntax") from None

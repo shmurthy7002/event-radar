@@ -87,6 +87,7 @@ class Contribution:
     title_terms: tuple[str, ...]
     description_terms: tuple[str, ...]
     points: float
+    scoring_terms: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -106,21 +107,28 @@ class RankingResult:
 
 
 def rank_events(events: list[Event], config: Config) -> RankingResult:
-    """Each interest group contributes once, using its strongest matching field."""
+    """Sum group maxima: strongest title keyword, otherwise one description point."""
     evaluations, matches, excluded = [], [], {}
     for event in sorted(events, key=lambda e: e.id):
         contributions = []
         description = event.description or ""
         for group, terms in sorted(config.interests.items()):
-            title_terms = matched_terms(event.title, terms)
-            description_terms = matched_terms(description, terms)
+            title_terms = matched_terms(event.title, tuple(terms))
+            description_terms = matched_terms(description, tuple(terms))
             if title_terms or description_terms:
+                points = max(terms[term] for term in title_terms) if title_terms else 1
+                scoring_terms = (
+                    tuple(term for term in title_terms if terms[term] == points)
+                    if title_terms
+                    else description_terms
+                )
                 contributions.append(
                     Contribution(
                         group,
                         title_terms,
                         description_terms,
-                        config.title_weight if title_terms else config.description_weight,
+                        points,
+                        scoring_terms,
                     )
                 )
         negative = tuple(
