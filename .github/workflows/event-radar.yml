@@ -12,6 +12,10 @@ on:
         description: INITIALIZE_EMPTY_STATE or SEND_CONFIGURED_RECIPIENT for write modes
         type: string
         default: ''
+      send_empty:
+        description: With send, allow one empty-summary notification per UTC day
+        type: boolean
+        default: false
   schedule:
     - cron: '0 12 * * *' # Noon Pacific year-round; scheduler delays are possible.
       timezone: America/Los_Angeles
@@ -65,6 +69,7 @@ jobs:
     environment: event-radar-delivery
     permissions:
       contents: write
+      pages: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -85,18 +90,22 @@ jobs:
         env:
           CONFIRMATION: ${{ inputs.confirmation }}
           IS_SCHEDULED: ${{ github.event_name == 'schedule' }}
+          SEND_EMPTY: ${{ inputs.send_empty }}
           EVENT_RADAR_DELIVERY_ENABLED: ${{ vars.EVENT_RADAR_DELIVERY_ENABLED }}
           EVENT_RADAR_ROLLOUT_VERIFIED: ${{ vars.EVENT_RADAR_ROLLOUT_VERIFIED }}
+          EVENT_RADAR_PAGES_BASE_URL: ${{ vars.EVENT_RADAR_PAGES_BASE_URL }}
           EVENT_RADAR_EMAIL_API_KEY: ${{ secrets.EVENT_RADAR_EMAIL_API_KEY }}
           EVENT_RADAR_EMAIL_FROM: ${{ secrets.EVENT_RADAR_EMAIL_FROM }}
           EVENT_RADAR_EMAIL_TO: ${{ secrets.EVENT_RADAR_EMAIL_TO }}
           GITHUB_TOKEN: ${{ github.token }}
         shell: bash
         run: |
+          extra=()
+          if [[ "$SEND_EMPTY" == "true" ]]; then extra+=(--send-empty); fi
           if [[ "$IS_SCHEDULED" == "true" ]]; then
-            python -m event_radar.actions send --scheduled
+            python -m event_radar.actions send --scheduled "${extra[@]}"
           else
-            python -m event_radar.actions send --confirmation "$CONFIRMATION"
+            python -m event_radar.actions send --confirmation "$CONFIRMATION" "${extra[@]}"
           fi
       - name: Publish sanitized summaries
         if: always()

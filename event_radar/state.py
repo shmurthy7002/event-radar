@@ -12,6 +12,7 @@ from datetime import datetime
 from pathlib import Path
 
 from event_radar.models import Event, Observation, retain_cached_description, utc_timestamp
+from event_radar.snapshots import Snapshot
 
 
 class StateError(RuntimeError):
@@ -50,17 +51,20 @@ class Batch:
     outcome: str = "prepared"
     provider_message_id: str | None = None
     accepted_at: datetime | None = None
+    snapshot: Snapshot | None = None
 
     @property
     def key(self) -> str:
         value = [self.created_at.isoformat(), self.event_ids, self.scope, self.payload_hash]
+        if self.snapshot is not None:
+            value.append([self.snapshot.path, self.snapshot.url, self.snapshot.sha256])
         return (
             "event-radar/"
             + hashlib.sha256(json.dumps(value, separators=(",", ":")).encode()).hexdigest()
         )
 
     def to_dict(self) -> dict:
-        return {
+        data = {
             "created_at": self.created_at.isoformat(),
             "event_ids": list(self.event_ids),
             "scope": self.scope,
@@ -72,12 +76,25 @@ class Batch:
             "provider_message_id": self.provider_message_id,
             "accepted_at": self.accepted_at.isoformat() if self.accepted_at else None,
         }
+        if self.snapshot is not None:
+            from dataclasses import asdict
+
+            data["snapshot"] = asdict(self.snapshot)
+        return data
 
 
 def _batch_from_dict(data) -> Batch:
-    if not isinstance(data, dict) or set(data) != set(Batch.__dataclass_fields__):
+    fields = set(Batch.__dataclass_fields__)
+    if not isinstance(data, dict) or not fields - {"snapshot"} <= set(data) <= fields:
         raise ValueError
     values = dict(data)
+    raw_snapshot = values.get("snapshot")
+    if raw_snapshot is not None:
+        if not isinstance(raw_snapshot, dict) or set(raw_snapshot) != set(
+            Snapshot.__dataclass_fields__
+        ):
+            raise ValueError
+        values["snapshot"] = Snapshot(**raw_snapshot).validate()
     ids = values["event_ids"]
     if (
         not isinstance(ids, list)

@@ -32,8 +32,10 @@ OUTCOMES = {
     6: "state_failed",
     7: "provider_failed",
     8: "post_send_persistence_failed",
+    9: "publication_failed",
 }
 GUIDANCE = {
+    "publication_failed": "No email sent. Preserve the prepared batch; inspect Pages archive, build permissions, and public propagation before retry.",
     "delivery_gated": "Enable the delivery variable and provide explicit confirmation; scheduled delivery also requires completed rollout verification.",
     "collection_failed": "Check source schemas/connectivity; no successful empty run or delivery is implied.",
     "provider_rejected": "Fix provider/settings; events remain pending.",

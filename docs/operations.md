@@ -67,6 +67,13 @@ delivery history.
 
 ## Manual modes and schedule controls
 
+Hosted sends use public GitHub Pages snapshots with short email notifications;
+complete the [Pages setup and recovery guide](pages.md) before enabling delivery.
+The cap defaults to 30 via `digest_length`. The write job additionally requires
+`pages: write` and the non-sensitive `EVENT_RADAR_PAGES_BASE_URL` environment
+variable. The dedicated archive retains prior emailed snapshots across every
+deployment. Publication/verification failure exits 9 and blocks email.
+
 Use `smoke` for bounded Berkeley/SF samples without state mutation, or `preview`
 for pending matches from persisted state. Read run summaries and sanitized JSON.
 Every mode shares `event-radar-delivery-state` concurrency with

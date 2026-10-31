@@ -89,11 +89,42 @@ def test_send_requires_verified_schedule_and_wires_checkpoint(tmp_path, monkeypa
 
     def invoke(args, **kwargs):
         assert "--send" in args and store.fetched
+        assert kwargs["publisher"] is publisher
         kwargs["checkpoint"](State())
         return 0
 
-    assert main(args, store_factory=lambda *_args, **_kwargs: store, invoke=invoke) == 0
+    publisher = object()
+    assert (
+        main(
+            args,
+            store_factory=lambda *_args, **_kwargs: store,
+            invoke=invoke,
+            publisher_factory=lambda: publisher,
+        )
+        == 0
+    )
     assert store.published == State()
+
+
+def test_manual_empty_summary_and_configured_cap_are_preserved(tmp_path, monkeypatch):
+    monkeypatch.setenv("EVENT_RADAR_DELIVERY_ENABLED", "true")
+    args = arguments(tmp_path, "send") + [
+        "--confirmation",
+        "SEND_CONFIGURED_RECIPIENT",
+        "--send-empty",
+    ]
+    seen = []
+    assert (
+        main(
+            args,
+            store_factory=Store,
+            invoke=lambda args, **kwargs: seen.append(args) or 0,
+            publisher_factory=object,
+        )
+        == 0
+    )
+    assert "--send-empty" in seen[0]
+    assert bounded_settings("config.example.yaml")["digest_length"] == 30
 
 
 def test_bootstrap_explicit_and_state_failure_blocks_invoke(tmp_path):
@@ -158,5 +189,5 @@ def test_workflow_daily_schedule_preserves_active_run_and_delivery_gates():
     )
     assert workflow["concurrency"]["cancel-in-progress"] == "false"
     assert workflow["permissions"] == {"contents": "read"}
-    assert workflow["jobs"]["write-state"]["permissions"] == {"contents": "write"}
+    assert workflow["jobs"]["write-state"]["permissions"] == {"contents": "write", "pages": "write"}
     assert workflow["jobs"]["write-state"]["environment"] == "event-radar-delivery"
