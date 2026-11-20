@@ -332,7 +332,7 @@
         "neighborhood": null,
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -344,7 +344,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-03gXuhi7iBCshRM": {
       "emailed_at": null,
@@ -918,13 +918,41 @@
       "first_seen_at": "2026-11-06T23:53:58.895545+00:00",
       "last_seen_at": "2026-11-08T23:21:28.803301+00:00"
     },
-    "evt-1OZsB9SxF81xMxs": {
+    "evt-1NKGytXdd2rvdYH": {
       "emailed_at": null,
       "event": {
         "availability": "available",
         "city": "San Francisco",
         "description": null,
         "description_status": "not_fetched",
+        "end": "2026-11-21T02:30:00+00:00",
+        "id": "evt-1NKGytXdd2rvdYH",
+        "latitude": 37.8064807,
+        "longitude": -122.4345131,
+        "neighborhood": "Parking lot",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T01:00:00+00:00",
+        "title": "Early Stage AI Startup Walk San Francisco",
+        "url": "https://luma.com/3cmt1gv2",
+        "venue": "Marina Green Restroom East",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
+    "evt-1OZsB9SxF81xMxs": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": "Business & Technology Leaders Happy Hour | San Francisco | Microsoft Ignite\nTECEZE invites you to a private evening bringing together a select group of senior business, technology, and transformation leaders in San Francisco during Microsoft Ignite.\nAs AI, innovation, and digital transformation continue to reshape the way organizations operate and grow, this gathering creates an opportunity to step away from the conference floor and continue meaningful conversations in a relaxed setting.\nConnect with fellow leaders, exchange perspectives, explore emerging ideas, and build relationships with professionals shaping the future of business and technology.\nEvent details\n\ud83d\udcc5 November 19, 2026\ud83d\udccd Shelby\u2019s Rooftop, San Francisco\ud83d\udd55 6:00 PM onwards\nWhat to expect\nConversations with senior business and technology leaders\nPerspectives on AI, innovation, and digital transformation\nMeaningful professional connections\nAn intimate setting beyond the conference environment\nPrivate, invite-only gathering with limited availability.\nWe look forward to continuing the conversation with you in San Francisco.",
+        "description_status": "content",
         "end": "2026-11-20T03:00:00+00:00",
         "id": "evt-1OZsB9SxF81xMxs",
         "latitude": 37.7823863,
@@ -932,7 +960,7 @@
         "neighborhood": "Yerba Buena",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -944,7 +972,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-1QWu1E3bz4psLDc": {
       "emailed_at": null,
@@ -1044,7 +1072,7 @@
         "neighborhood": "Financial District",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "ai"
           }
         ],
@@ -1056,7 +1084,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-1mpzrjvyNlDuqIU": {
       "emailed_at": null,
@@ -1156,7 +1184,7 @@
         "neighborhood": "Duboce Triangle",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -1168,7 +1196,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-14T23:33:40.266616+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-2M71G5Aik0h81l2": {
       "emailed_at": null,
@@ -1718,6 +1746,34 @@
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
       "last_seen_at": "2026-11-04T00:19:05.186761+00:00"
     },
+    "evt-3S4quhEkZviCoME": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "Menlo Park",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T05:00:00+00:00",
+        "id": "evt-3S4quhEkZviCoME",
+        "latitude": 37.453696846728455,
+        "longitude": -122.18794128215522,
+        "neighborhood": "Downtown Menlo Park",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:30:00+00:00",
+        "title": "Meetup with Shavkat Umurzakov, the Mayor of Tashkent",
+        "url": "https://luma.com/silkroad-tashkent-mayor-visit",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-3SWKi42gyBijpJJ": {
       "emailed_at": null,
       "event": {
@@ -1749,7 +1805,7 @@
     "evt-3avwICzcShqBSA7": {
       "emailed_at": null,
       "event": {
-        "availability": "sold_out",
+        "availability": "available",
         "city": "San Francisco",
         "description": null,
         "description_status": "not_fetched",
@@ -1760,7 +1816,7 @@
         "neighborhood": "Mission Bay",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -1772,7 +1828,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-3bQw2UAWnHghTh0": {
       "emailed_at": null,
@@ -1788,7 +1844,7 @@
         "neighborhood": "Union Square",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -1800,7 +1856,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-3f8tqAGJvKFID44": {
       "emailed_at": null,
@@ -1872,7 +1928,7 @@
         "neighborhood": "Union Square",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "ai"
           }
         ],
@@ -1884,7 +1940,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-3yHAFplcyC0ilFo": {
       "emailed_at": null,
@@ -2202,6 +2258,34 @@
       "first_seen_at": "2026-11-14T23:33:40.266616+00:00",
       "last_seen_at": "2026-11-18T01:58:56.367840+00:00"
     },
+    "evt-4UCMfwFcyjqSn4D": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T04:00:00+00:00",
+        "id": "evt-4UCMfwFcyjqSn4D",
+        "latitude": 37.79375381533998,
+        "longitude": -122.4016319173363,
+        "neighborhood": "Financial District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T17:00:00+00:00",
+        "title": "Speech to Ship Hackathon: Speak It, Build It, Ship It.",
+        "url": "https://luma.com/1netrne6",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-4VBLHR6co9H4KYp": {
       "emailed_at": null,
       "event": {
@@ -2328,7 +2412,7 @@
         "neighborhood": "Duboce Triangle",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -2340,7 +2424,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-17T02:43:38.056079+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-4rtW98QToCIyeN5": {
       "emailed_at": null,
@@ -2541,6 +2625,34 @@
       },
       "first_seen_at": "2026-11-04T00:19:05.186761+00:00",
       "last_seen_at": "2026-11-05T00:41:33.485939+00:00"
+    },
+    "evt-5C89wZHfIP7QS9c": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T05:00:00+00:00",
+        "id": "evt-5C89wZHfIP7QS9c",
+        "latitude": 37.7938794,
+        "longitude": -122.40662579999999,
+        "neighborhood": "Chinatown",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T03:30:00+00:00",
+        "title": "Tribal Technology: When Communities Build Their Own Tools",
+        "url": "https://luma.com/unbound-2fei",
+        "venue": "Unbound Books and Coffee \u683c\u5916\u4e66\u5e97",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-5EUazO5GqdXcPGU": {
       "emailed_at": null,
@@ -3602,6 +3714,34 @@
       "first_seen_at": "2026-11-12T01:45:26.622004+00:00",
       "last_seen_at": "2026-11-14T00:35:46.421674+00:00"
     },
+    "evt-7XzzCh3KezMdCGu": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "Fremont",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T04:00:00+00:00",
+        "id": "evt-7XzzCh3KezMdCGu",
+        "latitude": 37.5540583,
+        "longitude": -121.97961110000001,
+        "neighborhood": "Central District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T02:30:00+00:00",
+        "title": "Barbareek: The Story of Becoming Khatu Shyam | Movie Screening & Snacks",
+        "url": "https://luma.com/kq6slffg",
+        "venue": "Cin\u00e9 Lounge Fremont 7 Cinemas",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-7aPpM3ZEJfBWSRT": {
       "emailed_at": null,
       "event": {
@@ -3923,8 +4063,8 @@
       "event": {
         "availability": "available",
         "city": "San Francisco",
-        "description": null,
-        "description_status": "not_fetched",
+        "description": "App Leaders Club is coming to San Francisco on November 19. Join a private evening with hand-picked app founders and operators from companies with $1M+ ARR. We\u2019ll get into the FTC regulation, Meta\u2019s user feedback rules, and Apple\u2019s October App Review update, and how to protect your margins while CAC grows every year and LTV has to keep pace.\nWhy it's important\nIn June, the FTC took a major app publisher to court over its subscription funnels. A ruling is still pending and will set a precedent for the whole industry. In August, Meta restricted a large cluster of related ad accounts.On October 16, Apple tightened its App Review Guidelines: apps that reveal hidden features after approval will be removed, and apps must now proactively prevent and remove nonconsensual intimate imagery, including AI-generated content.Freddy Fang, Developer Relations at Adapty, will lead the evening and share practical next steps for your team. More than 30,000 apps run their subscriptions on Adapty, including Flo, Facetune, and HubX. Across their paywalls and funnels, the team sees which patterns cross the line, which sit in the grey zone, and what each one does to revenue.\n\u200bWhat we\u2019ll discuss\nWhich risks can cut an app off from ads, payments, or the US market\nWhat the FTC lawsuit signals for subscription apps overall, and what to check first\nWhat to do about buyer complaints before Meta restricts your ad accounts\nWhy apps could get removed from the App Store, and how to keep yours listed\nHow to show clear subscription terms and keep unit economics positive\nApp Leaders Club is a global subscription app community by Adapty & FunnelFox. Since 2024, we\u2019ve held 50+ events across 20+ cities, bringing together a 15K+ community of app founders and growth leaders in the US and Europe. Among our guests were people from Netflix, TikTok, Bumble, Canva, Peloton, Cal AI, and beyond.\n\ud83c\udf9f\ufe0f \u200bOnly 10 seats for app founders, C-level executives, and leaders across growth, product, and monetization. Request yours to join.",
+        "description_status": "content",
         "end": "2026-11-20T04:00:00+00:00",
         "id": "evt-8E8mWSzSusHQ9Is",
         "latitude": 37.77574292258381,
@@ -3932,7 +4072,7 @@
         "neighborhood": "Mission Bay",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -3944,7 +4084,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-8EAR9ODOjzOZOf2": {
       "emailed_at": null,
@@ -4076,7 +4216,7 @@
         "neighborhood": "Marina District",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -4088,7 +4228,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-10-30T19:56:03.842597+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-8UjVUON74SvwDaW": {
       "emailed_at": null,
@@ -4146,6 +4286,34 @@
       "first_seen_at": "2026-11-11T00:21:42.770522+00:00",
       "last_seen_at": "2026-11-12T01:45:26.622004+00:00"
     },
+    "evt-8j3x6OMkcNcFEcT": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T19:00:00+00:00",
+        "id": "evt-8j3x6OMkcNcFEcT",
+        "latitude": 37.79450916557575,
+        "longitude": -122.3959397706671,
+        "neighborhood": "Embarcadero",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T17:30:00+00:00",
+        "title": "Netwalk in SF: Sow, Reap, Wrap \ud83c\udf3e",
+        "url": "https://luma.com/zro3f30b",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-8jG45y7oQPrI5Tt": {
       "emailed_at": null,
       "event": {
@@ -4173,6 +4341,34 @@
       },
       "first_seen_at": "2026-11-17T02:43:38.056079+00:00",
       "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+    },
+    "evt-8pynT0pM1Hqsdw2": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T02:00:00+00:00",
+        "id": "evt-8pynT0pM1Hqsdw2",
+        "latitude": 37.78115045333926,
+        "longitude": -122.3889777487477,
+        "neighborhood": "South Beach",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T00:00:00+00:00",
+        "title": "SF Boilermaker Founder Meetup @ Third Coast Foundry",
+        "url": "https://luma.com/csvp01gq",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-8q3vZF3GqE9xGsy": {
       "emailed_at": null,
@@ -4285,6 +4481,62 @@
       },
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
       "last_seen_at": "2026-10-29T20:31:18.292385+00:00"
+    },
+    "evt-8wAsG6DXt1l0vJR": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": "Most of the screens you touch every day were designed by someone else, for someone else's metrics. Tonight you'll get early access to Imbue Studio, our product we've designed to allow everyone to experience truly personal software.\nPens and paper provided. Pick something in your life you want control over, and sketch the interface you wish you had for it.\nThen build it for real in Imbue Studio. Describe your sketch to an agent, and keep pushing on it until it works the way you drew it.\nIf you haven't tried Studio yet or you're stuck on the waitllist - come in and we'll get you started. If you've already been jamming in Studio - come cowork and chat with fellow Studio users and Studio developers for tips and tricks.\nWhat might this look like?\nA messaging hub over Slack, email, iMessage and Discord. One inbox, with the people you care about at the top.\nYour own version of a to-do list: distraction-free, with your own priorities front and center.\nA custom CRM for your personal and work life - contacts, connections, dates, events.\nA control panel for a group. House chores, your band's setlist, your dinner club's signups.\nNo technical background required. Bring a laptop. Imbue Studio runs on Mac and Linux (and Windows via WSL).\nSCHEDULE:\n6pm - 6:30pm: meet people and start designing. Paper and pens available for brainstorming. Get your Studio invite code at the door.\n6:30pm: kickoff. Some quick words, and a 5-minute tour of Studio.\n6:30 - 9:00pm: build, solo or in groups. We'll also have some guided onboarding sessions.\n9:00 - 9:30pm: demos and Studio sharing.\n9:30pm - 10pm: try out other folks' builds and ask them how they made them.\nImbue is an AI company building software that belongs to you. We're building toward an open agent ecosystem where you can understand, modify, and verify AI agents, so they only work in your interest. Learn about our work and what we stand for: www.imbue.com or https://x.com/imbue_ai .",
+        "description_status": "content",
+        "end": "2026-11-20T06:00:00+00:00",
+        "id": "evt-8wAsG6DXt1l0vJR",
+        "latitude": 37.777485299999995,
+        "longitude": -122.42273879999999,
+        "neighborhood": "Civic Center",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:00:00+00:00",
+        "title": "Maker Night with Imbue Studio: Interface Design",
+        "url": "https://luma.com/imbue-jrz7",
+        "venue": "292 Ivy St",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
+    "evt-8yOfVmaFqL5XSHF": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T03:00:00+00:00",
+        "id": "evt-8yOfVmaFqL5XSHF",
+        "latitude": 37.79514166069931,
+        "longitude": -122.39898090777592,
+        "neighborhood": "Financial District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T00:00:00+00:00",
+        "title": "GPTZero Takes On SF: Cash bounties for false positives and founder office hours",
+        "url": "https://luma.com/gptzero-sf",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-92HwIqsVhGIQ9EO": {
       "emailed_at": null,
@@ -4622,6 +4874,62 @@
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
       "last_seen_at": "2026-11-03T01:57:00.871279+00:00"
     },
+    "evt-9rjJff8vtCq0oBP": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-24T20:00:00+00:00",
+        "id": "evt-9rjJff8vtCq0oBP",
+        "latitude": 37.783536999999995,
+        "longitude": -122.4190668,
+        "neighborhood": "Little Saigon",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-24T17:30:00+00:00",
+        "title": "Accelr8 | Cowork Club",
+        "url": "https://luma.com/accelr8-15am",
+        "venue": "712 Polk St",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
+    "evt-9t7ehiCbOBA0GvE": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T20:00:00+00:00",
+        "id": "evt-9t7ehiCbOBA0GvE",
+        "latitude": 37.800426903458366,
+        "longitude": -122.40653872927682,
+        "neighborhood": "North Beach",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T19:00:00+00:00",
+        "title": "Weekly New Founders Meetup: Welcome to SF",
+        "url": "https://luma.com/mzlpjlyy",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-9tUboYvz0WuQtHk": {
       "emailed_at": null,
       "event": {
@@ -4681,7 +4989,7 @@
     "evt-9vEcgNVY7DEDPcv": {
       "emailed_at": null,
       "event": {
-        "availability": "available",
+        "availability": "sold_out",
         "city": "Palo Alto",
         "description": null,
         "description_status": "not_fetched",
@@ -4692,7 +5000,7 @@
         "neighborhood": "University South",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -4704,7 +5012,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-A4vDPgMDnUuWJAx": {
       "emailed_at": null,
@@ -4766,6 +5074,34 @@
       "first_seen_at": "2026-11-06T00:39:30.564268+00:00",
       "last_seen_at": "2026-11-07T23:17:58.673578+00:00"
     },
+    "evt-A6Oo0V7f40t8PzJ": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T05:00:00+00:00",
+        "id": "evt-A6Oo0V7f40t8PzJ",
+        "latitude": 37.7938689,
+        "longitude": -122.40367440000001,
+        "neighborhood": "Chinatown",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:30:00+00:00",
+        "title": "GTM & AI Dinner",
+        "url": "https://luma.com/gtm-ai-sf",
+        "venue": "Palio",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-A6ejSkdqgAglHdx": {
       "emailed_at": null,
       "event": {
@@ -4808,7 +5144,7 @@
         "neighborhood": "Treasure Island",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -4820,7 +5156,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-AGUOtwGey4MbqRG": {
       "emailed_at": null,
@@ -4836,7 +5172,7 @@
         "neighborhood": "Downtown",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -4848,7 +5184,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-AHPQAW3LgSsBeua": {
       "emailed_at": null,
@@ -5147,8 +5483,8 @@
       "event": {
         "availability": "available",
         "city": "Palo Alto",
-        "description": null,
-        "description_status": "not_fetched",
+        "description": "Developed over the past year with Fellowship, Sections expands Grant Yun's distinctive visual language into fully three-dimensional, generative landscapes informed by government planning documents and the systems that shape our built environment.\nRather than depicting existing places, Yun has created a generative system capable of imagining landscapes that have never existed, yet feel strangely familiar. Visitors will be able to navigate these fictional environments, exploring their streets, buildings, and infrastructure from different perspectives. They can choose between aerial and street-level views, daylight and nighttime, line drawings and fully rendered landscapes, or observe the movement of simulated traffic.\nGrant Yun will join us to experience the project firsthand and discover the many ways to explore, interact with, and shape your own Section.\nBeer and wine will be served throughout the evening.",
+        "description_status": "content",
         "end": "2026-11-20T06:00:00+00:00",
         "id": "evt-AorYECYi029kFMX",
         "latitude": 37.4444693,
@@ -5156,7 +5492,7 @@
         "neighborhood": "Downtown North",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -5168,7 +5504,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-13T00:50:20.242817+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-AotyfdevPKP4W0A": {
       "emailed_at": null,
@@ -5401,7 +5737,7 @@
     "evt-B2QukAk6oMjIuVd": {
       "emailed_at": null,
       "event": {
-        "availability": "waitlist",
+        "availability": "sold_out",
         "city": "San Francisco",
         "description": null,
         "description_status": "not_fetched",
@@ -5412,7 +5748,11 @@
         "neighborhood": "Embarcadero",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          },
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -5424,7 +5764,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-13T00:50:20.242817+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-B3Jmis1nG8r8lUf": {
       "emailed_at": null,
@@ -5498,7 +5838,7 @@
         "neighborhood": "Yerba Buena",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -5510,7 +5850,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-BCZTiF8rneDKyWO": {
       "emailed_at": null,
@@ -5543,6 +5883,34 @@
       },
       "first_seen_at": "2026-11-18T01:58:56.367840+00:00",
       "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+    },
+    "evt-BD8gd94isA1MUxH": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T03:30:00+00:00",
+        "id": "evt-BD8gd94isA1MUxH",
+        "latitude": 37.767020699999996,
+        "longitude": -122.4109325,
+        "neighborhood": "Mission District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T01:30:00+00:00",
+        "title": "Local AI Workshop: Private ChatGPT Experience on Your Own Computer",
+        "url": "https://luma.com/qn6qbrps",
+        "venue": "Sports Basement Bryant Street",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-BIUCsbHLrENFRvw": {
       "emailed_at": null,
@@ -5818,7 +6186,7 @@
         "neighborhood": "West Atherton",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -5830,7 +6198,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-BZHiaW6gFnu8w4E": {
       "emailed_at": null,
@@ -5985,8 +6353,8 @@
       "event": {
         "availability": "available",
         "city": "Palo Alto",
-        "description": null,
-        "description_status": "not_fetched",
+        "description": "Join Vertical Bar for The Calm Before BFCM, a NetSuite & Shopify user group meetup in Palo Alto.\nBefore Black Friday and Cyber Monday, take an evening to connect with fellow NetSuite and Shopify users, compare notes on peak-season prep, and talk through what is top of mind heading into BFCM.\nThursday, November 19, 2026\n6:00-8:00 PM Pacific\nIBK Silicon Valley\n525 University Ave, Suite 1350\nPalo Alto, CA 94301\nWhether you work in ecommerce, finance, operations, or systems, come meet others working with the same platforms.\nRSVP to join us.",
+        "description_status": "content",
         "end": "2026-11-20T04:00:00+00:00",
         "id": "evt-Bgo0DI1gNvovkt3",
         "latitude": 37.448929199999995,
@@ -5994,7 +6362,7 @@
         "neighborhood": "Downtown North",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -6006,7 +6374,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-Bibdn1WQnEpaN7N": {
       "emailed_at": null,
@@ -6204,6 +6572,34 @@
       "first_seen_at": "2026-11-15T23:40:54.418635+00:00",
       "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
     },
+    "evt-CDn3ovv8AHndVhS": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T04:30:00+00:00",
+        "id": "evt-CDn3ovv8AHndVhS",
+        "latitude": 37.7564917,
+        "longitude": -122.41911940000001,
+        "neighborhood": "Mission District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:30:00+00:00",
+        "title": "Foreign Cinema with Autoheal",
+        "url": "https://luma.com/frmkwse7",
+        "venue": "Foreign Cinema",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-CDr4DCz9I6JSeuo": {
       "emailed_at": null,
       "event": {
@@ -6353,8 +6749,8 @@
       "event": {
         "availability": "waitlist",
         "city": "San Francisco",
-        "description": null,
-        "description_status": "not_fetched",
+        "description": "We would like to welcome you to another salon of the California Institute for Machine Consciousness.What if there is no Hard Problem, and we can find a straightforward explanation for the nature and function of consciousness, by treating it as a biological learning algorithm? Our goal is not to arrive at a reductionist explanation that ignores \"what it is to be like\". Can we demonstrate selforganizing functions that make the emergence of an experiencing subject inevitable? What distinguishes such functions from the machine learning algorithms that drive the current generation of AI models?Please join us for this discussion; Joscha Bach will open it with a presentation.We are grateful to Jovan Jovanovic and his team at Incode for making their space available to us for this event.Attendance is free, but space is limited; please do show up if you register, so we don't have to turn people away who want to attend.Please don't forget to bring your ID for the front desk!",
+        "description_status": "content",
         "end": "2026-11-20T05:00:00+00:00",
         "id": "evt-CO6repYnPjeRiI6",
         "latitude": 37.792293199999996,
@@ -6362,7 +6758,11 @@
         "neighborhood": "Financial District",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          },
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -6374,7 +6774,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-17T02:43:38.056079+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-COEMlBHQoLdEouE": {
       "emailed_at": null,
@@ -6464,6 +6864,34 @@
       "first_seen_at": "2026-11-14T00:35:46.421674+00:00",
       "last_seen_at": "2026-11-18T01:58:56.367840+00:00"
     },
+    "evt-CihXHuwMiWXzEAQ": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T05:00:00+00:00",
+        "id": "evt-CihXHuwMiWXzEAQ",
+        "latitude": 37.79527790487177,
+        "longitude": -122.39995094395694,
+        "neighborhood": "Financial District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T03:00:00+00:00",
+        "title": "Abaka AI VIP dinner",
+        "url": "https://luma.com/nov-vip-dinner",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-CmgAMj22nNOxo7r": {
       "emailed_at": null,
       "event": {
@@ -6496,6 +6924,34 @@
       "first_seen_at": "2026-11-04T00:19:05.186761+00:00",
       "last_seen_at": "2026-11-07T23:17:58.673578+00:00"
     },
+    "evt-CnimIIBJcGQUCCN": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Mateo",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T05:00:00+00:00",
+        "id": "evt-CnimIIBJcGQUCCN",
+        "latitude": 37.56371133137327,
+        "longitude": -122.32091701659904,
+        "neighborhood": "Downtown",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:30:00+00:00",
+        "title": "Friendsgiving Dinner: Kick-off the Holiday Season!",
+        "url": "https://luma.com/0t23h7fb",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-CnyiAHSEuuZ9O4V": {
       "emailed_at": null,
       "event": {
@@ -6510,7 +6966,7 @@
         "neighborhood": "Mission Bay",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -6522,7 +6978,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-CshG1ocLPtCUsIC": {
       "emailed_at": null,
@@ -7044,6 +7500,34 @@
       "first_seen_at": "2026-11-18T01:58:56.367840+00:00",
       "last_seen_at": "2026-11-18T01:58:56.367840+00:00"
     },
+    "evt-DgsJoZE2IoCchKn": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "Menlo Park",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T17:30:00+00:00",
+        "id": "evt-DgsJoZE2IoCchKn",
+        "latitude": 37.451983455442495,
+        "longitude": -122.182926136943,
+        "neighborhood": null,
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T16:30:00+00:00",
+        "title": "Boilermaker Founders Meetup, Menlo Park - \u2615",
+        "url": "https://luma.com/6d71pvoe",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-DiuZb9L7BpAncoT": {
       "emailed_at": null,
       "event": {
@@ -7071,6 +7555,34 @@
       },
       "first_seen_at": "2026-11-18T01:58:56.367840+00:00",
       "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+    },
+    "evt-DlZUNwsLkHKfoFc": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T04:30:00+00:00",
+        "id": "evt-DlZUNwsLkHKfoFc",
+        "latitude": 37.77171100902652,
+        "longitude": -122.4044515848932,
+        "neighborhood": "Showplace Square",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T03:00:00+00:00",
+        "title": "founders table: private dinner with octolane & infron",
+        "url": "https://luma.com/k6ukymib",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-Dp4IBnqBFagfpZg": {
       "emailed_at": null,
@@ -7160,6 +7672,34 @@
       "first_seen_at": "2026-10-30T19:56:03.842597+00:00",
       "last_seen_at": "2026-10-30T19:56:03.842597+00:00"
     },
+    "evt-E6vnokFrzRMCtor": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "Oakland",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T04:30:00+00:00",
+        "id": "evt-E6vnokFrzRMCtor",
+        "latitude": 37.740580699999995,
+        "longitude": -122.20128690000001,
+        "neighborhood": null,
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T02:30:00+00:00",
+        "title": "Open House / Open Build / Open Repair Projects Workshop",
+        "url": "https://luma.com/jmkadsfh",
+        "venue": "Circuit Launch",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-EBHYJsbRioiW6v4": {
       "emailed_at": null,
       "event": {
@@ -7187,6 +7727,34 @@
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
       "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+    },
+    "evt-EJP86xGilHBeUcZ": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T18:00:00+00:00",
+        "id": "evt-EJP86xGilHBeUcZ",
+        "latitude": 37.793216036805596,
+        "longitude": -122.39404021585844,
+        "neighborhood": "Embarcadero",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T17:00:00+00:00",
+        "title": "Builders who Run SF \u2014 5K",
+        "url": "https://luma.com/mbadhhv0",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-ENr6KSeSsbNrEs6": {
       "emailed_at": null,
@@ -7501,6 +8069,34 @@
       },
       "first_seen_at": "2026-10-30T19:56:03.842597+00:00",
       "last_seen_at": "2026-11-04T00:19:05.186761+00:00"
+    },
+    "evt-F9BOnzwCA4X0GBX": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": "Be your best self, every time.\nJoin us for a small, hands-on lab for small-business owners who use their presence to grow, including agents, advisors, coaches, creators, and local businesses.\nWhat we\u2019ll do\nSee how small businesses use video to share expertise and build relationships\nWatch a live demo, from script to finished video\nCreate your Personal Avatar on-site: record once, then make new videos without filming ever again\nWhether you love being on camera or want to spend less time filming, this is for you. No HeyGen experience needed. Please bring a laptop or phone.\nOnly 20 seats available - Request your seat now.",
+        "description_status": "content",
+        "end": "2026-11-20T04:00:00+00:00",
+        "id": "evt-F9BOnzwCA4X0GBX",
+        "latitude": 37.791898599999996,
+        "longitude": -122.40066700000001,
+        "neighborhood": "Financial District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:00:00+00:00",
+        "title": "HeyGen For Small Businesses: Hands-on Lab",
+        "url": "https://luma.com/nfcgshvb",
+        "venue": "180 Sansome St",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-F9NtlmR0d95xacd": {
       "emailed_at": null,
@@ -7932,6 +8528,34 @@
       "first_seen_at": "2026-11-14T00:35:46.421674+00:00",
       "last_seen_at": "2026-11-17T02:43:38.056079+00:00"
     },
+    "evt-G9cn1qBjJzFyRm1": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T05:00:00+00:00",
+        "id": "evt-G9cn1qBjJzFyRm1",
+        "latitude": 37.778334566962535,
+        "longitude": -122.39471413033463,
+        "neighborhood": "China Basin",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T03:00:00+00:00",
+        "title": "Happy Hour at MS Ignite",
+        "url": "https://luma.com/ignitehh",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-GBMZOHKm8ow3KnF": {
       "emailed_at": null,
       "event": {
@@ -8212,13 +8836,41 @@
       "first_seen_at": "2026-11-06T23:53:58.895545+00:00",
       "last_seen_at": "2026-11-11T00:21:42.770522+00:00"
     },
-    "evt-GZcvC0W5JITdQ4D": {
+    "evt-GOzMoUuZztcqdmp": {
       "emailed_at": null,
       "event": {
         "availability": "available",
         "city": "San Francisco",
         "description": null,
         "description_status": "not_fetched",
+        "end": "2026-11-22T02:00:00+00:00",
+        "id": "evt-GOzMoUuZztcqdmp",
+        "latitude": 37.7707775,
+        "longitude": -122.39151140000001,
+        "neighborhood": "Mission Bay",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-22T00:00:00+00:00",
+        "title": "[Delta Analytics] Community Celebration",
+        "url": "https://luma.com/0gnxrvi4",
+        "venue": "SPARK Social SF",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
+    "evt-GZcvC0W5JITdQ4D": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "failed",
         "end": "2026-11-20T05:00:00+00:00",
         "id": "evt-GZcvC0W5JITdQ4D",
         "latitude": 37.781715399999996,
@@ -8226,7 +8878,7 @@
         "neighborhood": "SoMa",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -8235,10 +8887,40 @@
         "title": "n8n Meetup San Francisco \u00b7 Microsoft Ignite Afterhours",
         "url": "https://luma.com/n8n-25m5",
         "venue": "Digital Jungle SF",
-        "warnings": []
+        "warnings": [
+          "description enrichment failed: malformed rich-text description document"
+        ]
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
+    "evt-GaIXU7NORleZVHn": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-12-04T05:00:00+00:00",
+        "id": "evt-GaIXU7NORleZVHn",
+        "latitude": 37.7921815,
+        "longitude": -122.401463,
+        "neighborhood": "Financial District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "sf"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-12-04T02:00:00+00:00",
+        "title": "Un-Silent Night: A Goody Holiday Party",
+        "url": "https://luma.com/goody-holiday-party",
+        "venue": "330 Pine St",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-Gb8EibiB9XqPm4B": {
       "emailed_at": null,
@@ -8622,7 +9304,7 @@
         "neighborhood": "Allied Arts Guild",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -8634,7 +9316,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-H8FsGBWRQkkS8hf": {
       "emailed_at": null,
@@ -8710,7 +9392,7 @@
         "neighborhood": "Union Square",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -8722,7 +9404,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-14T23:33:40.266616+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-HH36OAgdl1GQ0JK": {
       "emailed_at": null,
@@ -8751,6 +9433,34 @@
       },
       "first_seen_at": "2026-11-14T00:35:46.421674+00:00",
       "last_seen_at": "2026-11-14T23:33:40.266616+00:00"
+    },
+    "evt-HHGgDulOm1eBoso": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": "OpenAI Student Collective at Minerva | Friendsgiving Build Night\nNo coding experience needed. All majors and years are welcome. Just bring your laptop and good vibezz!!\ud83c\udf42\nJoin the OpenAI Student Collective at Minerva for a cozy evening of building. You\u2019ll team up with 1-2 other Minervans and use ChatGPT Work and Codex to make something whimsical: something small, a little silly, and made to make someone smile.\nNot sure what \u201cwhimsical\u201d means? We have one rule: if someone smiles within 10 seconds of opening it, you did it. From a compliment vending machine, to a pet rock that needs emotional support, to your little anti-doomscrolling monster!\nWhat we'll do:\nMake teams and get your idea started with ingredient cards (who it\u2019s for, a feeling, and a form)\nMake the idea small: pick one thing it does, then give it a name and a personality before AI touches anything\nBuild it together with ChatGPT Work and Codex\nShow what you made around the Friendsgiving table, with snacks and fun!\nBy the end, you\u2019ll have:\nFun\nA working project you built with your team and can share\nAnd again, funnn!\nAddress: Minerva Welcome Center @ 2550 Van Ness Ave\n*This event is for Minerva Students, so please register with your minerva.edu email :)\n**Registration is required both to attend and to be eligible for your ChatGPT Plus subscription!\nSpaces are limited, so register to save your seat \ud83e\udd0d\ud83e\udd0e",
+        "description_status": "content",
+        "end": "2026-11-20T03:30:00+00:00",
+        "id": "evt-HHGgDulOm1eBoso",
+        "latitude": 37.7991461,
+        "longitude": -122.4239035,
+        "neighborhood": "Russian Hill",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:00:00+00:00",
+        "title": "OpenAI Student Collective at Minerva | Friendsgiving Build Night",
+        "url": "https://luma.com/i5655mp1",
+        "venue": "Minerva University Dorms",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-HHp7FVA2yHCfly6": {
       "emailed_at": null,
@@ -8868,6 +9578,34 @@
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
       "last_seen_at": "2026-10-29T20:31:18.292385+00:00"
     },
+    "evt-HMtZmQDFKuAnlZI": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "Menlo Park",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T03:30:00+00:00",
+        "id": "evt-HMtZmQDFKuAnlZI",
+        "latitude": 37.4414033,
+        "longitude": -122.1788936,
+        "neighborhood": "Allied Arts Guild",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T22:30:00+00:00",
+        "title": "AI Startup Pitch Competition & Networking Happy Hour | Tech Weekend",
+        "url": "https://luma.com/zshc7ma6",
+        "venue": "Allied Arts Guild",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-HN5WnzM7V8FNVRC": {
       "emailed_at": null,
       "event": {
@@ -8952,6 +9690,62 @@
       "first_seen_at": "2026-10-30T19:56:03.842597+00:00",
       "last_seen_at": "2026-11-03T01:57:00.871279+00:00"
     },
+    "evt-HSxxuuUo75iBXqL": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T04:00:00+00:00",
+        "id": "evt-HSxxuuUo75iBXqL",
+        "latitude": 37.79302359936598,
+        "longitude": -122.40412849247102,
+        "neighborhood": "Belden Place",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T01:00:00+00:00",
+        "title": "The Big Hack Game Demo Day \u00b7 Stanford vs Berkeley",
+        "url": "https://luma.com/u9hz2z1x",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
+    "evt-HTwPIwOrHCAfel8": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T05:00:00+00:00",
+        "id": "evt-HTwPIwOrHCAfel8",
+        "latitude": 37.7350231749225,
+        "longitude": -122.46958682260195,
+        "neighborhood": "West Portal",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T02:00:00+00:00",
+        "title": "Vibe Night Demos (#32)",
+        "url": "https://luma.com/sfvibehouse",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-HVTtNJf2iYCGy8u": {
       "emailed_at": null,
       "event": {
@@ -8966,7 +9760,7 @@
         "neighborhood": "India Basin",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -8978,7 +9772,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-HaPJ8PfNrD0z8xw": {
       "emailed_at": null,
@@ -9050,7 +9844,7 @@
         "neighborhood": "Bernal Heights",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -9062,7 +9856,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-17T02:43:38.056079+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-HtVGICBCsKMeyJg": {
       "emailed_at": null,
@@ -9330,7 +10124,7 @@
         "neighborhood": "South of Seminary - Vintage Oaks",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -9342,7 +10136,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-ItrEfjwFiuvUBae": {
       "emailed_at": null,
@@ -9358,7 +10152,7 @@
         "neighborhood": "Duboce Triangle",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -9370,7 +10164,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-14T00:35:46.421674+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-Iu6sSZCufFygZdr": {
       "emailed_at": null,
@@ -9446,7 +10240,7 @@
         "neighborhood": "India Basin",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "ai"
           }
         ],
@@ -9458,7 +10252,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-J8abzNSPURIPYbm": {
       "emailed_at": null,
@@ -9655,6 +10449,34 @@
       },
       "first_seen_at": "2026-11-11T00:21:42.770522+00:00",
       "last_seen_at": "2026-11-11T00:21:42.770522+00:00"
+    },
+    "evt-Jgq9PGBARhHUcOv": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T01:00:00+00:00",
+        "id": "evt-Jgq9PGBARhHUcOv",
+        "latitude": 37.7819145,
+        "longitude": -122.39486069999998,
+        "neighborhood": "China Basin",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T18:00:00+00:00",
+        "title": "Not so European Fridays with DJ at European Startup Embassy",
+        "url": "https://luma.com/2uwfulzy",
+        "venue": "European Startup Embassy",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-JimxES29JgapnM3": {
       "emailed_at": null,
@@ -10014,7 +10836,7 @@
         "neighborhood": "Fort Mason",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -10026,7 +10848,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-17T02:43:38.056079+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-KVJYNSk3MpvHvOs": {
       "emailed_at": null,
@@ -10055,6 +10877,34 @@
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
       "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+    },
+    "evt-KVQnwwee4TEzTDC": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T05:00:00+00:00",
+        "id": "evt-KVQnwwee4TEzTDC",
+        "latitude": 37.78119269680946,
+        "longitude": -122.39656305006784,
+        "neighborhood": "China Basin",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T02:30:00+00:00",
+        "title": "Find Your First Customer: A Start With One Happy Hour",
+        "url": "https://luma.com/k90xia0s",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-KW9d3C6to5p7Cjw": {
       "emailed_at": null,
@@ -10172,6 +11022,34 @@
       "first_seen_at": "2026-11-06T00:39:30.564268+00:00",
       "last_seen_at": "2026-11-06T23:53:58.895545+00:00"
     },
+    "evt-Kmq8pcDoCvAVa0g": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T01:00:00+00:00",
+        "id": "evt-Kmq8pcDoCvAVa0g",
+        "latitude": 37.783033369433994,
+        "longitude": -122.39095405276386,
+        "neighborhood": "South Beach",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T22:30:00+00:00",
+        "title": "Moms Who AI X Wajo: Fo for Moms",
+        "url": "https://luma.com/7e2bkzy2",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-KpxPimWihjRq8e4": {
       "emailed_at": null,
       "event": {
@@ -10287,6 +11165,34 @@
       },
       "first_seen_at": "2026-11-15T23:40:54.418635+00:00",
       "last_seen_at": "2026-11-18T01:58:56.367840+00:00"
+    },
+    "evt-LDUpYCrlKY2K3V9": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T03:00:00+00:00",
+        "id": "evt-LDUpYCrlKY2K3V9",
+        "latitude": 37.7861654,
+        "longitude": -122.39626829999999,
+        "neighborhood": "SoMa",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T01:00:00+00:00",
+        "title": "From Community to Pipeline",
+        "url": "https://luma.com/promptql-communitytopipeline",
+        "venue": "576 Folsom St floor 3",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-LFWWGXuRKHKxsgg": {
       "emailed_at": null,
@@ -10866,7 +11772,7 @@
         "neighborhood": "SoMa",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -10878,7 +11784,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-14T23:33:40.266616+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-MqszpJhx8lR8I5l": {
       "emailed_at": null,
@@ -10963,6 +11869,34 @@
       },
       "first_seen_at": "2026-11-07T23:17:58.673578+00:00",
       "last_seen_at": "2026-11-15T23:40:54.418635+00:00"
+    },
+    "evt-N9hffD0pe03tF2h": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T06:00:00+00:00",
+        "id": "evt-N9hffD0pe03tF2h",
+        "latitude": 37.766359099999995,
+        "longitude": -122.42353539999999,
+        "neighborhood": "Mission Dolores",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T03:00:00+00:00",
+        "title": "AI Automation Agency Meetup",
+        "url": "https://luma.com/puyjw5wx",
+        "venue": "Ai Start Academy \u00a9",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-NC20ZA8G7IhsyQ1": {
       "emailed_at": null,
@@ -11090,7 +12024,7 @@
         "neighborhood": "SoMa",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -11102,7 +12036,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-17T02:43:38.056079+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-NY9FINWeDSZkZBp": {
       "emailed_at": null,
@@ -11335,6 +12269,34 @@
       },
       "first_seen_at": "2026-11-18T01:58:56.367840+00:00",
       "last_seen_at": "2026-11-18T01:58:56.367840+00:00"
+    },
+    "evt-OL4pEvilFt9VF77": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "Stanford",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T05:00:00+00:00",
+        "id": "evt-OL4pEvilFt9VF77",
+        "latitude": 37.42873552418982,
+        "longitude": -122.17786082124944,
+        "neighborhood": null,
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:30:00+00:00",
+        "title": "TimeNet Meetup",
+        "url": "https://luma.com/vxdgaf19",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-OMmsPs5tP6IuSPl": {
       "emailed_at": null,
@@ -11778,7 +12740,7 @@
         "neighborhood": "Marina District",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -11790,7 +12752,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-PKOnarzdYJYlNCI": {
       "emailed_at": null,
@@ -11894,7 +12856,7 @@
         "neighborhood": null,
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -11906,7 +12868,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-PxCIWbgtzo5bhMQ": {
       "emailed_at": null,
@@ -12386,7 +13348,7 @@
         "neighborhood": "Embarcadero",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -12398,7 +13360,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-QZw3Pc4BXPkrnNJ": {
       "emailed_at": null,
@@ -12484,6 +13446,34 @@
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
       "last_seen_at": "2026-11-13T00:50:20.242817+00:00"
     },
+    "evt-Qkj3KBaZZnCrXwZ": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "Hillsborough",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T05:00:00+00:00",
+        "id": "evt-Qkj3KBaZZnCrXwZ",
+        "latitude": 37.565850873022285,
+        "longitude": -122.33175084411438,
+        "neighborhood": "Hillsborough Heights",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T01:00:00+00:00",
+        "title": "Friendsgiving | Baird Augustine",
+        "url": "https://luma.com/focus-82x0",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-QloTXm1uq25UTkg": {
       "emailed_at": null,
       "event": {
@@ -12517,8 +13507,8 @@
       "event": {
         "availability": "available",
         "city": "San Francisco",
-        "description": null,
-        "description_status": "not_fetched",
+        "description": "Join Swissnex in San Francisco and Irene Solaiman, Chief Policy Officer and SVP of Strategy at Hugging Face, for a conversation ahead of the Geneva AI Summit 2027.\nThe evening opens with a talk by Irene Solaiman, Chief Policy Officer and SVP of Strategy at Hugging Face. She\u2019ll share her perspective on the opportunities, risks, and choices ahead as the world prepares for the AI Summit in Geneva next year.\nAfter Irene\u2019s talk, event attendees have the opportunity to join one of six roundtables together with the cohort of Geneva Loading\u2026 a program by Swissnex in San Francisco that brings together a group of Swiss AI experts from research, policy, business, and civil society to prepare for the Geneva AI Summit 2027.\nPick your table\nThe following roundtables can be selected:\nAI governance and sovereignty\nAI safety and frontier risk\nAI, democracy, and media\nAI in high-stakes settings\nAI oversight and human judgment\nAI for science and innovation\nRoundtable participation offers a unique chance to shape the Geneva AI Summit 2027 since the cohort of Geneva Loading\u2026 will take inputs from the roundtable discussions and use them to prepare for the AI Summit.\nWhat is Geneva Loading\u2026?\nGeneva Loading\u2026 is a program that brings together a group of Swiss AI experts from research, policy, business, and civil society to prepare for the summit.\nThis November, the cohort is spending a week (Nov 16-20) in the Bay Area meeting the people who build, fund, regulate, and challenge AI. They want to hear what Silicon Valley gets right, what should change, and what the world should be talking about in Geneva.\nThe Geneva Loading... program consists of several events and publications. If you are interested to stay in the loop, please sign up for our Geneva Loading Newsletter to get regular updates.\nAbout the Geneva AI Summit 2027\nEvery year world leaders, tech companies, researchers, and civil society gather at a global AI Summit to decide how humanity should handle the most powerful technology of our time. In 2027, Geneva will host the next global AI Summit, following Bletchley Park, Seoul, Paris, and New Delhi. What gets discussed there will shape the rules, priorities, and safeguards around AI for years. Most people never get a say in it. This evening, you can.\nWhy join?\nHear a frontline perspective. Irene Solaiman of Hugging Face opens the evening with a view from the heart of the AI ecosystem.\nMeet people you wouldn\u2019t otherwise meet. Swiss policymakers, researchers, and leaders alongside Bay Area founders, engineers, investors, and thinkers, all in one room.\nBe heard where it counts. This isn\u2019t a panel you watch from your seat. You\u2019ll take part in small group discussions with the people heading to Geneva, and what you contribute will directly support their preparation for the AI Summit.\nStay for networking and drinks. The conversation keeps going in a more casual setting.\nThe Geneva Loading\u2026 Cohort 2026\nNadine Bienefeld, Senior Researcher & Lecturer, ETH Zurich & University of Lucerne\nArnout Devos, Lecturer, ETH AI Center\nRuth Fulterer, Tech Journalist, NZZ\nArmin Galliker, Senior Software Architect, Siemens\nAngela M\u00fcller, Executive Director, AlgorithmWatch CH\nBalz Oertli, Journalist & Co-founder, WAV Recherchekollektiv\nNiniane Paeffgen, Lead Citizens Engagement & Public Affairs, GESDA\nBlaise Robert, Global AI Advisor, International Committee of the Red Cross (ICRC)\nKevin Schawinski, CEO & Co-founder, Modulos\nPatrick Stadler, Executive Lead & Co-founder, Pour Demain\nSpeaker\nIrene Solaiman, Chief Policy Officer and SVP of Strategy at Hugging Face\nProgram\n6:00pm \u2013 Doors open6:30pm \u2013 Opening remarks: Geneva Loading\u2026 and the road to the AI Summit 20276:40pm \u2013 Featured talk and Q&A: Irene Solaiman, Chief Policy Officer and SVP of Strategy, Hugging Face7:00pm \u2013 Cohort presentation and roundtable introductions7:15pm \u2013 Roundtable clinics7:45pm \u2013 Table report-backs8:15pm \u2013 Closing reflections8:20pm \u2013 Drinks and conversation9:00pm \u2013 Doors close\nAbout Swissnex in San FranciscoSwissnex in San Francisco is an initiative of the Swiss State Secretariat for Education, Research and Innovation (SERI). Our vision at Swissnex in San Francisco is to connect tomorrow by empowering the next generation of innovators to collaborate and create futures where the planet and society thrive.By attending our events, you agree to adhere to our event rules.",
+        "description_status": "content",
         "end": "2026-11-20T05:00:00+00:00",
         "id": "evt-Qtceo1OcjYvaeOr",
         "latitude": 37.774522999999995,
@@ -12526,7 +13516,11 @@
         "neighborhood": "SoMa",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          },
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -12538,7 +13532,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-QwJVDNC0MwJ6s9q": {
       "emailed_at": null,
@@ -12922,11 +13916,11 @@
         "neighborhood": "Dogpatch",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "ai"
           },
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -12938,7 +13932,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-18T01:58:56.367840+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-RbPryCqtr4NjMWZ": {
       "emailed_at": null,
@@ -13098,7 +14092,7 @@
         "neighborhood": "Downtown North",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -13110,7 +14104,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-RqLhJHHHSsYp84x": {
       "emailed_at": null,
@@ -13139,6 +14133,34 @@
       },
       "first_seen_at": "2026-11-04T00:19:05.186761+00:00",
       "last_seen_at": "2026-11-08T23:21:28.803301+00:00"
+    },
+    "evt-Rsf0tVslEgxXMi4": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T02:30:00+00:00",
+        "id": "evt-Rsf0tVslEgxXMi4",
+        "latitude": 37.769770639564236,
+        "longitude": -122.45620577074406,
+        "neighborhood": "Golden Gate Park",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T01:00:00+00:00",
+        "title": "new tech meetup SF - neocomputing v2",
+        "url": "https://luma.com/pclm1voe",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-Rtsf4E0MWsKsFJO": {
       "emailed_at": null,
@@ -13308,6 +14330,34 @@
       "first_seen_at": "2026-11-03T01:57:00.871279+00:00",
       "last_seen_at": "2026-11-05T00:41:33.485939+00:00"
     },
+    "evt-SL9VQP92f1hQeJS": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T05:30:00+00:00",
+        "id": "evt-SL9VQP92f1hQeJS",
+        "latitude": 37.784070736553396,
+        "longitude": -122.4106985836223,
+        "neighborhood": "Union Square",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T03:00:00+00:00",
+        "title": "Today\u2019s Social with NANDA and Nasiko",
+        "url": "https://luma.com/45qs8vsx",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-SM8wOKnXNamBsFr": {
       "emailed_at": null,
       "event": {
@@ -13335,6 +14385,34 @@
       },
       "first_seen_at": "2026-11-08T23:21:28.803301+00:00",
       "last_seen_at": "2026-11-12T01:45:26.622004+00:00"
+    },
+    "evt-SSAxCxsM9o6Rnn5": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "Palo Alto",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-25T04:00:00+00:00",
+        "id": "evt-SSAxCxsM9o6Rnn5",
+        "latitude": 37.4483752,
+        "longitude": -122.15890359999999,
+        "neighborhood": "University South",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-25T01:00:00+00:00",
+        "title": "Startup Pitch & Networking in Palo Alto",
+        "url": "https://luma.com/n577ty36",
+        "venue": "JOE & THE JUICE",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-ShtT597otMzuCM7": {
       "emailed_at": null,
@@ -14340,7 +15418,7 @@
         "neighborhood": "Marina District",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -14352,7 +15430,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-Uxx6KavX47KrqM9": {
       "emailed_at": null,
@@ -14550,6 +15628,34 @@
       "first_seen_at": "2026-11-08T23:21:28.803301+00:00",
       "last_seen_at": "2026-11-12T01:45:26.622004+00:00"
     },
+    "evt-VSpepDEKEYIrUlo": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": "Happy birthday to you, happy birthday to you, happy birthday dear MCPPPPPP, happy birthday to you!!\nCome celebrate with us. They'll be birthday cake, party hats, balloons, and talks from MCP leaders about the future of the space.\nLightning talk lineup:\nChristian Glassiognon - Planetscale\nMCP as product distribution and surface, where the protocol is today, and where it\u2019s heading.\nAlex Salkever - Agentic AI Foundation\nWhy the agentic ecosystem needs to stay open, new foundation projects, and what\u2019s next for MCP apps.\nJustin Lee - Notion\nMCP design patterns of the past, present and future + learnings from the Notion MCP\nAndre Landgraf - Databricks/Neon\nGathering agent feedback with MCP\nAndrew Khadder - Manufact\nMCP demo\nNov. 25, 2026 marks two years since Anthropic released the Model Context Protocol. Back then, client support was limited and the server ecosystem was just getting started. Now coding agents are cracked, more clients support MCP, and companies are building servers so you can use their products without leaving your agent.That shift is already showing up in how people work. In August, Linear\u2019s Jori Lallo shared that more issues were created through MCP that week than through Linear\u2019s app. LLMs are starting to look like operating systems, with MCP servers as the apps. For a protocol that spent plenty of time getting trashed on X, that\u2019s a pretty good second birthday.\nPlease note: Space is limited to about 60 guests, so registering doesn't guarantee entry. Entry is first come, first served on the night. If your plans change, please cancel your RSVP so someone on the waitlist can take your spot.\nManufact is the MCP Cloud to build, test, publish, and monitor MCP servers and apps.",
+        "description_status": "content",
+        "end": "2026-11-20T04:00:00+00:00",
+        "id": "evt-VSpepDEKEYIrUlo",
+        "latitude": 37.78916950029545,
+        "longitude": -122.40596320185617,
+        "neighborhood": "Union Square",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:00:00+00:00",
+        "title": "MCP's Official 2nd Birthday Party: Lightning Talks from Industry Leaders",
+        "url": "https://luma.com/1ux794v1",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-VVy6WKeEjrRJ0Qv": {
       "emailed_at": null,
       "event": {
@@ -14596,7 +15702,7 @@
         "neighborhood": "SoMa",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -14608,7 +15714,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-VamCxllafMh2lx6": {
       "emailed_at": null,
@@ -14665,6 +15771,34 @@
       },
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
       "last_seen_at": "2026-10-29T20:31:18.292385+00:00"
+    },
+    "evt-VfphlJi6bDu072T": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-23T05:00:00+00:00",
+        "id": "evt-VfphlJi6bDu072T",
+        "latitude": 37.77883582530345,
+        "longitude": -122.4390238509774,
+        "neighborhood": "Alamo Square",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-23T03:00:00+00:00",
+        "title": "Accelr8 | Dinner + Demo Night",
+        "url": "https://luma.com/accelr8-9acg",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-VhOQA3Fu9Q7GtkW": {
       "emailed_at": null,
@@ -14866,6 +16000,34 @@
       "first_seen_at": "2026-11-10T02:29:03.941887+00:00",
       "last_seen_at": "2026-11-10T02:29:03.941887+00:00"
     },
+    "evt-VsQS10wxwVyN2BZ": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-24T03:30:00+00:00",
+        "id": "evt-VsQS10wxwVyN2BZ",
+        "latitude": 37.79549577454346,
+        "longitude": -122.4005478007155,
+        "neighborhood": "Financial District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-24T01:00:00+00:00",
+        "title": "Founders Demo Night | YC, The Residency & More",
+        "url": "https://luma.com/m18xf5h7",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-VsWnAviG53rgSQV": {
       "emailed_at": null,
       "event": {
@@ -14981,6 +16143,62 @@
       },
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
       "last_seen_at": "2026-11-11T00:21:42.770522+00:00"
+    },
+    "evt-VyneTDB9tUCSVQB": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "Menlo Park",
+        "description": "AI Cyber Alliance Meetup: Bay Area\nThursday, November 19, 2026Time: 6:00pm-8.30pmLocation: Snowflake, Silicon Valley AI Hub, 8th Floor, 135 Constitution Drive, Menlo Park, CA 94025\nJoin the AI Cyber Alliance at Snowflake for an evening of technical talks and conversation at the intersection of AI and cybersecurity.\nMeet developers, security practitioners, researchers, founders, and others working through the opportunities and challenges of building with AI. We\u2019ll hear from two speakers, share practical ideas, and make time to connect with the Bay Area community.\nSpeaker and talk details will be announced soon.\nAbout the AI Cyber Alliance\nFounded by DeepTempo, the AI Cyber Alliance is an open community advancing AI and cybersecurity through collaboration, education, and shared technical knowledge. Our meetups bring together people from industry, startups, academia, and the open source community.Speakers & Talks\nSpeaker 1: Josh Khalil, Implementation Consultant at Snyk.io\nTalk Title: Securing how software gets built when AI agents do the building\nAbstract: Coding agents like Claude Code now choose their own tools, connect to MCP servers, run commands, and install packages on developer machines. Most security teams have no visibility into any of this. Josh will run a live demo on a real machine with a few things going wrong: an MCP tool with hidden instructions, an agent trying to read secrets and run a destructive command, and generated code that pulls in a vulnerable package. He'll show how Evo by Snyk catches each before it causes damage, and what it looks like for the developer while it's happening.\nBio: Josh Khalil is an Implementation Consultant at Snyk, working with customers as they adopt AI coding agents and figure out how to keep them secure. He leads Evo onboarding for security and engineering teams, and is most interested in where agent tooling, MCP servers, and workflows meet.\nSpeaker 2: Dan Barahona, Founder, AISEC.university\nTalk Title: AI is the New Attack Surface: Faked, Hacked and Gone Rogue\nAbstract: Attackers are faking executives on video calls.  They are hijacking AI assistants through MCP servers and poisoned content.  And AI agents are deleting production data while ignoring \"stop.\"  Dan walks through real incidents from the last year, from the $25M Arup deepfake to the first malicious MCP server to Replit's agent wiping out a database during a code freeze, and pulls out the patterns behind them.  You'll leave with a simple way to spot which AI setups are dangerous, and a short list of things to do when you get back to the office.\nBio: Dan Barahona is the founder of aisec.university and a recognized voice in the cybersecurity community. Heavily plugged into the open-source ecosystem, he focuses on providing free, accessible education and open tools to help security teams and developers defend against emerging AI vulnerabilities.\nAgenda\n6:00 PM \u2013 6:30 PM: Arrival, Networking & Refreshments\n6:30 PM \u2013 7:10 PM: Talk 1: Securing how software gets built when AI agents do the building \u2013 Josh Khalil (Snyk) + Q&A\n7:10 PM \u2013 7:50 PM: Talk 2: Real-World Exploits & Best Practices for AI Security \u2013 Dan Barahona (AISEC.university) + Q&A\n7:50 PM \u2013 8:30 PM: Open Discussion, Networking & Wrap-upWe look forward to seeing you there!\n\u2013 The AI Cyber Alliance team",
+        "description_status": "content",
+        "end": "2026-11-20T04:30:00+00:00",
+        "id": "evt-VyneTDB9tUCSVQB",
+        "latitude": 37.4850527,
+        "longitude": -122.1762167,
+        "neighborhood": null,
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:00:00+00:00",
+        "title": "AI Cyber Alliance Meetup: Bay Area - Agents, Exploits & Defense: Securing AI in the Wild",
+        "url": "https://luma.com/aicyber-pttt",
+        "venue": "Silicon Valley AI Hub",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
+    "evt-VzPFd556eNag6V6": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T05:00:00+00:00",
+        "id": "evt-VzPFd556eNag6V6",
+        "latitude": 37.7348496609258,
+        "longitude": -122.47267733736933,
+        "neighborhood": "West Portal",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T01:30:00+00:00",
+        "title": "AWS x SFVibehouse #1 \u2014 Taking AI Agents to Production",
+        "url": "https://luma.com/technical-thursdays",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-VzrLhQInEQpwocE": {
       "emailed_at": null,
@@ -15667,8 +16885,8 @@
       "event": {
         "availability": "available",
         "city": "San Francisco",
-        "description": null,
-        "description_status": "not_fetched",
+        "description": "Take a break from the algorithm. Find your rhythm!\nWhen was the last time you learned something completely different? Something you could feel, hear, and experience with your whole body?\nThis time, let's trade your tokens for cajones and your prompts for dance moves!\nJoin us for a vibrant Afro-Peruvian cultural experience featuring Juan de Dios Soto, master caj\u00f3n drummer and founder of Tradici\u00f3n Peruana Cultural Center.\nGet ready to:\n\ud83e\udd41 Find your beat! Discover the Peruvian caj\u00f3n, learn its rhythms, and get hands-on with one of Peru's most iconic instruments.\n\ud83d\udc83 Move to the rhythm! Experience the energy of Afro-Peruvian dance, learn traditional moves, and let the music take over.\nNo musical or dancing experience needed. Just bring your curiosity, your energy, and your ganas de aprender!\nWhether you grew up with these traditions, want to reconnect with your Peruvian roots, or are simply curious about our culture, come learn something new, meet great people, and celebrate what brings us together.\nBecause some skills you learn with a keyboard. Others you learn with your hands, your feet, and your heart.\n\u00a1Nos vemos para compartir ritmo, color y sabor! \ud83c\uddf5\ud83c\uddea",
+        "description_status": "content",
         "end": "2026-11-20T04:00:00+00:00",
         "id": "evt-X8SkBzJ7HqIeQLt",
         "latitude": 37.760736099999995,
@@ -15676,7 +16894,7 @@
         "neighborhood": "Mission District",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -15688,7 +16906,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-X8bDKvTD4Vt1Cvo": {
       "emailed_at": null,
@@ -15732,7 +16950,7 @@
         "neighborhood": "Mission District",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -15744,7 +16962,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-XJ3VtDVg2YLvHeE": {
       "emailed_at": null,
@@ -15992,7 +17210,7 @@
         "neighborhood": "Allied Arts Guild",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -16004,7 +17222,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-XmRFbkoTG85nTkq": {
       "emailed_at": null,
@@ -16076,8 +17294,12 @@
         "neighborhood": "Rincon Hill",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
+          },
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
           }
         ],
         "source_timezone": "America/Los_Angeles",
@@ -16088,7 +17310,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-15T23:40:54.418635+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-XvBN5aTHy6sxkpB": {
       "emailed_at": null,
@@ -16468,7 +17690,7 @@
         "neighborhood": null,
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "ai"
           }
         ],
@@ -16480,7 +17702,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-Yrh6dxC7Rf1QFoY": {
       "emailed_at": null,
@@ -16640,7 +17862,7 @@
         "neighborhood": "China Basin",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -16652,7 +17874,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-18T01:58:56.367840+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-Z4IClWrenwokQsq": {
       "emailed_at": null,
@@ -16894,7 +18116,7 @@
         "neighborhood": "Mission District",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -16906,7 +18128,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-14T23:33:40.266616+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-ZkXNn1JD6H7BGhy": {
       "emailed_at": null,
@@ -16922,8 +18144,12 @@
         "neighborhood": "China Basin",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
+          },
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
           }
         ],
         "source_timezone": "America/Los_Angeles",
@@ -16934,7 +18160,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-14T00:35:46.421674+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-Zl9WDrhRpNGIdtZ": {
       "emailed_at": null,
@@ -17028,6 +18254,34 @@
       "first_seen_at": "2026-10-31T19:17:10.442405+00:00",
       "last_seen_at": "2026-11-06T00:39:30.564268+00:00"
     },
+    "evt-ZzCMZM9dOiKQ33A": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "Fremont",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T18:30:00+00:00",
+        "id": "evt-ZzCMZM9dOiKQ33A",
+        "latitude": 37.550349972822886,
+        "longitude": -121.96353641755115,
+        "neighborhood": "Central District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T17:00:00+00:00",
+        "title": "Lake Elizabeth \"Walk & Talk\" Saturday Nov 21",
+        "url": "https://luma.com/9eq6ms9z",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-ZzDiSsBE1ODqrBf": {
       "emailed_at": null,
       "event": {
@@ -17056,6 +18310,34 @@
       "first_seen_at": "2026-11-15T23:40:54.418635+00:00",
       "last_seen_at": "2026-11-18T01:58:56.367840+00:00"
     },
+    "evt-a3GJMBWY97jLyE9": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T03:30:00+00:00",
+        "id": "evt-a3GJMBWY97jLyE9",
+        "latitude": 37.79042969139524,
+        "longitude": -122.39653989351216,
+        "neighborhood": "Financial District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T17:30:00+00:00",
+        "title": "Personal Agents Hackathon",
+        "url": "https://luma.com/personalagenthack",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-a6YCiIn7yrCo6AV": {
       "emailed_at": null,
       "event": {
@@ -17070,7 +18352,7 @@
         "neighborhood": "North Beach",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -17082,7 +18364,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-aCjTDhqBIuvNDPm": {
       "emailed_at": null,
@@ -17228,6 +18510,34 @@
       "first_seen_at": "2026-11-08T23:21:28.803301+00:00",
       "last_seen_at": "2026-11-12T01:45:26.622004+00:00"
     },
+    "evt-aMEKtVB26i0QcbC": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": "Building foundation models for the physical world, whether VLAs or world models, means wrangling massive video and sensor datasets, running large-scale training and simulation, and iterating fast.\nThe more data these models see, the more capable they get.\nJoin us for an evening of technical talks and networking with fellow ML and robotics engineers and builders to see how they are tackling this new wave of physical AI innovation.\nAGENDA OVERVIEW\n6:00 PM - Doors open, food, and networking6:15 PM - Talks\nUry Zhilinsky, Founding Technical Member + Mouli Sivapurapu, Head of Data and App Eng, Mind Robotics\nNehil Jain, Forward Deployed Engineer, Anyscale\n7:15 PM - Open networking\nSESSION DETAILS\nFrom Factory Floor to Training Run: What Works Today, What's Still Hard\nMind Robotics trains robot foundation models on egocentric video captured on live automotive production lines, plus teleop and third-party data, in a fast-growing corpus on a path to many petabytes. This talk walks through the pipeline end to end, from capture on the factory floor through QC and labeling to the training dataloader, covering what works in production today and the problems still ahead. Expect the patterns that worked and an honest list of what we haven't solved yet.\nSpeaker Bios:\nUry Zhilinsky leads software and AI at Mind Robotics, which makes AI-powered mobile robotic platforms for industrial manufacturing, with Rivian as its first manufacturing partner. Before Mind, his work spanned Waymo, Nuro, and Physical Intelligence.\nMouli Sivapurapu leads data and applications engineering at Mind Robotics, building the infrastructure that carries video and teleop data from the factory floor through QC and labeling into model training. Prior to Mind, he worked at Scale AI, Apple and Samsung.\nHosted by:Anyscale, the company behind the Ray open source project, is a fully managed AI platform for foundation model-scale workloads. AI teams use it to run data, training, sims, inference, and RL workloads at scale on any cloud or on-prem.",
+        "description_status": "content",
+        "end": "2026-11-20T03:30:00+00:00",
+        "id": "evt-aMEKtVB26i0QcbC",
+        "latitude": 37.7841915,
+        "longitude": -122.39589810000001,
+        "neighborhood": "Yerba Buena",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:00:00+00:00",
+        "title": "AI Infra for Physical AI: Mind Robotics x Anyscale",
+        "url": "https://luma.com/anyscale-gbln",
+        "venue": "Anyscale",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-aOMxWF8HN0Hth5C": {
       "emailed_at": null,
       "event": {
@@ -17330,7 +18640,7 @@
         "neighborhood": "Downtown North",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "ai"
           }
         ],
@@ -17342,7 +18652,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-an6ijRjwcoXfC3c": {
       "emailed_at": null,
@@ -17596,6 +18906,34 @@
       "first_seen_at": "2026-11-13T00:50:20.242817+00:00",
       "last_seen_at": "2026-11-14T23:33:40.266616+00:00"
     },
+    "evt-bKRsmCn1vUVPfEh": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T05:00:00+00:00",
+        "id": "evt-bKRsmCn1vUVPfEh",
+        "latitude": 37.7887655,
+        "longitude": -122.40259799999998,
+        "neighborhood": "Union Square",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:30:00+00:00",
+        "title": "Write the Docs Bay Area \u00d7 Mintlify: Rethinking Documentation in the AI Era",
+        "url": "https://luma.com/ftnzd5r6",
+        "venue": "Mintlify",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-bKXH9pogYjfHDVK": {
       "emailed_at": null,
       "event": {
@@ -17610,7 +18948,7 @@
         "neighborhood": "Financial District",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "ai"
           }
         ],
@@ -17622,7 +18960,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-bKYtz3wDYAsjmGl": {
       "emailed_at": null,
@@ -17679,6 +19017,34 @@
       },
       "first_seen_at": "2026-11-08T23:21:28.803301+00:00",
       "last_seen_at": "2026-11-12T01:45:26.622004+00:00"
+    },
+    "evt-bOkx0FCypg1qkWi": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-22T02:00:00+00:00",
+        "id": "evt-bOkx0FCypg1qkWi",
+        "latitude": 37.81868245725937,
+        "longitude": -122.36522471096087,
+        "neighborhood": "Treasure Island",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-22T00:00:00+00:00",
+        "title": "Badminton 7 | TinyFish x Vorflux",
+        "url": "https://luma.com/rrrljc1k",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-bPLwKp5RdxYwnPp": {
       "emailed_at": null,
@@ -18048,6 +19414,34 @@
       "first_seen_at": "2026-11-06T23:53:58.895545+00:00",
       "last_seen_at": "2026-11-11T00:21:42.770522+00:00"
     },
+    "evt-cIu6JARXtimg9WW": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-23T02:30:00+00:00",
+        "id": "evt-cIu6JARXtimg9WW",
+        "latitude": 37.79271443969454,
+        "longitude": -122.40438897444633,
+        "neighborhood": "Chinatown",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "sf"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-23T01:00:00+00:00",
+        "title": "Craftathon: Reimagine the Ordinary",
+        "url": "https://luma.com/cboj2twz",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-cJ8w96a4OO6FBzw": {
       "emailed_at": null,
       "event": {
@@ -18062,7 +19456,11 @@
         "neighborhood": "Embarcadero",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          },
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -18074,7 +19472,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-14T00:35:46.421674+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-cJYtWq0OdBm8f4I": {
       "emailed_at": null,
@@ -18275,10 +19673,10 @@
     "evt-cqPym6zjMmKKA04": {
       "emailed_at": null,
       "event": {
-        "availability": "available",
+        "availability": "waitlist",
         "city": "San Francisco",
-        "description": null,
-        "description_status": "not_fetched",
+        "description": "Poker Night is back.\nBack in April, we packed our Levi\u2019s Plaza office with some of SF\u2019s best engineers for a night of cards, pizza and an open bar. It was such a good time that we had to run it back.\nRound two is Thursday, Nov. 19.\nFree to play\nDrinks all night\nPlenty of food\nBeginners welcome\nCome meet our team, compete for prizes, and play a few hands against some of the best engineers in SF.\nSpots are limited and went fast last time, so grab yours now.",
+        "description_status": "content",
         "end": "2026-11-20T06:00:00+00:00",
         "id": "evt-cqPym6zjMmKKA04",
         "latitude": 37.79947116328948,
@@ -18286,11 +19684,11 @@
         "neighborhood": "Northern Waterfront",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           },
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -18302,7 +19700,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-13T00:50:20.242817+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-csMZqdnMDSYW3Lr": {
       "emailed_at": null,
@@ -18796,6 +20194,34 @@
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
       "last_seen_at": "2026-11-14T23:33:40.266616+00:00"
     },
+    "evt-e2QCeRofQ0RK7GU": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "Palo Alto",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2027-01-23T06:00:00+00:00",
+        "id": "evt-e2QCeRofQ0RK7GU",
+        "latitude": 37.4444693,
+        "longitude": -122.1627873,
+        "neighborhood": "Downtown North",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "sf"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2027-01-23T02:30:00+00:00",
+        "title": "Snowfro: Press Start",
+        "url": "https://luma.com/node-Snowfro",
+        "venue": "NODE",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-e5z6NVzmJ6eGK1E": {
       "emailed_at": "2026-10-31T19:17:14.175538+00:00",
       "event": {
@@ -18838,7 +20264,7 @@
         "neighborhood": "Downtown North",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -18850,7 +20276,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-e9cHFvY3I25nK9n": {
       "emailed_at": null,
@@ -18969,28 +20395,28 @@
       "event": {
         "availability": "available",
         "city": "Stanford",
-        "description": "30 real businesses. 30 teams. One real problem each. All built on Converge.AI. We mean BUSINESS!\nMost hackathons hand you a made-up prompt. Converge.AI is handing you a real business.\n30 real businesses (restaurants, retail shops, booking services, sales and customer-service teams) each bring one problem they actually want solved. Each team is matched with one business and has about 30 hours to build a working AI solution on Converge.AI, an AI-native work & business platform. The top 8 teams demo live at Stanford in front of the business owners, investors, industry judges and the Converge.AI team.\n\ud83d\udc49 Builders: after registering on Luma, have one person per team submit the team form so we can match you with a business (takes about 3 minutes).\n\ud83d\udcbc For businesses: bring us your problem\nGot a task that eats your team\u2019s time, like answering the same customer questions, following up on leads, handling bookings or writing product content? Hand it to a team powered by Converge.AI.\nWhat you do:\nSubmit one real problem AS SOON AS POSSIBLE: chenxi.huang1028@gmail.com\nJoin one short 1:1 call with the Converge.AI team (Nov 9\u201313) to scope it\nAnswer a few questions from your team during the build (Nov 17\u201318)\nJoin us at Demo Day on Nov 20 and pick the Brand\u2019s Choice winner\nWhat you will get:\nA working AI solution built on Converge.AI for your business, free of charge\nA chance to pilot the best solutions with Converge.AI\nExposure to builders, investors and media\n\ud83d\udee0\ufe0f For builders: build with Converge.AI, ship something that gets used\nWho: Anyone who wants to ship AI that real businesses will use: students, professionals, founders and indie builders. 100% free to join. You don't need to be a student or have a .edu email\nTeams: 3\u20134 people. Come with a team, or apply solo and we\u2019ll help you find one\nMatching: Teams are matched to businesses by random draw, one team per business\nWhat you will get: Full access to Converge.AI\u2019s products (Covey, Enter, Framia and Combos), mentorship from the Converge.AI team during the build, and a real business owner waiting to use what you make\nApply by: Nov 13\n\ud83c\udfac Community Partner: AdaL\nAdaL is the best agentic video editor, helping you make impressive videos to take your product to market. Make your project\u2019s demo video in AdaL Desktop.\n\ud83d\udcc5 Timeline\nNov 13 (Fri) \u00b7 Applications close\nNov 17 (Tue) morning \u00b7 Teams matched, challenge briefs released\nNov 17\u201318 \u00b7 Build sprint with Converge.AI mentor office hours\nNov 18 (Wed) 5:00 PM PT \u00b7 Submission deadline\nNov 18\u201319 \u00b7 Online judging (Round 1)\nNov 19 (Thu) afternoon \u00b7 8 finalists announced\nNov 20 (Fri) \u00b7 Demo Day at Stanford \ud83c\udfa4\n\ud83d\udca5 Demo Day agenda \u00b7 Fri, Nov 20 \u00b7 2:30\u20136:40 PM\n2:30 PM \u00b7 Doors open \u00b7 Showcase wall of all 30 projects built on Converge.AI\n2:50 PM \u00b7 Opening\n3:00 PM \u00b7 Keynote from Converge.AI: Building the AI-native company\n3:15 PM \u00b7 Panel: What real businesses need from AI (business owners \u00d7 investors \u00d7 Converge.AI)\n3:45 PM \u00b7 Finalist demos, Teams 1\u20134\n4:45 PM \u00b7 Break \u00b7 Audience voting opens\n5:00 PM \u00b7 Finalist demos, Teams 5\u20138\n6:00 PM \u00b7 Tea break \u00b7 Judges deliberate\n6:20 PM \u00b7 Awards, presented by Converge.AI\n6:35 PM \u00b7 Group photo\n6:40 PM \u00b7 Networking\nEach finalist team gets 15 minutes: the business problem they solved, a live demo, and judges\u2019 Q&A.\n\ud83c\udfc6 $5,000 in prizes, including cash and TikTok credits & token credits. Top solutions will be considered for pilots with their businesses and Converge.AI.\n\u2696\ufe0f Judges\nAlex Witt\nWolf Ruzicka\nJonathan Buckheit\nPetros Hong\nWilliam August\nVince Kohli\nBen Toney\nEvan Buhler\nRonak D\nErena Estell\u00e9s\nKathy\nMore judges to be announced.\nPresented by Converge.AI\nIn partnership with AWS, TikTok, 2%Tech, wefluens, AdaL, LightHouse, Canopy and onepiece labs\nAdd to your Google Calendar?",
-        "description_status": "content",
-        "end": "2026-11-18T03:30:00+00:00",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T03:30:00+00:00",
         "id": "evt-eMtFyc4Ro49baFE",
-        "latitude": 37.427659999999996,
-        "longitude": -122.17005999999999,
+        "latitude": 37.4264401,
+        "longitude": -122.15731830000001,
         "neighborhood": null,
         "provenance": [
           {
-            "collected_at": "2026-11-14T23:33:32.365595+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "ai"
           }
         ],
         "source_timezone": "America/Los_Angeles",
-        "start": "2026-11-17T23:00:00+00:00",
+        "start": "2026-11-20T23:00:00+00:00",
         "title": "30\u00d730 Real Business AI Buildathon @Stanford",
         "url": "https://luma.com/7yx7xeqx",
-        "venue": "Stanford University",
+        "venue": "Escondido Village Graduate Residences",
         "warnings": []
       },
       "first_seen_at": "2026-11-14T00:35:46.421674+00:00",
-      "last_seen_at": "2026-11-14T23:33:40.266616+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-eO0QBGDALmFRDOq": {
       "emailed_at": null,
@@ -19090,7 +20516,7 @@
         "neighborhood": "SoMa",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "ai"
           }
         ],
@@ -19102,7 +20528,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-eRg8j62wRQJu6Tb": {
       "emailed_at": "2026-11-01T23:18:15.839546+00:00",
@@ -19286,7 +20712,7 @@
         "neighborhood": "Union Square",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -19298,7 +20724,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-esmCYL9r0KuPEY3": {
       "emailed_at": null,
@@ -19551,6 +20977,34 @@
       },
       "first_seen_at": "2026-11-07T23:17:58.673578+00:00",
       "last_seen_at": "2026-11-11T00:21:42.770522+00:00"
+    },
+    "evt-fXGYBirK1X1rb6h": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Mateo",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-24T03:00:00+00:00",
+        "id": "evt-fXGYBirK1X1rb6h",
+        "latitude": 37.5419676173886,
+        "longitude": -122.28405434069114,
+        "neighborhood": "East San Mateo",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-24T01:00:00+00:00",
+        "title": "Let Your Career Sponsor Your Green Card: Live Meetup in the SF Bay Area",
+        "url": "https://luma.com/rqa8o109",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-fbLFvysxZxICtpg": {
       "emailed_at": null,
@@ -20246,7 +21700,7 @@
         "neighborhood": "Rockridge",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -20258,7 +21712,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-17T02:43:38.056079+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-h5XMAGlBVfFlhqX": {
       "emailed_at": null,
@@ -20302,7 +21756,7 @@
         "neighborhood": "University South",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "ai"
           }
         ],
@@ -20314,7 +21768,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-hQt6Gz2T65nAUam": {
       "emailed_at": null,
@@ -20343,6 +21797,34 @@
       },
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
       "last_seen_at": "2026-10-30T19:56:03.842597+00:00"
+    },
+    "evt-hUIJ7zFuMWwgBID": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T03:00:00+00:00",
+        "id": "evt-hUIJ7zFuMWwgBID",
+        "latitude": 37.80040122416348,
+        "longitude": -122.40028104099102,
+        "neighborhood": "Northern Waterfront",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T01:00:00+00:00",
+        "title": "DeepEval SF Meetup | Latest Updates & Hands-On Demos",
+        "url": "https://luma.com/tzyy1h0e",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-haaIaYioI4cCEgP": {
       "emailed_at": null,
@@ -20512,6 +21994,34 @@
       "first_seen_at": "2026-11-17T02:43:38.056079+00:00",
       "last_seen_at": "2026-11-17T02:43:38.056079+00:00"
     },
+    "evt-hwmV5pvfViGouIU": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T06:00:00+00:00",
+        "id": "evt-hwmV5pvfViGouIU",
+        "latitude": 37.7562178,
+        "longitude": -122.4191225,
+        "neighborhood": "Mission District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T03:00:00+00:00",
+        "title": "Whispers: A Gen AI Interactive movie screening hosted by MiniMax and fal",
+        "url": "https://luma.com/440qpcf2",
+        "venue": "Alamo Drafthouse Cinema New Mission",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-i1i32tx90BIkoBh": {
       "emailed_at": null,
       "event": {
@@ -20567,6 +22077,34 @@
       },
       "first_seen_at": "2026-11-14T00:35:46.421674+00:00",
       "last_seen_at": "2026-11-18T01:58:56.367840+00:00"
+    },
+    "evt-iLuazdDNmz97Hex": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-24T05:00:00+00:00",
+        "id": "evt-iLuazdDNmz97Hex",
+        "latitude": 37.7708552,
+        "longitude": -122.4199593,
+        "neighborhood": "SoMa",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-24T03:00:00+00:00",
+        "title": "SF Lean Meetup",
+        "url": "https://luma.com/zc0quhtf",
+        "venue": "Mox",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-iMWI1oShQToPPkm": {
       "emailed_at": null,
@@ -21086,6 +22624,38 @@
       "first_seen_at": "2026-11-12T01:45:26.622004+00:00",
       "last_seen_at": "2026-11-13T00:50:20.242817+00:00"
     },
+    "evt-jLfksG5r1RYnhXk": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-23T01:00:00+00:00",
+        "id": "evt-jLfksG5r1RYnhXk",
+        "latitude": 37.7861601,
+        "longitude": -122.4082452,
+        "neighborhood": "Union Square",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "sf"
+          },
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-22T22:00:00+00:00",
+        "title": "Bryce 3D Live: make art with 30 year old software | co-presented by Culture Slop",
+        "url": "https://luma.com/bryce3d",
+        "venue": "tiat",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-jPMA8vt2Ri8vxWF": {
       "emailed_at": null,
       "event": {
@@ -21327,12 +22897,12 @@
         "description_status": "not_fetched",
         "end": "2026-11-20T05:00:00+00:00",
         "id": "evt-jgY4LJMTKzPCeNu",
-        "latitude": 37.7970411,
-        "longitude": -122.40318930000001,
-        "neighborhood": "Jackson Square",
+        "latitude": 37.79640603756689,
+        "longitude": -122.40391947897125,
+        "neighborhood": "Financial District",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -21340,11 +22910,11 @@
         "start": "2026-11-20T03:00:00+00:00",
         "title": "Gumloop x Linear Design Gallery",
         "url": "https://luma.com/design-gallery",
-        "venue": "Jackson Square",
+        "venue": null,
         "warnings": []
       },
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-jhXJ0JelL9S8ReV": {
       "emailed_at": null,
@@ -21377,6 +22947,34 @@
       },
       "first_seen_at": "2026-11-15T23:40:54.418635+00:00",
       "last_seen_at": "2026-11-18T01:58:56.367840+00:00"
+    },
+    "evt-jlsZTYTxoIlEBKr": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T04:30:00+00:00",
+        "id": "evt-jlsZTYTxoIlEBKr",
+        "latitude": 37.78529176789551,
+        "longitude": -122.4313279305871,
+        "neighborhood": "Western Addition",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T01:30:00+00:00",
+        "title": "Agents in Production: A Private Dinner for Product & Engineering Leaders",
+        "url": "https://luma.com/refoldai-ssek",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-k0oXqq1qoUjAICR": {
       "emailed_at": null,
@@ -22089,8 +23687,8 @@
       "event": {
         "availability": "sold_out",
         "city": "San Francisco",
-        "description": null,
-        "description_status": "not_fetched",
+        "description": "An evening of candid conversation about Legal Engineering and the future of legal work with the people shaping both.\nAbout this eventJoin us for the San Francisco edition of the Legora Legal Engineering Exchange: a curated gathering for people who are curious about, working in, or building at the intersection of law and technology.\nThe evening will offer an inside look at Legal Engineering: the role it plays within legal teams, how it is evolving, and why it is becoming an increasingly important part of the profession.\nAlongside conversations with the Legora team, we\u2019ll hear from Irene Liu, founding Executive Director of Stanford Law's AI Initiative.\nWe\u2019ll begin with food and drinks, with plenty of time to connect and share perspectives with fellow guests.\nWho\u2019s this for?Legal engineers, legal ops professionals, lawyers with technical interests, and anyone building or thinking seriously about the intersection of law and technology.\nPlaces are limited and attendance is approval-based. Request to attend below and we\u2019ll confirm your spot.\nAny questions? Feel free to reach out to Tom Pattison at thomas.pattison@legora.com.",
+        "description_status": "content",
         "end": "2026-11-20T04:00:00+00:00",
         "id": "evt-lrU6HkPoPBT4Pi6",
         "latitude": 37.790507,
@@ -22098,11 +23696,11 @@
         "neighborhood": "Financial District",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           },
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -22114,7 +23712,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-13T00:50:20.242817+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-lsXDaS8Dw7hJjkL": {
       "emailed_at": null,
@@ -22263,7 +23861,7 @@
     "evt-mAsXX4Q6MKyA6rC": {
       "emailed_at": null,
       "event": {
-        "availability": "available",
+        "availability": "waitlist",
         "city": "San Francisco",
         "description": null,
         "description_status": "not_fetched",
@@ -22274,7 +23872,7 @@
         "neighborhood": "Rincon Hill",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -22286,7 +23884,35 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-14T23:33:40.266616+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
+    "evt-mE7nwP1JDQrINNp": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T04:30:00+00:00",
+        "id": "evt-mE7nwP1JDQrINNp",
+        "latitude": 37.794765506723145,
+        "longitude": -122.40062863886862,
+        "neighborhood": "Financial District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T01:30:00+00:00",
+        "title": "Founder's Table : A Candlelight Dinner",
+        "url": "https://luma.com/sprinto-dinner",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-mEXmWUk8T7Lf1Ud": {
       "emailed_at": null,
@@ -22344,6 +23970,34 @@
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
       "last_seen_at": "2026-11-01T23:17:15.090345+00:00"
     },
+    "evt-mFpNlOukHE1Jgdq": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T04:00:00+00:00",
+        "id": "evt-mFpNlOukHE1Jgdq",
+        "latitude": 37.757681915498324,
+        "longitude": -122.43441951517282,
+        "neighborhood": "Eureka Valley",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T01:30:00+00:00",
+        "title": "Edge Cases by AGI, Inc. - On Device Research Series #004 with Coleman Hooper @ UC Berkeley (BAIR)",
+        "url": "https://luma.com/edge-cases-004",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-mHDawkKrjxjwiPw": {
       "emailed_at": null,
       "event": {
@@ -22390,7 +24044,7 @@
         "neighborhood": "Mission District",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -22402,7 +24056,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-14T23:33:40.266616+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-mKb0oC6cWGtqSIQ": {
       "emailed_at": null,
@@ -22431,6 +24085,62 @@
       },
       "first_seen_at": "2026-11-06T23:53:58.895545+00:00",
       "last_seen_at": "2026-11-11T00:21:42.770522+00:00"
+    },
+    "evt-mLwvl0ziSvDz2Bb": {
+      "emailed_at": null,
+      "event": {
+        "availability": "sold_out",
+        "city": "San Francisco",
+        "description": "Thanksgiving is almost here and Q4 is closing out. It's usually the one stretch of the year when we finally look up from the pipeline and think about what's next.\nSo before everyone heads home for the holidays, we're hosting a relaxed evening in SF with the sales leaders of five hyper-growth AI startups hiring AEs. Drinks and food are on us.\nWho's coming\nThe lineup spans AI inference and infrastructure, AI data and APIs, and vertical AI. Every company is past product-market fit, growing revenue fast, and backed by top VCs like Sequoia, Index, Nvidia, Blackbird and Y Combinator.\nFireworks AI: AI inference platform, $1B+ ARR, backed by Sequoia, Index and Nvidia\nIvo: AI contract review for in-house legal, ARR up 5x last year, backed by Blackbird\nEncord: data infrastructure for physical AI, used by 300+ AI teams including Woven by Toyota, backed by Y Combinator and Wellington Management\nPaleBlueDot AI: GPU compute platform for AI, valuation tripled to $3.2B in 8 months, backed by B Capital\nSimple AI: AI voice agents that sell, converting up to 30% better than trained live reps for brands like DoorDash and Omaha Steaks, backed by Y Combinator and First Harmonic\nThey're all offering top-of-market comp.\nWho it's for\nMid-Market to Enterprise AEs with a B2B SaaS or AI background, especially if you sell to technical buyers. Exploring a move or just building connections, you're welcome either way.\nOnly 30 spots\nWe're keeping it to 30 AEs so everyone gets real time with the teams. Spots are confirmed within 24 hours.\nThe night\n6:00 PM: Doors open, drinks and food\n6:30 PM: Quick intros from each company\nAfter that: Open conversations with sales leaders and other AEs\nThe guest list is private. Your profile is only shared with teams you choose. Venue details go out after you register.",
+        "description_status": "content",
+        "end": "2026-11-20T05:00:00+00:00",
+        "id": "evt-mLwvl0ziSvDz2Bb",
+        "latitude": 37.77890268692591,
+        "longitude": -122.39305313151462,
+        "neighborhood": "China Basin",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:00:00+00:00",
+        "title": "AE After Hours: Hyper-Growth AI Startups | SF",
+        "url": "https://luma.com/h1vwk0xk",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
+    "evt-mNjcucDyiR1ydIw": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T04:00:00+00:00",
+        "id": "evt-mNjcucDyiR1ydIw",
+        "latitude": 37.79670168099015,
+        "longitude": -122.40051275180177,
+        "neighborhood": "Financial District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:30:00+00:00",
+        "title": "Founders, Operators & Investors: Wine Social",
+        "url": "https://luma.com/say87ml6",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-mPNrRPNePAVJZHB": {
       "emailed_at": null,
@@ -22674,7 +24384,7 @@
         "neighborhood": "Yerba Buena",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -22686,7 +24396,35 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-17T02:43:38.056079+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
+    "evt-msWzgimkdS3XZiR": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T05:00:00+00:00",
+        "id": "evt-msWzgimkdS3XZiR",
+        "latitude": 37.7740667,
+        "longitude": -122.42932669999999,
+        "neighborhood": "Lower Haight",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T03:00:00+00:00",
+        "title": "Language as technology: How AI will change us",
+        "url": "https://luma.com/x5j02xw8",
+        "venue": "399 Webster St",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-mwAGVMjxaKIACoH": {
       "emailed_at": null,
@@ -22758,7 +24496,7 @@
         "neighborhood": null,
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -22770,15 +24508,15 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-15T23:40:54.418635+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-n6oaVEL6DduFRXc": {
       "emailed_at": null,
       "event": {
         "availability": "available",
         "city": "San Francisco",
-        "description": null,
-        "description_status": "not_fetched",
+        "description": "Joining us for our next chat will be Tomer Chernia!\nTomer Chernia was the VP of GTM at Cursor, one of the fastest-growing companies in tech. He built the GTM organization from just six people and grew revenue to more than $4B, culminating in a $60B acquisition by SpaceX, one of the largest private tech acquisitions ever.\nBefore Cursor, Tomer was SVP of Sales at Vercel, where he scaled the global revenue organization from $20M to more than $200M in revenue. Prior to Vercel, Tomer was an early GTM hire and held various sales and leadership roles at Branch, Segment, and Google.\nHe'll be sitting down with Bardia Shahali to discuss scaling GTM teams, building sales organizations, and navigating the rapidly changing world of AI.\nDoors open at 6pm.\nPlease arrive by 6.30pm. The talk kicks off at 6.30pm and the doors will be shut after this.Drinks and snacks will be provided.\nWe expect this to be heavily oversubscribed, so please register to secure your spot. We look forward to seeing you there!\nLooking forward to hosting you at Granola SF!",
+        "description_status": "content",
         "end": "2026-11-20T04:30:00+00:00",
         "id": "evt-n6oaVEL6DduFRXc",
         "latitude": 37.78215678533239,
@@ -22786,11 +24524,11 @@
         "neighborhood": "Yerba Buena",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           },
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -22802,7 +24540,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-13T00:50:20.242817+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-n778eylVGrg35i6": {
       "emailed_at": null,
@@ -23116,6 +24854,34 @@
       "first_seen_at": "2026-11-18T01:58:56.367840+00:00",
       "last_seen_at": "2026-11-18T01:58:56.367840+00:00"
     },
+    "evt-nnWVdFPYAspWioI": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "Stanford",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T03:00:00+00:00",
+        "id": "evt-nnWVdFPYAspWioI",
+        "latitude": 37.4264401,
+        "longitude": -122.15731830000001,
+        "neighborhood": null,
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T23:30:00+00:00",
+        "title": "30\u00d730 Real Business AI Buildathon @Stanford",
+        "url": "https://luma.com/nesjfisa",
+        "venue": "Escondido Village Graduate Residences",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-no9mWGneIucAvsU": {
       "emailed_at": null,
       "event": {
@@ -23372,6 +25138,34 @@
       "first_seen_at": "2026-11-08T23:21:28.803301+00:00",
       "last_seen_at": "2026-11-11T00:21:42.770522+00:00"
     },
+    "evt-oFITptjVvFjKbTj": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T21:00:00+00:00",
+        "id": "evt-oFITptjVvFjKbTj",
+        "latitude": 37.78715210259427,
+        "longitude": -122.39770512770052,
+        "neighborhood": "SoMa",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T20:00:00+00:00",
+        "title": "S1E3: Kanav Garg",
+        "url": "https://luma.com/2enjjc82",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-oJAExRF4EDBWbuN": {
       "emailed_at": null,
       "event": {
@@ -23600,6 +25394,34 @@
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
       "last_seen_at": "2026-11-18T01:58:56.367840+00:00"
     },
+    "evt-oq22WuCZbzun3DR": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T20:00:00+00:00",
+        "id": "evt-oq22WuCZbzun3DR",
+        "latitude": 37.75702701172979,
+        "longitude": -122.38309711610843,
+        "neighborhood": "Central Waterfront",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T18:00:00+00:00",
+        "title": "Padel x AI Founders",
+        "url": "https://luma.com/rapojnij",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-ovVh2YSfdivlPJN": {
       "emailed_at": null,
       "event": {
@@ -23627,6 +25449,34 @@
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
       "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+    },
+    "evt-ovxAwWzF2Z7XaXU": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "Menlo Park",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-22T00:00:00+00:00",
+        "id": "evt-ovxAwWzF2Z7XaXU",
+        "latitude": 37.4826611,
+        "longitude": -122.1765679,
+        "neighborhood": null,
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T21:00:00+00:00",
+        "title": "K-Tech Pioneers Showcase@SF",
+        "url": "https://luma.com/r9kp1i74",
+        "venue": "Hotel Nia",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-owVHHHNZj1H9Fzw": {
       "emailed_at": "2026-10-31T23:15:02.471442+00:00",
@@ -23684,6 +25534,34 @@
       "first_seen_at": "2026-11-13T00:50:20.242817+00:00",
       "last_seen_at": "2026-11-13T00:50:20.242817+00:00"
     },
+    "evt-p9TN1MMjcM3nOxQ": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-24T04:30:00+00:00",
+        "id": "evt-p9TN1MMjcM3nOxQ",
+        "latitude": 37.79195218019522,
+        "longitude": -122.39881886460293,
+        "neighborhood": "Financial District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-24T01:30:00+00:00",
+        "title": "Founder Friendsgiving Dinner",
+        "url": "https://luma.com/sprinto-friendsgiving",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-pDEOPG6NV8RJ0Ha": {
       "emailed_at": null,
       "event": {
@@ -23739,6 +25617,34 @@
       },
       "first_seen_at": "2026-11-14T23:33:40.266616+00:00",
       "last_seen_at": "2026-11-18T01:58:56.367840+00:00"
+    },
+    "evt-pSHuGGO6H9yrGaQ": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T05:00:00+00:00",
+        "id": "evt-pSHuGGO6H9yrGaQ",
+        "latitude": 37.77833149808229,
+        "longitude": -122.39209989196424,
+        "neighborhood": "China Basin",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T02:00:00+00:00",
+        "title": "Agent-Led Growth Dinner No. 01: Your Next Customer Is an Agent",
+        "url": "https://luma.com/juk1ehv1",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-pTLW9hRL5Y2YncH": {
       "emailed_at": null,
@@ -23829,8 +25735,8 @@
       "event": {
         "availability": "available",
         "city": "San Francisco",
-        "description": null,
-        "description_status": "not_fetched",
+        "description": "Join us for an evening of live pitches and demos from hardware founders working on frontier technologies for the physical world.\nWe'll be showcasing 6 hardware startups pitching to a live panel of leading VCs giving on the spot feedback. Real pitches, real feedback, and the kind of in-person networking that only happens when people who love hardware, build hardware, and invest in hardware are in the room.\n\u200b\u200bHere's the agenda for the night:\n6:00-6:45pm: Arrival & Networking\n6:45-7:45pm: Pitches & Feedback\n7:45-9:00pm: Networking & Wrap up\n\u200bStartups:\nShazia: Women's health wearable as beautiful as it is functional.\nDreamz: Adaptive sleep mask for falling asleep faster. HeyPCB: AI-powered EDA & MCAD platform.\nSaro Energy: Physical intelligence for energy-constrained infrastructure.\nNiobia AI: Autonomous factories to reduce scrap in advanced manufacturing.\nWaken Robotics: Helping robots learn hands-on skills from humans.\nAmano Labs: In-ear wearable for real-time cognitive performance optimization.\n\u200bJudges:\nRam Rajagopalan, hardware angel investor.\nZach Glabman, Venture Partner at Breakers.\nSakib Jamal, Venture Partner at Afore Capital.\nIf you invest in hardware, we'd love for you to join our panel of judges. Email nate@informal.fund if interested!\n\u200bBrought to you by:\ninformal is a freelance collective for the most talented independent professionals in hardware. Whether you\u2019re looking for a single contractor, a full-time employee, or an entire team of professionals to work on everything from product development to go-to-market strategy, the informal collective has the perfect collection of people for the job.\ninformal fund is an angel syndicate for hardware investors. It's hard enough to build a hardware startup: finding hardware friendly capital shouldn't be too. informal fund connects the dots between investors who know hardware and the founders building it. If you're an accredited investor, apply to join the syndicate here.\nStudio 45 - informal spaces SF is a physical space for entrepreneurs and teams building hardware in SF. Located in Mission/Bernal Area, the studio gathers the community, resources, space, and tools needed to build a business making physical products.\nBy registering for this event, you agree to share your registration information sponsors of this event.",
+        "description_status": "content",
         "end": "2026-11-20T05:00:00+00:00",
         "id": "evt-pgCWbf6Zd1oBkCu",
         "latitude": 37.743550111139506,
@@ -23838,7 +25744,7 @@
         "neighborhood": "Bernal Heights",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -23850,7 +25756,35 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
+    "evt-plsXb2igmkmJD4x": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": "Robotics, GPU Infrastructure & the Next Generation of Capital\nSan Francisco | Founders \u00d7 Investors \u00d7 Lenders\nSoftware is cheap to start. Robots, GPU clusters, and data centers aren't.\nIn its latest Request for Startups, Y Combinator highlights a massive emerging opportunity: building the financial infrastructure for the physical AI economy.\nTraditional financing wasn't designed for autonomous robots, GPU clusters, or AI-powered infrastructure. As these industries scale, new models for equipment financing, leasing, asset-backed lending, and infrastructure investment are needed.\nLet's bring together the people building the machines and the people financing them.\nWhat we'll discuss\nHow do robotics startups finance hardware and fleet deployments?\nCan Robotics-as-a-Service unlock new leasing and lending models?\nWho finances GPU clusters, compute capacity, and data centers?\nWhat new financial products could accelerate Physical AI adoption?\nHow can founders, investors, and lenders work together?\nWho should attend\nRobotics and Physical AI founders\nGPU cloud and AI infrastructure operators\nVenture capital and private credit investors\nEquipment financing and leasing professionals\nFounders building fintech solutions for physical infrastructure\nFormat\nInformal discussion, introductions, and networking. No pitches or panels \u2014 just meaningful conversations about real financing challenges and opportunities.\nIf you're building, financing, or investing in the Physical AI economy, join us!\nInspired by Y Combinator's Request for Startups: Wall Street for the Physical Buildout.",
+        "description_status": "content",
+        "end": "2026-11-20T05:00:00+00:00",
+        "id": "evt-plsXb2igmkmJD4x",
+        "latitude": 37.7656335,
+        "longitude": -122.42182489999999,
+        "neighborhood": "Mission District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:00:00+00:00",
+        "title": "Financing the Physical AI Economy",
+        "url": "https://luma.com/mokfyp4w",
+        "venue": "Groundfloor",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-pqDips4NAIRjx5Q": {
       "emailed_at": null,
@@ -24020,6 +25954,34 @@
       "first_seen_at": "2026-10-30T19:56:03.842597+00:00",
       "last_seen_at": "2026-11-05T00:41:33.485939+00:00"
     },
+    "evt-qXSfj7BxYg5O98u": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T05:30:00+00:00",
+        "id": "evt-qXSfj7BxYg5O98u",
+        "latitude": 37.80046809153781,
+        "longitude": -122.44469787973486,
+        "neighborhood": "Marina District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:30:00+00:00",
+        "title": "Founders & Funders | The Hunger Games: Sunrise on the Reaping Pre-screening",
+        "url": "https://luma.com/qbos6fyz",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-qgmJIan1ULikbUi": {
       "emailed_at": "2026-10-31T19:17:14.175538+00:00",
       "event": {
@@ -24163,6 +26125,34 @@
       },
       "first_seen_at": "2026-11-15T23:40:54.418635+00:00",
       "last_seen_at": "2026-11-18T01:58:56.367840+00:00"
+    },
+    "evt-qrwyMqPsdKW18xH": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T05:00:00+00:00",
+        "id": "evt-qrwyMqPsdKW18xH",
+        "latitude": 37.7871285,
+        "longitude": -122.39898659999999,
+        "neighborhood": "Yerba Buena",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-21T02:30:00+00:00",
+        "title": "Video Editing Workflows with AI Showcase",
+        "url": "https://luma.com/jp957bul",
+        "venue": "PlanetScale",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-qscvfNXxiVg0JFg": {
       "emailed_at": null,
@@ -24453,6 +26443,34 @@
       },
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
       "last_seen_at": "2026-11-05T00:41:33.485939+00:00"
+    },
+    "evt-rQKC8cRbbib7SCp": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T04:30:00+00:00",
+        "id": "evt-rQKC8cRbbib7SCp",
+        "latitude": 37.7798712337307,
+        "longitude": -122.3992793882471,
+        "neighborhood": "SoMa",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:30:00+00:00",
+        "title": "Personal Agents: On Your Behalf",
+        "url": "https://luma.com/fgliym61",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-rTqRR7AXPuGHxfg": {
       "emailed_at": null,
@@ -25194,6 +27212,62 @@
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
       "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
     },
+    "evt-st5fAmqsYFX1wwq": {
+      "emailed_at": null,
+      "event": {
+        "availability": "waitlist",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T05:00:00+00:00",
+        "id": "evt-st5fAmqsYFX1wwq",
+        "latitude": 37.787327499999996,
+        "longitude": -122.41094070000001,
+        "neighborhood": "Lower Nob Hill",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T03:00:00+00:00",
+        "title": "Agent Builders Demo Night",
+        "url": "https://luma.com/bbm6xopb",
+        "venue": "466 Geary St",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
+    "evt-t05OucTm0Cdd7Hk": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T05:30:00+00:00",
+        "id": "evt-t05OucTm0Cdd7Hk",
+        "latitude": 37.78743171171751,
+        "longitude": -122.40595166003565,
+        "neighborhood": "Union Square",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T03:00:00+00:00",
+        "title": "GTA 6 Launch Party",
+        "url": "https://luma.com/xwax54jw",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-tBYERGXXFIbFuUR": {
       "emailed_at": null,
       "event": {
@@ -25408,7 +27482,7 @@
         "neighborhood": "Downtown North",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -25420,7 +27494,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-14T23:33:40.266616+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-tQSE4MbUyiPSUYA": {
       "emailed_at": null,
@@ -25449,6 +27523,34 @@
       },
       "first_seen_at": "2026-10-31T19:17:10.442405+00:00",
       "last_seen_at": "2026-10-31T23:14:32.476981+00:00"
+    },
+    "evt-tTfkgfGyQXug1yv": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T20:00:00+00:00",
+        "id": "evt-tTfkgfGyQXug1yv",
+        "latitude": 37.786858699999996,
+        "longitude": -122.39876919999999,
+        "neighborhood": "Yerba Buena",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T17:00:00+00:00",
+        "title": "Armada at Ignite - Bridge the Digital Divide",
+        "url": "https://luma.com/pwcnucse",
+        "venue": "176 2nd St",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-tTjnb5R6IKJ81SY": {
       "emailed_at": null,
@@ -25655,28 +27757,28 @@
       "event": {
         "availability": "available",
         "city": "Stanford",
-        "description": "30 real businesses. 30 teams. One real problem each. All built on Converge.AI. We mean BUSINESS!\nMost hackathons hand you a made-up prompt. Converge.AI is handing you a real business.\n30 real businesses (restaurants, retail shops, booking services, sales and customer-service teams) each bring one problem they actually want solved. Each team is matched with one business and has about 30 hours to build a working AI solution on Converge.AI, an AI-native work & business platform. The top 8 teams demo live at Stanford in front of the business owners, investors, industry judges and the Converge.AI team.\n\ud83d\udc49 Builders: after registering on Luma, have one person per team submit the team form so we can match you with a business (takes about 3 minutes).\n\ud83d\udcbc For businesses: bring us your problem\nGot a task that eats your team\u2019s time, like answering the same customer questions, following up on leads, handling bookings or writing product content? Hand it to a team powered by Converge.AI.\nWhat you do:\nSubmit one real problem AS SOON AS POSSIBLE: chenxi.huang1028@gmail.com\nJoin one short 1:1 call with the Converge.AI team (Nov 9\u201313) to scope it\nAnswer a few questions from your team during the build (Nov 17\u201318)\nJoin us at Demo Day on Nov 20 and pick the Brand\u2019s Choice winner\nWhat you will get:\nA working AI solution built on Converge.AI for your business, free of charge\nA chance to pilot the best solutions with Converge.AI\nExposure to builders, investors and media\n\ud83d\udee0\ufe0f For builders: build with Converge.AI, ship something that gets used\nWho: Anyone who wants to ship AI that real businesses will use: students, professionals, founders and indie builders. 100% free to join. You don't need to be a student or have a .edu email\nTeams: 3\u20134 people. Come with a team, or apply solo and we\u2019ll help you find one\nMatching: Teams are matched to businesses by random draw, one team per business\nWhat you will get: Full access to Converge.AI\u2019s products (Covey, Enter, Framia and Combos), mentorship from the Converge.AI team during the build, and a real business owner waiting to use what you make\nApply by: Nov 13\n\ud83d\udcc5 Timeline\nNov 13 (Fri) \u00b7 Applications close\nNov 17 (Tue) morning \u00b7 Teams matched, challenge briefs released\nNov 17\u201318 \u00b7 Build sprint with Converge.AI mentor office hours\nNov 18 (Wed) 5:00 PM PT \u00b7 Submission deadline\nNov 18\u201319 \u00b7 Online judging (Round 1)\nNov 19 (Thu) afternoon \u00b7 8 finalists announced\nNov 20 (Fri) \u00b7 Demo Day at Stanford \ud83c\udfa4\n\ud83d\udca5 Demo Day agenda \u00b7 Fri, Nov 20 \u00b7 2:30\u20136:40 PM\n2:30 PM \u00b7 Doors open \u00b7 Showcase wall of all 30 projects built on Converge.AI\n2:50 PM \u00b7 Opening\n3:00 PM \u00b7 Keynote from Converge.AI: Building the AI-native company\n3:15 PM \u00b7 Panel: What real businesses need from AI (business owners \u00d7 investors \u00d7 Converge.AI)\n3:45 PM \u00b7 Finalist demos, Teams 1\u20134\n4:45 PM \u00b7 Break \u00b7 Audience voting opens\n5:00 PM \u00b7 Finalist demos, Teams 5\u20138\n6:00 PM \u00b7 Tea break \u00b7 Judges deliberate\n6:20 PM \u00b7 Awards, presented by Converge.AI\n6:35 PM \u00b7 Group photo\n6:40 PM \u00b7 Networking\nEach finalist team gets 15 minutes: the business problem they solved, a live demo, and judges\u2019 Q&A.\n\ud83c\udfc6 $5,000 in prizes, including cash and TikTok credits & token credits. Top solutions will be considered for pilots with their businesses and Converge.AI.\n\u2696\ufe0f Judges\nAlex Witt\nWolf Ruzicka\nJonathan Buckheit\nPetros Hong\nWilliam August\nVince Kohli\nBen Toney\nEvan Buhler\nRonak D\nErena Estell\u00e9s\nKathy\nMore judges to be announced.\nPresented by Converge.AI\nIn partnership with AWS, TikTok, 2%Tech, wefluens, Adal, LightHouse, Canopy and onepiece labs",
-        "description_status": "content",
+        "description": null,
+        "description_status": "not_fetched",
         "end": "2026-11-21T02:30:00+00:00",
         "id": "evt-ttAIX9coGPDKyR3",
-        "latitude": 37.427659999999996,
-        "longitude": -122.17005999999999,
+        "latitude": 37.4264401,
+        "longitude": -122.15731830000001,
         "neighborhood": null,
         "provenance": [
           {
-            "collected_at": "2026-11-14T23:33:32.365595+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "ai"
           }
         ],
         "source_timezone": "America/Los_Angeles",
-        "start": "2026-11-17T23:00:00+00:00",
+        "start": "2026-11-20T23:00:00+00:00",
         "title": "30\u00d730 Real Business AI Buildathon @Stanford",
         "url": "https://luma.com/fzo1dcu3",
-        "venue": "Stanford University",
+        "venue": "Escondido Village Graduate Residences",
         "warnings": []
       },
       "first_seen_at": "2026-11-14T00:35:46.421674+00:00",
-      "last_seen_at": "2026-11-14T23:33:40.266616+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-tvVK9GOn8I0KooK": {
       "emailed_at": null,
@@ -25709,7 +27811,7 @@
     "evt-u3Z9Z4HsxuU3R7I": {
       "emailed_at": null,
       "event": {
-        "availability": "available",
+        "availability": "waitlist",
         "city": "San Francisco",
         "description": null,
         "description_status": "not_fetched",
@@ -25720,7 +27822,7 @@
         "neighborhood": "SoMa",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -25732,7 +27834,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-14T00:35:46.421674+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-u7jBBIUHDHGHxLk": {
       "emailed_at": null,
@@ -25948,7 +28050,7 @@
         "neighborhood": "South Beach",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           }
         ],
@@ -25960,7 +28062,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-14T23:33:40.266616+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-uPyKWFlLAQSJ5pY": {
       "emailed_at": null,
@@ -26189,6 +28291,34 @@
       },
       "first_seen_at": "2026-10-30T19:56:03.842597+00:00",
       "last_seen_at": "2026-11-05T00:41:33.485939+00:00"
+    },
+    "evt-usN84MR1U8ZZrpL": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "Menlo Park",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-25T04:00:00+00:00",
+        "id": "evt-usN84MR1U8ZZrpL",
+        "latitude": 37.45410730129746,
+        "longitude": -122.18523309319751,
+        "neighborhood": "Downtown Menlo Park",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-25T01:00:00+00:00",
+        "title": "GGW Sharks. Startup Pitch & Networking",
+        "url": "https://luma.com/ggw-fx64",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-uwr8kFYfwz2pyVq": {
       "emailed_at": null,
@@ -26493,26 +28623,26 @@
         "city": "San Francisco",
         "description": null,
         "description_status": "not_fetched",
-        "end": "2026-11-07T19:30:00+00:00",
+        "end": "2026-11-21T19:30:00+00:00",
         "id": "evt-vLwj3vivuoNOIej",
         "latitude": 37.764907799999996,
         "longitude": -122.5087051,
         "neighborhood": "Golden Gate Park",
         "provenance": [
           {
-            "collected_at": "2026-11-06T23:53:52.537348+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
         "source_timezone": "America/Los_Angeles",
-        "start": "2026-11-07T17:30:00+00:00",
+        "start": "2026-11-21T17:30:00+00:00",
         "title": "Founders Running Club: SF",
         "url": "https://luma.com/6d3oeeae",
         "venue": "Murphy Windmill",
         "warnings": []
       },
       "first_seen_at": "2026-11-06T00:39:30.564268+00:00",
-      "last_seen_at": "2026-11-06T23:53:58.895545+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-vO4QiOVUE1LokP9": {
       "emailed_at": null,
@@ -26848,7 +28978,7 @@
         "neighborhood": "Rincon Hill",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "ai"
           }
         ],
@@ -26860,7 +28990,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-wBj4teLTJHBejnB": {
       "emailed_at": "2026-10-31T23:15:02.471442+00:00",
@@ -26988,11 +29118,11 @@
         "neighborhood": "Downtown Berkeley",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "sf"
           },
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "tech"
           }
         ],
@@ -27004,7 +29134,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-14T00:35:46.421674+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-wOYQgLHXnGLbMIY": {
       "emailed_at": null,
@@ -27462,6 +29592,34 @@
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
       "last_seen_at": "2026-11-05T00:41:33.485939+00:00"
     },
+    "evt-xI3yz0rTlPBjJR0": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "Berkeley",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-21T01:00:00+00:00",
+        "id": "evt-xI3yz0rTlPBjJR0",
+        "latitude": 37.8758159,
+        "longitude": -122.2690731,
+        "neighborhood": "North Shattuck",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T23:00:00+00:00",
+        "title": "Tatreez & Tech",
+        "url": "https://luma.com/mtc-7suk",
+        "venue": "Roast & toast Cafe",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
     "evt-xNEF0W8IUszXwv8": {
       "emailed_at": "2026-11-01T23:18:15.839546+00:00",
       "event": {
@@ -27639,6 +29797,34 @@
       },
       "first_seen_at": "2026-11-17T02:43:38.056079+00:00",
       "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+    },
+    "evt-xoxhc9xN9t9cP6w": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T04:00:00+00:00",
+        "id": "evt-xoxhc9xN9t9cP6w",
+        "latitude": 37.758697729545716,
+        "longitude": -122.41218071618853,
+        "neighborhood": "Mission District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T02:00:00+00:00",
+        "title": "RL & Data Meetup",
+        "url": "https://luma.com/je62yzxb",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-xuFSBtMulyFA5u0": {
       "emailed_at": "2026-10-31T23:15:02.471442+00:00",
@@ -27886,7 +30072,7 @@
         "neighborhood": "Central San Mateo",
         "provenance": [
           {
-            "collected_at": "2026-11-19T01:35:46.787488+00:00",
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
             "source": "ai"
           }
         ],
@@ -27898,7 +30084,7 @@
         "warnings": []
       },
       "first_seen_at": "2026-11-19T01:35:51.120673+00:00",
-      "last_seen_at": "2026-11-19T01:35:51.120673+00:00"
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-ybpoXUoraPXvzW9": {
       "emailed_at": null,
@@ -28075,6 +30261,62 @@
       },
       "first_seen_at": "2026-10-29T20:18:32.374695+00:00",
       "last_seen_at": "2026-10-29T20:31:18.292385+00:00"
+    },
+    "evt-yyUWsLMbvudtwrQ": {
+      "emailed_at": null,
+      "event": {
+        "availability": "available",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T17:30:00+00:00",
+        "id": "evt-yyUWsLMbvudtwrQ",
+        "latitude": 37.78826003175538,
+        "longitude": -122.40307659620959,
+        "neighborhood": "Union Square",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "tech"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T16:30:00+00:00",
+        "title": "Women Eng Coffee Club @ Cento",
+        "url": "https://luma.com/j7ku5h7s",
+        "venue": null,
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
+    },
+    "evt-z4OtlxpMF53y00Q": {
+      "emailed_at": null,
+      "event": {
+        "availability": "sold_out",
+        "city": "San Francisco",
+        "description": null,
+        "description_status": "not_fetched",
+        "end": "2026-11-20T20:00:00+00:00",
+        "id": "evt-z4OtlxpMF53y00Q",
+        "latitude": 37.793586,
+        "longitude": -122.393059,
+        "neighborhood": "Financial District",
+        "provenance": [
+          {
+            "collected_at": "2026-11-20T01:34:55.918370+00:00",
+            "source": "ai"
+          }
+        ],
+        "source_timezone": "America/Los_Angeles",
+        "start": "2026-11-20T17:30:00+00:00",
+        "title": "AI Breakfast w. Avni Barman at 1 Hotel San Francisco \ud83e\udd50\u2728",
+        "url": "https://luma.com/MGxGenShe",
+        "venue": "1 Hotel San Francisco",
+        "warnings": []
+      },
+      "first_seen_at": "2026-11-20T01:35:01.941543+00:00",
+      "last_seen_at": "2026-11-20T01:35:01.941543+00:00"
     },
     "evt-z6dCIFC3zamP2id": {
       "emailed_at": null,
